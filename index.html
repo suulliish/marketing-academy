@@ -239,6 +239,33 @@ p{margin:0 0 12px} .main p:last-child{margin-bottom:0}
 .tbarf.ok{background:var(--ok)}.tbarf.mid{background:var(--warn)}.tbarf.bad{background:var(--bad)}
 .tacc{width:36px;text-align:right;font-weight:700;color:var(--muted)}
 
+
+/* v8: path */
+.pbann{display:flex;align-items:center;justify-content:space-between;gap:14px;background:linear-gradient(120deg,var(--accent),#6d84ff);color:#fff;border-radius:var(--r-sm);padding:15px 20px;margin-top:24px;cursor:pointer;box-shadow:var(--sh-soft)}
+.pbann b{display:block;font-size:15px;margin-bottom:2px}
+.pbann span{font-size:12.5px;opacity:.85}
+.pbann-pct{font-size:22px;font-weight:800;flex:none}
+.pbann.done{background:linear-gradient(120deg,var(--ok),#3aa864)}
+.pbann.done span{font-size:12.5px}
+.pathbar{height:10px;background:var(--softbg);border-radius:99px;overflow:hidden;margin-top:6px}
+.pathbar-f{height:100%;background:linear-gradient(90deg,var(--accent),#6d84ff);border-radius:99px;transition:width .4s}
+.pathpct{font-size:13px;font-weight:600;color:var(--muted);margin:8px 0 18px}
+.steps{position:relative}
+.step{display:flex;gap:15px;padding-bottom:20px;position:relative}
+.step:not(:last-child)::before{content:'';position:absolute;left:17px;top:36px;bottom:0;width:2px;background:var(--line)}
+.step.done:not(:last-child)::before{background:var(--ok)}
+.step-dot{flex:none;width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:15px;background:var(--softbg);color:var(--soft);border:2px solid var(--line);z-index:1}
+.step.done .step-dot{background:var(--okbg);color:var(--ok);border-color:var(--okline)}
+.step.active .step-dot{background:var(--accent);color:#fff;border-color:var(--accent)}
+.step-t{font-size:16px;font-weight:800}
+.step.lock .step-t,.step.lock .step-d{opacity:.5}
+.nowtag{font-size:11px;font-weight:700;background:var(--accent);color:#fff;border-radius:99px;padding:2px 9px;vertical-align:middle;margin-left:6px}
+.step-d{font-size:13.5px;color:var(--muted);margin-top:2px}
+.pitems{margin-top:10px;background:var(--card);border:1px solid var(--line);border-radius:var(--r-xs);padding:8px 14px}
+.pitem{font-size:13.5px;padding:6px 0;color:var(--muted)}
+.pitem.ok{color:var(--ok)}
+.pgo{color:var(--accent);font-weight:600;margin-left:4px}
+
 </style></head><body><div class="app">
 <aside class="side"><div class="brand">Marketing <span>Systems</span> Academy</div>
 <div class="sub">Путь к senior-маркетологу · теория + система + мастерство</div>
@@ -1664,6 +1691,7 @@ function show(id){
  if(id==='home')renderDash();
  if(id==='sync')renderSync();
  if(id==='drill')renderCases();
+ if(id==='path')renderPath();
  paint();
 }
 function isLesson(id){return /^(f|s|m|c)\d+$/.test(id);}
@@ -1937,6 +1965,7 @@ function renderDash(){
  const nxt=nextLesson();
  if(nxt)resume='<button class="bigbtn" onclick="show(\''+nxt.id+'\')">▶ '+(S.last===nxt.id?'Продолжить':'Следующий урок')+': '+esc(nxt.title)+'</button>';
  host.innerHTML=
+  pathBanner()+
   '<div class="lvl"><div class="lvl-head"><div><span class="lvl-name">'+lv.name+'</span>'+
    (lv.next?'<span class="lvl-next">до «'+lv.nextName+'» — '+(lv.next-S.xp)+' XP</span>':'<span class="lvl-next">максимум 🏆</span>')+
    '</div><b>'+S.xp+' XP</b></div>'+
@@ -2029,7 +2058,10 @@ function injectUI(){
   const sy=document.createElement('div');sy.className='nl';sy.dataset.t='sync';
   sy.innerHTML='<span class="dot"></span>Синхронизация';
   sy.onclick=()=>show('sync');
-  overview.after(g,tr,ex,ca,sy);
+  const pa=document.createElement('div');pa.className='nl';pa.dataset.t='path';
+  pa.innerHTML='<span class="dot"></span>🗺 Мой путь';
+  pa.onclick=()=>show('path');
+  overview.after(pa,g,tr,ex,ca,sy);
  }
  const cont=home?home.parentElement:null;
  if(cont&&!document.getElementById('trainer')){
@@ -2053,6 +2085,11 @@ function injectUI(){
    '<p>Открытые кейсы уровня собеседования Head of Marketing. Пишешь развёрнутый ответ — Claude оценивает его по рубрике: балл, сильные стороны, пробелы. Именно это делает из тебя senior, а не тест из вариантов.</p></div>'+
    '<div id="cases-body"></div>';
   cont.appendChild(cv);
+  const pv=document.createElement('div');pv.id='path';pv.className='view';
+  pv.innerHTML='<div class="hero"><div class="eyebrow">Маршрут</div><h2>Мой путь до senior 🗺</h2>'+
+   '<p>Не по календарю, а по мастерству: двигаешься на следующий этап, когда закрыл предыдущий. Путь ведёт, пока ты не пройдёшь всё — теорию, память, экзамен и практику кейсов.</p></div>'+
+   '<div id="path-body"></div>';
+  cont.appendChild(pv);
  }
  document.querySelectorAll('.view').forEach(v=>{
   if(!isLesson(v.id)||v.querySelector('.donebtn'))return;
@@ -2178,6 +2215,66 @@ function weakTopicSet(){
 }
 function drillWeak(){EDIFF=0;startExam(true);}
 function weakPanel(){const rows=topicRows().filter(r=>r.n>=2&&r.acc<70);if(!rows.length)return '';const top=rows.slice(0,3);return '<div class="sec-t" style="margin-top:22px">🎯 Твои слабые темы</div>'+'<div class="tplan">'+top.map(r=>'<div class="tp-item" onclick="show(\'exam\');setTimeout(drillWeak,50)"><span class="tp-check" style="background:var(--badbg);color:var(--bad)">'+r.acc+'</span>'+esc(r.t)+' — точность '+r.acc+'%, дрилл →</div>').join('')+'</div>';}
+
+
+/* ===== v8: Мой путь — маршрут по мастерству до senior (не по календарю) ===== */
+function partDone(p){return [...document.querySelectorAll('.nl[data-lesson="1"]')].filter(n=>n.dataset.t[0]===p&&S.done.includes(n.dataset.t)).length;}
+function partTotal(p){return [...document.querySelectorAll('.nl[data-lesson="1"]')].filter(n=>n.dataset.t[0]===p).length;}
+function firstUndonePart(p){const n=[...document.querySelectorAll('.nl[data-lesson="1"]')].find(x=>x.dataset.t[0]===p&&!S.done.includes(x.dataset.t));return n?n.dataset.t:'home';}
+function cardsMastered(){return Object.values(S.cards).filter(c=>c.box>=3).length;}
+function examBestPct(){return S.exams.length?Math.max(...S.exams.map(e=>Math.round(e.score/e.total*100))):0;}
+function casesGraded(min){return Object.values(S.casesDone||{}).filter(v=>v>=min).length;}
+function PATH(){return [
+ {t:'Этап 1 · Фундамент',d:'База: ценность, психология покупки, STP, бренд, цена.',
+  items:()=>[{ok:partDone('f')>=partTotal('f'),l:'Пройти все уроки Фундамента ('+partDone('f')+'/'+partTotal('f')+')',go:firstUndonePart('f')}]},
+ {t:'Этап 2 · Система пути клиента',d:'12 этапов: от Discovery до Advocacy.',
+  items:()=>[{ok:partDone('s')>=partTotal('s'),l:'Пройти все уроки Системы ('+partDone('s')+'/'+partTotal('s')+')',go:firstUndonePart('s')}]},
+ {t:'Этап 3 · Мастерство',d:'Цифры, эксперименты, martech, мышление senior.',
+  items:()=>[{ok:partDone('m')>=partTotal('m'),l:'Пройти все уроки Мастерства ('+partDone('m')+'/'+partTotal('m')+')',go:firstUndonePart('m')}]},
+ {t:'Этап 4 · Специализации',d:'Все треки профессии: PMM, Growth, Brand … до CMO.',
+  items:()=>[{ok:partDone('c')>=partTotal('c'),l:'Пройти все уроки Специализаций ('+partDone('c')+'/'+partTotal('c')+')',go:firstUndonePart('c')}]},
+ {t:'Этап 5 · Закрепить в памяти',d:'Термины и фреймворки — в долгую память через повторения.',
+  items:()=>[{ok:cardsMastered()>=150,l:'150 карточек в долгой памяти, box≥3 ('+cardsMastered()+'/150)',go:'trainer'}]},
+ {t:'Этап 6 · Сдать экзамен на senior',d:'Ровный уровень по всем темам, без провалов.',
+  items:()=>[
+   {ok:examBestPct()>=80,l:'Лучший экзамен ≥80% (сейчас '+examBestPct()+'%)',go:'exam'},
+   {ok:(function(){const r=topicRows();return r.length>=6&&r.every(x=>x.acc>=60);})(),l:'Ни одной темы <60% (пройди дрилл слабых)',go:'exam'}]},
+ {t:'Этап 7 · Практика senior',d:'Открытые кейсы уровня собеседования, оценка Claude.',
+  items:()=>[{ok:casesGraded(70)>=6,l:'6 кейсов оценены на 70+ ('+casesGraded(70)+'/6)',go:'drill'}]},
+];}
+function stageDone(st){return st.items().every(i=>i.ok);}
+function currentStageIdx(){const p=PATH();for(let i=0;i<p.length;i++)if(!stageDone(p[i]))return i;return p.length;}
+function pathPct(){const p=PATH();let done=0,tot=0;p.forEach(s=>s.items().forEach(i=>{tot++;if(i.ok)done++;}));return Math.round(done/tot*100);}
+function renderPath(){
+ const host=document.getElementById('path-body');if(!host)return;
+ const p=PATH(),cur=currentStageIdx(),pct=pathPct();
+ const finished=cur>=p.length;
+ let html=finished
+  ? '<div class="co tip" style="text-align:center"><span class="ct">🎓 Путь пройден</span>Ты закрыл все этапы: теорию, память, экзамен на senior и практику кейсов. Ты готов к роли Head of Marketing. Возвращайся к дриллу и кейсам, чтобы держать форму.</div>'
+  : '';
+ html+='<div class="pathbar"><div class="pathbar-f" style="width:'+pct+'%"></div></div><div class="pathpct">'+pct+'% пути пройдено · до звания «Senior»</div>';
+ html+='<div class="steps">';
+ p.forEach((st,i)=>{
+  const done=stageDone(st),active=i===cur;
+  const items=st.items().map(it=>'<div class="pitem '+(it.ok?'ok':'')+'">'+(it.ok?'✓':'○')+' '+esc(it.l)+
+    (!it.ok&&active?' <a href="#" onclick="show(\''+it.go+'\');return false" class="pgo">перейти →</a>':'')+'</div>').join('');
+  html+='<div class="step '+(done?'done':active?'active':'lock')+'">'+
+   '<div class="step-dot">'+(done?'✓':i+1)+'</div>'+
+   '<div class="step-body"><div class="step-t">'+esc(st.t)+(active?' <span class="nowtag">сейчас здесь</span>':'')+'</div>'+
+   '<div class="step-d">'+esc(st.d)+'</div>'+
+   ((active||done)?'<div class="pitems">'+items+'</div>':'')+
+   '</div></div>';
+ });
+ html+='</div>';
+ host.innerHTML=html;
+}
+function pathBanner(){
+ const p=PATH(),cur=currentStageIdx();
+ if(cur>=p.length)return '<div class="pbann done" onclick="show(\'path\')"><b>🎓 Путь пройден — ты готов к senior</b><span>посмотреть маршрут →</span></div>';
+ const st=p[cur],next=st.items().find(i=>!i.ok);
+ return '<div class="pbann" onclick="show(\'path\')"><div><b>🗺 '+esc(st.t)+'</b><span>'+esc(next?next.l:st.d)+'</span></div>'+
+  '<div class="pbann-pct">'+pathPct()+'%</div></div>';
+}
 
 addEventListener('hashchange',()=>{
  const h=location.hash.replace('#','');

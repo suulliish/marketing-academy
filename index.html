@@ -102,6 +102,7 @@ p{margin:0 0 12px} .main p:last-child{margin-bottom:0}
 .mchip{display:inline-block;font-size:11px;font-weight:700;padding:2px 8px;border-radius:20px;background:var(--bg);border:1px solid var(--line);color:var(--muted);margin-bottom:8px}
 .mwhy{font-size:13.5px;margin-top:10px;padding:10px 12px;border-radius:var(--r-xs);background:var(--bg);display:none}
 .opt.sel{border-color:var(--accent);box-shadow:inset 0 0 0 1px var(--accent)}
+#readbar{position:fixed;top:0;left:0;height:3px;background:var(--accent);width:0;z-index:99;transition:width .15s}
 .mrec{width:100%;min-height:90px;border:1px solid var(--line);border-radius:var(--r-xs);padding:10px 12px;font:14px/1.5 var(--font-ui);margin:10px 0;resize:vertical}
 
 /* CHIPS */
@@ -334,7 +335,7 @@ p{margin:0 0 12px} .main p:last-child{margin-bottom:0}
 <p>Всё, что даёт 4 года университета и годы практики: теория поведения и стратегии, 12 этапов рабочей системы, мастерство аналитики — простыми словами, с реальными кейсами и цифрами.</p>
 <div class="kpis"><div class="kpi"><b>35</b><span>уроков</span></div>
 <div class="kpi"><b>62+</b><span>фреймворков</span></div>
-<div class="kpi"><b>153</b><span>реальных кейсов</span></div>
+<div class="kpi"><b>52+</b><span>реальных кейсов с источниками</span></div>
 <div class="kpi"><b>45</b><span>книг канона</span></div></div></div>
 <div class="plain"><span class="pl">Как учиться</span>Иди по частям сверху вниз: <b>Фундамент</b> (почему люди покупают и как мыслить стратегически) → <b>Система</b> (12 этапов пути клиента, как делать) → <b>Мастерство</b> (цифры, эксперименты, martech) → <b>Специализации</b> (все треки профессии: PMM, Growth, Brand и остальные — и твой путь до Head of Marketing). В каждом уроке: простое объяснение → аналогия → теория → реальные кейсы с цифрами → как думает senior → частые ошибки → чек-лист → квиз. Прогресс слева сохраняется. Возвращайся к сложному через ~11 дней — так знание закрепляется (доказано).</div>
 <div class="co tip"><span class="ct">💡 Главный принцип senior</span>Junior спрашивает «какую тактику запустить?». Senior — «какой диагноз и какой метод его лечит?». Сначала понимание, потом инструмент.</div>
@@ -359,7 +360,7 @@ p{margin:0 0 12px} .main p:last-child{margin-bottom:0}
 <div class="co senior"><span class="ct">🎓 Как думает senior</span><ul><li>Начинает с «какую ценность и для кого», а не с «что будем постить».</li><li>Держит 4P/7P согласованными — цена, продукт, место и продвижение рассказывают одну историю.</li><li>Меряет успех ценностью для клиента (решена ли работа), а не объёмом активности.</li></ul></div>
 <div class="co err"><span class="ct">⚠️ Частые ошибки</span><ul><li>Маркетинг = реклама/SMM. Реклама — 1 из 4P, в самом конце.</li><li>«Изнутри наружу»: влюбиться в свой продукт и искать, кому впарить, вместо «снаружи внутрь».</li><li>Продавать характеристики («у нас ИИ-движок»), а не результат («видишь рекламу в деньгах каждый день»).</li></ul></div>
 <div class="chk"><span class="ct">✓ Чек-лист senior</span><label><input type="checkbox">Могу назвать ОДНУ ценность/работу, за которую платит клиент</label><label><input type="checkbox">Все 4P согласованы и рассказывают одну историю</label><label><input type="checkbox">Сообщение про результат, а не про фичи</label></div>
-<div class="quiz"><div class="q">🎯 Проверь себя: Что покупает человек, когда покупает дрель?</div><label class="opt" onclick="quiz(this,1,0)">Дрель</label><label class="opt" onclick="quiz(this,1,1)">Дырку в стене (результат)</label><label class="opt" onclick="quiz(this,1,2)">Бренд производителя</label><div class="qfb">Зелёным — верный ответ. Ошибся → перечитай раздел выше.</div></div>
+<div class="quiz"><div class="q">🎯 Проверь себя: Что покупает человек, когда покупает дрель?</div><label class="opt" onclick="quiz(this,1,0)">Дрель</label><label class="opt" onclick="quiz(this,1,1)">Дырку в стене (результат)</label><label class="opt" onclick="quiz(this,1,2)">Бренд производителя</label><div class="qfb">Клиент платит за результат — дырку в стене, а не за инструмент; фокус на самой дрели упускает реальную мотивацию покупки. Ошибся → перечитай раздел выше.</div></div>
 </div>
 <div id="f2" class="view">
 <div class="hero">
@@ -382,7 +383,7 @@ p{margin:0 0 12px} .main p:last-child{margin-bottom:0}
 <div class="co senior"><span class="ct">🎓 Как думает senior</span><ul><li>Проектирует под эмоцию и снятие трения, а не под «убедить логикой».</li><li>Использует искажения этично: настоящий дефицит, реальные отзывы — иначе теряет доверие навсегда.</li><li>Знает: один сильный эмоциональный мотив бьёт десять рациональных аргументов.</li></ul></div>
 <div class="co err"><span class="ct">⚠️ Частые ошибки</span><ul><li>Заваливать клиента характеристиками/таблицами (Система 2 ленива — не дочитает).</li><li>Поддельные триггеры (ложный таймер, накрученные отзывы) → разовый рост, долгая потеря доверия.</li><li>Игнорировать момент и контекст: правильный сигнал в неправильный момент не работает.</li></ul></div>
 <div class="chk"><span class="ct">✓ Чек-лист senior</span><label><input type="checkbox">Есть один ясный эмоциональный мотив, а не только логика</label><label><input type="checkbox">Используемые триггеры (дефицит/соц.док) — настоящие</label><label><input type="checkbox">Путь к покупке без лишнего трения (Система 2 не нужна для «да»)</label></div>
-<div class="quiz"><div class="q">🎯 Проверь себя: Какая система мозга принимает большинство решений о покупке?</div><label class="opt" onclick="quiz(this,1,0)">Система 2 (медленный анализ)</label><label class="opt" onclick="quiz(this,1,1)">Система 1 (быстрый автопилот, эмоции)</label><label class="opt" onclick="quiz(this,1,2)">Обе поровну</label><div class="qfb">Зелёным — верный ответ. Ошибся → перечитай раздел выше.</div></div>
+<div class="quiz"><div class="q">🎯 Проверь себя: Какая система мозга принимает большинство решений о покупке?</div><label class="opt" onclick="quiz(this,1,0)">Система 2 (медленный анализ)</label><label class="opt" onclick="quiz(this,1,1)">Система 1 (быстрый автопилот, эмоции)</label><label class="opt" onclick="quiz(this,1,2)">Обе поровну</label><div class="qfb">Большинство решений принимает быстрый эмоциональный автопилот, а не медленный рациональный анализ, который включается редко и с усилием. Ошибся → перечитай раздел выше.</div></div>
 </div>
 <div id="f3" class="view">
 <div class="hero">
@@ -405,7 +406,7 @@ p{margin:0 0 12px} .main p:last-child{margin-bottom:0}
 <div class="co senior"><span class="ct">🎓 Как думает senior</span><ul><li>Сегментирует по потребности/ситуации, демографию добавляет последней (для канала).</li><li>Осознанно говорит «этим не продаём» — выбор сегмента = выбор отказа.</li><li>Различает сегмент (для стратегии) и персону (для контента), выводит вторую из первого.</li></ul></div>
 <div class="co err"><span class="ct">⚠️ Частые ошибки</span><ul><li>«Наша аудитория — все/всё» = нет фокуса = слитый бюджет.</li><li>Сегментация по демографии вместо потребности («Gen Z» — не сегмент).</li><li>Founder bias: целевой клиент подозрительно похож на основателя.</li></ul></div>
 <div class="chk"><span class="ct">✓ Чек-лист senior</span><label><input type="checkbox">Сегмент описан по потребности/ситуации, а не «пол-возраст-город»</label><label><input type="checkbox">Назван сегмент, которому НЕ продаём</label><label><input type="checkbox">Есть beachhead-ниша, где реально стать №1</label></div>
-<div class="quiz"><div class="q">🎯 Проверь себя: Что из этого — настоящий сегмент, а не ярлык?</div><label class="opt" onclick="quiz(this,1,0)">Женщины 25-34</label><label class="opt" onclick="quiz(this,1,1)">Те, кто обжёгся на подрядчике и хочет контроля</label><label class="opt" onclick="quiz(this,1,2)">Жители Алматы</label><div class="qfb">Зелёным — верный ответ. Ошибся → перечитай раздел выше.</div></div>
+<div class="quiz"><div class="q">🎯 Проверь себя: Что из этого — настоящий сегмент, а не ярлык?</div><label class="opt" onclick="quiz(this,1,0)">Женщины 25-34</label><label class="opt" onclick="quiz(this,1,1)">Те, кто обжёгся на подрядчике и хочет контроля</label><label class="opt" onclick="quiz(this,1,2)">Жители Алматы</label><div class="qfb">Настоящий сегмент описывает мотивацию и опыт («обжёгся, хочет контроля»), а не демографию вроде возраста или города — это лишь ярлык. Ошибся → перечитай раздел выше.</div></div>
 </div>
 <div id="f4" class="view">
 <div class="hero">
@@ -428,7 +429,7 @@ p{margin:0 0 12px} .main p:last-child{margin-bottom:0}
 <div class="co senior"><span class="ct">🎓 Как думает senior</span><ul><li>Растит охватом и заметностью (penetration), а не «лояльностью ядра» — знает про double jeopardy.</li><li>Делит бюджет ~60/40 бренд/перформанс и НЕ смешивает их в одном исполнении.</li><li>Следит за Share of Search как ранним сигналом здоровья бренда.</li></ul></div>
 <div class="co err"><span class="ct">⚠️ Частые ошибки</span><ul><li>«Сфокусируемся на лояльном ядре» при попытке РОСТА — наука говорит обратное (нужны новые покупатели).</li><li>Резать бренд-бюджет на плато продаж (эффект бренда отложенный — режешь будущее).</li><li>Делать имиджевую и продающую рекламу одним роликом — провалишь обе.</li></ul></div>
 <div class="chk"><span class="ct">✓ Чек-лист senior</span><label><input type="checkbox">Знаю атрибут/слово, которое мой бренд занимает в голове</label><label><input type="checkbox">Бюджет разделён на бренд и перформанс, исполнения разные</label><label><input type="checkbox">Цель роста — больше покупателей, а не больше частоты у ядра</label></div>
-<div class="quiz"><div class="q">🎯 Проверь себя: По Байрону Шарпу, бренды растут в первую очередь за счёт…</div><label class="opt" onclick="quiz(this,1,0)">Лояльности маленького ядра</label><label class="opt" onclick="quiz(this,1,1)">Привлечения большего числа разных покупателей</label><label class="opt" onclick="quiz(this,1,2)">Снижения цены</label><div class="qfb">Зелёным — верный ответ. Ошибся → перечитай раздел выше.</div></div>
+<div class="quiz"><div class="q">🎯 Проверь себя: По Байрону Шарпу, бренды растут в первую очередь за счёт…</div><label class="opt" onclick="quiz(this,1,0)">Лояльности маленького ядра</label><label class="opt" onclick="quiz(this,1,1)">Привлечения большего числа разных покупателей</label><label class="opt" onclick="quiz(this,1,2)">Снижения цены</label><div class="qfb">По Шарпу рост даёт расширение клиентской базы за счёт лёгких и случайных покупателей, а не углубление лояльности узкого ядра. Ошибся → перечитай раздел выше.</div></div>
 </div>
 <div id="f5" class="view">
 <div class="hero">
@@ -451,7 +452,7 @@ p{margin:0 0 12px} .main p:last-child{margin-bottom:0}
 <div class="co senior"><span class="ct">🎓 Как думает senior</span><ul><li>Ставит цену от ценности для клиента (его экономика), а не от своих затрат.</li><li>Использует тиры и якоря осознанно; знает, что цена сама несёт сигнал качества.</li><li>Тестирует цену по сегментам (enterprise ≠ SMB), не одной цифрой на всех.</li></ul></div>
 <div class="co err"><span class="ct">⚠️ Частые ошибки</span><ul><li>Cost-plus/«как у конкурентов» по умолчанию — оставляешь деньги и входишь в ценовую войну.</li><li>Слишком низкая цена в премиуме → сигнал «дёшево=плохо», падение доверия.</li><li>Van Westendorp на новой категории без референса → выдуманные числа.</li></ul></div>
 <div class="chk"><span class="ct">✓ Чек-лист senior</span><label><input type="checkbox">Цена обоснована ценностью/экономикой клиента, не моими затратами</label><label><input type="checkbox">Есть тиры (good-better-best) с продуманным «средним»</label><label><input type="checkbox">Цена согласована с позиционированием (премиум ≠ дёшево)</label></div>
-<div class="quiz"><div class="q">🎯 Проверь себя: Какой подход к цене обычно самый прибыльный?</div><label class="opt" onclick="quiz(this,2,0)">Себестоимость + накрутка</label><label class="opt" onclick="quiz(this,2,1)">Как у конкурентов</label><label class="opt" onclick="quiz(this,2,2)">От воспринимаемой ценности для клиента</label><div class="qfb">Зелёным — верный ответ. Ошибся → перечитай раздел выше.</div></div>
+<div class="quiz"><div class="q">🎯 Проверь себя: Какой подход к цене обычно самый прибыльный?</div><label class="opt" onclick="quiz(this,2,0)">Себестоимость + накрутка</label><label class="opt" onclick="quiz(this,2,1)">Как у конкурентов</label><label class="opt" onclick="quiz(this,2,2)">От воспринимаемой ценности для клиента</label><div class="qfb">Самая прибыльная модель отталкивается от воспринимаемой ценности для клиента, а не от издержек или простой оглядки на конкурентов. Ошибся → перечитай раздел выше.</div></div>
 </div>
 <div id="f6" class="view">
 <div class="hero">
@@ -474,7 +475,7 @@ p{margin:0 0 12px} .main p:last-child{margin-bottom:0}
 <div class="co senior"><span class="ct">🎓 Как думает senior</span><ul><li>Сначала качественно ищет инсайт, потом количественно проверяет масштаб.</li><li>Различает корреляцию и причинность; не путает «рядом было» с «вызвало».</li><li>Формулирует стратегию как связанные выборы и проверяет самое рискованное допущение до бюджета.</li></ul></div>
 <div class="co err"><span class="ct">⚠️ Частые ошибки</span><ul><li>Решать на интуиции/мнении начальника (HiPPO) вместо данных.</li><li>Обобщать выводы фокус-группы из 8 человек как статистику.</li><li>Принять корреляцию за причинность («запустили баннер — выросли продажи» — а может, сезон).</li></ul></div>
 <div class="chk"><span class="ct">✓ Чек-лист senior</span><label><input type="checkbox">Под решение есть и качественный инсайт (почему), и количественная проверка (сколько)</label><label><input type="checkbox">Проверил, не путаю ли корреляцию с причинностью</label><label><input type="checkbox">Назвал самое рискованное допущение и план его проверки</label></div>
-<div class="quiz"><div class="q">🎯 Проверь себя: Качественные методы (интервью) отвечают в первую очередь на вопрос…</div><label class="opt" onclick="quiz(this,1,0)">Сколько и насколько уверенно</label><label class="opt" onclick="quiz(this,1,1)">Почему и как люди себя ведут</label><label class="opt" onclick="quiz(this,1,2)">Какая цена оптимальна</label><div class="qfb">Зелёным — верный ответ. Ошибся → перечитай раздел выше.</div></div>
+<div class="quiz"><div class="q">🎯 Проверь себя: Качественные методы (интервью) отвечают в первую очередь на вопрос…</div><label class="opt" onclick="quiz(this,1,0)">Сколько и насколько уверенно</label><label class="opt" onclick="quiz(this,1,1)">Почему и как люди себя ведут</label><label class="opt" onclick="quiz(this,1,2)">Какая цена оптимальна</label><div class="qfb">Интервью раскрывают мотивы и поведение — «почему», количественные методы дают «сколько»; путать эти задачи — типичная ошибка выбора метода. Ошибся → перечитай раздел выше.</div></div>
 </div>
 <div id="s1" class="view">
 <div class="hero">
@@ -495,7 +496,7 @@ p{margin:0 0 12px} .main p:last-child{margin-bottom:0}
 <div class="co senior"><span class="ct">🎓 Как думает senior</span><ul><li>Тратит на Discovery больше времени, чем кажется нужным — тут ошибка дороже всего.</li><li>Сегментирует по боли/ситуации, берёт дословный VOC как заголовки.</li><li>Интервьюирует только недавно переключившихся, строит хронологию, не спрашивает мотивы в лоб.</li></ul></div>
 <div class="co err"><span class="ct">⚠️ Частые ошибки</span><ul><li>Сегментировать по демографии вместо потребности.</li><li>Рекрутировать недовольных, которые НЕ переключились («bitchin' ain't switchin'» — это мнения, не причины).</li><li>Считать конкурентами «свой список», а не то, что клиент реально сравнивает.</li></ul></div>
 <div class="chk"><span class="ct">✓ Чек-лист senior</span><label><input type="checkbox">Есть ICP по потребности + 1-2 ясных JTBD</label><label><input type="checkbox">Собран дословный VOC (реальные слова клиентов)</label><label><input type="checkbox">Карта конкурентов = что клиент СРАВНИВАЕТ (включая «ничего»)</label></div>
-<div class="quiz"><div class="q">🎯 Проверь себя: С кем правильно проводить JTBD-интервью?</div><label class="opt" onclick="quiz(this,1,0)">С любыми потенциальными клиентами</label><label class="opt" onclick="quiz(this,1,1)">С теми, кто переключился за последние 30-90 дней</label><label class="opt" onclick="quiz(this,1,2)">С недовольными, которые остались</label><div class="qfb">Зелёным — верный ответ. Ошибся → перечитай раздел выше.</div></div>
+<div class="quiz"><div class="q">🎯 Проверь себя: С кем правильно проводить JTBD-интервью?</div><label class="opt" onclick="quiz(this,1,0)">С любыми потенциальными клиентами</label><label class="opt" onclick="quiz(this,1,1)">С теми, кто переключился за последние 30-90 дней</label><label class="opt" onclick="quiz(this,1,2)">С недовольными, которые остались</label><div class="qfb">Ценны те, кто реально переключился за последние 30-90 дней: решение ещё свежо в памяти, в отличие от «любых» потенциальных клиентов. Ошибся → перечитай раздел выше.</div></div>
 </div>
 <div id="s2" class="view">
 <div class="hero">
@@ -516,7 +517,7 @@ p{margin:0 0 12px} .main p:last-child{margin-bottom:0}
 <div class="co senior"><span class="ct">🎓 Как думает senior</span><ul><li>Определяет конкурентов как то, что сравнивает КЛИЕНТ, не свой список.</li><li>Идёт по 5 компонентам по порядку; не путает позицию (вход) с сообщением (выход).</li><li>Проверяет позицию способностью продавцов выигрывать ею сделки.</li></ul></div>
 <div class="co err"><span class="ct">⚠️ Частые ошибки</span><ul><li>Считать позиционированием таглайн.</li><li>Описывать ценность на уровне фич, а не бизнес-результата клиента.</li><li>Держать 2-3 конкурирующих фрейма в продажах/маркетинге/продукте одновременно.</li></ul></div>
 <div class="chk"><span class="ct">✓ Чек-лист senior</span><label><input type="checkbox">Названы реальные альтернативы (включая «ничего»/Excel)</label><label><input type="checkbox">Ценность сформулирована как бизнес-результат (so what?)</label><label><input type="checkbox">Выбрана категория, в которой выигрываешь сравнение</label></div>
-<div class="quiz"><div class="q">🎯 Проверь себя: Что Dunford советует выяснить ПЕРВЫМ?</div><label class="opt" onclick="quiz(this,1,0)">В какой мы категории/рынке</label><label class="opt" onclick="quiz(this,1,1)">Конкурентные альтернативы (что клиент сделал бы без нас)</label><label class="opt" onclick="quiz(this,1,2)">Какой у нас слоган</label><div class="qfb">Зелёным — верный ответ. Ошибся → перечитай раздел выше.</div></div>
+<div class="quiz"><div class="q">🎯 Проверь себя: Что Dunford советует выяснить ПЕРВЫМ?</div><label class="opt" onclick="quiz(this,1,0)">В какой мы категории/рынке</label><label class="opt" onclick="quiz(this,1,1)">Конкурентные альтернативы (что клиент сделал бы без нас)</label><label class="opt" onclick="quiz(this,1,2)">Какой у нас слоган</label><div class="qfb">Сначала выясняют конкурентные альтернативы — что клиент делал бы без продукта, — а категорию рынка и слоган строят уже от этого. Ошибся → перечитай раздел выше.</div></div>
 </div>
 <div id="s3" class="view">
 <div class="hero">
@@ -537,7 +538,7 @@ p{margin:0 0 12px} .main p:last-child{margin-bottom:0}
 <div class="co senior"><span class="ct">🎓 Как думает senior</span><ul><li>Держит distinctive brand assets неизменными (узнаваемость = повторение).</li><li>Растит заметность широко, не долбит узкое ядро.</li><li>Разделяет бренд и перформанс по исполнению и бюджету (~60/40).</li></ul></div>
 <div class="co err"><span class="ct">⚠️ Частые ошибки</span><ul><li>Менять визуал/слоган каждую кампанию (убивает узнаваемость).</li><li>Имиджевая + продающая реклама одним роликом — провал обоих.</li><li>Резать бренд-бюджет на плато (режешь отложенный будущий рост).</li></ul></div>
 <div class="chk"><span class="ct">✓ Чек-лист senior</span><label><input type="checkbox">Есть набор distinctive assets (цвет/маскот/слоган), стабильных во времени</label><label><input type="checkbox">Тон голоса задокументирован и единый везде</label><label><input type="checkbox">Бренд и перформанс разведены по исполнению</label></div>
-<div class="quiz"><div class="q">🎯 Проверь себя: Почему нельзя совмещать имиджевую и продающую рекламу в одном ролике?</div><label class="opt" onclick="quiz(this,1,0)">Это дорого</label><label class="opt" onclick="quiz(this,1,1)">Это разные работы — провалишь обе (Binet&amp;Field)</label><label class="opt" onclick="quiz(this,1,2)">Так не делают конкуренты</label><div class="qfb">Зелёным — верный ответ. Ошибся → перечитай раздел выше.</div></div>
+<div class="quiz"><div class="q">🎯 Проверь себя: Почему нельзя совмещать имиджевую и продающую рекламу в одном ролике?</div><label class="opt" onclick="quiz(this,1,0)">Это дорого</label><label class="opt" onclick="quiz(this,1,1)">Это разные работы — провалишь обе (Binet&amp;Field)</label><label class="opt" onclick="quiz(this,1,2)">Так не делают конкуренты</label><div class="qfb">Имиджевая и продающая реклама решают разные задачи с разными метриками; попытка совместить их в одном ролике проваливает обе, а не просто дорого. Ошибся → перечитай раздел выше.</div></div>
 </div>
 <div id="s4" class="view">
 <div class="hero">
@@ -558,7 +559,7 @@ p{margin:0 0 12px} .main p:last-child{margin-bottom:0}
 <div class="co senior"><span class="ct">🎓 Как думает senior</span><ul><li>Думает в рычагах value equation, особенно сокращает время/усилие.</li><li>Чинит конверсию по данным (heatmap/записи/воронка), не по вкусу.</li><li>Одна страница — один оффер — одна цель, без отвлечений.</li></ul></div>
 <div class="co err"><span class="ct">⚠️ Частые ошибки</span><ul><li>Большая «мечта» без доказательств вероятности (конверсия падает).</li><li>Раздувать оффер «полнотой», которая растит усилие клиента.</li><li>Ложный дефицит/гарантии — разовый рост, потеря доверия.</li></ul></div>
 <div class="chk"><span class="ct">✓ Чек-лист senior</span><label><input type="checkbox">Оффер разобран по value equation (числитель↑, знаменатель↓)</label><label><input type="checkbox">Главное возражение снято прямо в оффере</label><label><input type="checkbox">Посадочная: один оффер, одна цель, трение убрано</label></div>
-<div class="quiz"><div class="q">🎯 Проверь себя: Что часто сильнее повышает конверсию оффера?</div><label class="opt" onclick="quiz(this,1,0)">Громче обещать большую мечту</label><label class="opt" onclick="quiz(this,1,1)">Сократить знаменатель — время и усилие клиента</label><label class="opt" onclick="quiz(this,1,2)">Добавить больше бонусов</label><div class="qfb">Зелёным — верный ответ. Ошибся → перечитай раздел выше.</div></div>
+<div class="quiz"><div class="q">🎯 Проверь себя: Что часто сильнее повышает конверсию оффера?</div><label class="opt" onclick="quiz(this,1,0)">Громче обещать большую мечту</label><label class="opt" onclick="quiz(this,1,1)">Сократить знаменатель — время и усилие клиента</label><label class="opt" onclick="quiz(this,1,2)">Добавить больше бонусов</label><div class="qfb">Сокращение усилий и времени клиента (знаменателя оффера) чаще поднимает конверсию сильнее, чем громкое обещание мечты или добавление бонусов. Ошибся → перечитай раздел выше.</div></div>
 </div>
 <div id="s5" class="view">
 <div class="hero">
@@ -579,7 +580,7 @@ p{margin:0 0 12px} .main p:last-child{margin-bottom:0}
 <div class="co senior"><span class="ct">🎓 Как думает senior</span><ul><li>Выбирает motion по 4 входам, не копирует конкурента вслепую.</li><li>Начинает с beachhead — одной выигрываемой ниши.</li><li>Масштабирует канал только после доказанной окупаемости (гейт).</li></ul></div>
 <div class="co err"><span class="ct">⚠️ Частые ошибки</span><ul><li>«PLG дешевле» — нет, это другая инвестиция (инструментация+PQL).</li><li>Запускать все каналы сразу без гейта окупаемости.</li><li>Штурмовать массовый рынок без плацдарма и трек-рекорда.</li></ul></div>
 <div class="chk"><span class="ct">✓ Чек-лист senior</span><label><input type="checkbox">Motion выбран по ACV/time-to-value/ЛПР/self-serve</label><label><input type="checkbox">Определён beachhead — ниша, где станешь №1</label><label><input type="checkbox">Есть гейт: масштаб только после окупаемости канала</label></div>
-<div class="quiz"><div class="q">🎯 Проверь себя: Когда PLG (продукт продаёт себя) — плохой выбор?</div><label class="opt" onclick="quiz(this,1,0)">Чек низкий, ценность быстрая</label><label class="opt" onclick="quiz(this,1,1)">Высокий чек, комитет ЛПР, нужно внедрение</label><label class="opt" onclick="quiz(this,1,2)">Продукт вирусный</label><div class="qfb">Зелёным — верный ответ. Ошибся → перечитай раздел выше.</div></div>
+<div class="quiz"><div class="q">🎯 Проверь себя: Когда PLG (продукт продаёт себя) — плохой выбор?</div><label class="opt" onclick="quiz(this,1,0)">Чек низкий, ценность быстрая</label><label class="opt" onclick="quiz(this,1,1)">Высокий чек, комитет ЛПР, нужно внедрение</label><label class="opt" onclick="quiz(this,1,2)">Продукт вирусный</label><div class="qfb">При высоком чеке, комитете ЛПР и сложном внедрении продукт не продаёт себя сам — нужен человеческий sales-процесс, а не только вирусность. Ошибся → перечитай раздел выше.</div></div>
 </div>
 <div id="s6" class="view">
 <div class="hero">
@@ -600,7 +601,7 @@ p{margin:0 0 12px} .main p:last-child{margin-bottom:0}
 <div class="co senior"><span class="ct">🎓 Как думает senior</span><ul><li>Управляет каналами портфелем по окупаемости (70-20-10), не «всем сразу».</li><li>Строит петли роста; знает, что paid деградирует и не может быть петлёй.</li><li>Тестирует много дёшево → фокус на 1-2 рабочих (Bullseye).</li></ul></div>
 <div class="co err"><span class="ct">⚠️ Частые ошибки</span><ul><li>Лить во все каналы сразу без замера cost-per-qualified.</li><li>Считать paid «петлёй роста» (он кормит петлю, но деградирует).</li><li>Резать верх воронки, потому что атрибуция его недооценивает.</li></ul></div>
 <div class="chk"><span class="ct">✓ Чек-лист senior</span><label><input type="checkbox">По каждому каналу считаю CAC/окупаемость</label><label><input type="checkbox">Есть хотя бы одна растущая петля (не только paid)</label><label><input type="checkbox">Фокус на 1-2 рабочих канала, остальное — дешёвые тесты</label></div>
-<div class="quiz"><div class="q">🎯 Проверь себя: Почему paid-реклама не может быть «петлёй роста»?</div><label class="opt" onclick="quiz(this,1,0)">Она слишком дорогая</label><label class="opt" onclick="quiz(this,1,1)">Её output не возвращается как input; CAC деградирует со временем</label><label class="opt" onclick="quiz(this,1,2)">Она не масштабируется</label><div class="qfb">Зелёным — верный ответ. Ошибся → перечитай раздел выше.</div></div>
+<div class="quiz"><div class="q">🎯 Проверь себя: Почему paid-реклама не может быть «петлёй роста»?</div><label class="opt" onclick="quiz(this,1,0)">Она слишком дорогая</label><label class="opt" onclick="quiz(this,1,1)">Её output не возвращается как input; CAC деградирует со временем</label><label class="opt" onclick="quiz(this,1,2)">Она не масштабируется</label><div class="qfb">В петле output должен возвращаться как input; в paid-рекламе продажи не подпитывают приток трафика, а CAC со временем деградирует. Ошибся → перечитай раздел выше.</div></div>
 </div>
 <div id="s7" class="view">
 <div class="hero">
@@ -621,7 +622,7 @@ p{margin:0 0 12px} .main p:last-child{margin-bottom:0}
 <div class="co senior"><span class="ct">🎓 Как думает senior</span><ul><li>Строит систему (пиллары + репурпозинг), а не постит по наитию.</li><li>Делает контент под стадию намерения (STDC), различает его природой.</li><li>Ставит персонажа/историю выше продукта; меряет действие, не «engagement».</li></ul></div>
 <div class="co err"><span class="ct">⚠️ Частые ошибки</span><ul><li>STDC как маркировка уже сделанного контента (если не изменил план производства — не применил).</li><li>Over-index на Do (легче атрибутировать) → сохнет верх воронки.</li><li>Игнорировать Care (существующие клиенты — часто лучший ROI).</li></ul></div>
 <div class="chk"><span class="ct">✓ Чек-лист senior</span><label><input type="checkbox">Есть пиллар-темы со связанными спицами</label><label><input type="checkbox">Один hero-контент перерабатывается в N деривативов под платформы</label><label><input type="checkbox">Контент распределён по See/Think/Do/Care, различается природой</label></div>
-<div class="quiz"><div class="q">🎯 Проверь себя: See-контент должен…</div><label class="opt" onclick="quiz(this,1,0)">Ярко продавать продукт</label><label class="opt" onclick="quiz(this,1,1)">Быть полезным БЕЗ упоминания продукта</label><label class="opt" onclick="quiz(this,1,2)">Содержать сильный CTA</label><div class="qfb">Зелёным — верный ответ. Ошибся → перечитай раздел выше.</div></div>
+<div class="quiz"><div class="q">🎯 Проверь себя: See-контент должен…</div><label class="opt" onclick="quiz(this,1,0)">Ярко продавать продукт</label><label class="opt" onclick="quiz(this,1,1)">Быть полезным БЕЗ упоминания продукта</label><label class="opt" onclick="quiz(this,1,2)">Содержать сильный CTA</label><div class="qfb">See-контент должен быть полезен сам по себе без упоминания продукта — иначе аудитория считывает его как рекламу и не вовлекается. Ошибся → перечитай раздел выше.</div></div>
 </div>
 <div id="s8" class="view">
 <div class="hero">
@@ -642,7 +643,7 @@ p{margin:0 0 12px} .main p:last-child{margin-bottom:0}
 <div class="co senior"><span class="ct">🎓 Как думает senior</span><ul><li>Находит aha-метрику в данных, переориентирует онбординг под неё.</li><li>Строит петлю привычки (Hooked), не забывает фазу Investment.</li><li>Передаёт в продажи по сигналу готовности, греет остальных.</li></ul></div>
 <div class="co err"><span class="ct">⚠️ Частые ошибки</span><ul><li>Пытаться удержать неактивированного (сначала нужен aha).</li><li>Перегруз внешними триггерами (notification fatigue).</li><li>Передавать лид в продажи слишком рано → drop-off.</li></ul></div>
 <div class="chk"><span class="ct">✓ Чек-лист senior</span><label><input type="checkbox">Определён aha-момент (метрика, коррелирующая с удержанием)</label><label><input type="checkbox">Онбординг ведёт к aha как можно быстрее</label><label><input type="checkbox">Есть петля привычки с фазой Investment</label></div>
-<div class="quiz"><div class="q">🎯 Проверь себя: Что делает продукт незаменимым в петле Hooked?</div><label class="opt" onclick="quiz(this,1,0)">Push-уведомления</label><label class="opt" onclick="quiz(this,1,1)">Фаза Investment (вложенный контент/настройки/связи)</label><label class="opt" onclick="quiz(this,1,2)">Красивый дизайн</label><div class="qfb">Зелёным — верный ответ. Ошибся → перечитай раздел выше.</div></div>
+<div class="quiz"><div class="q">🎯 Проверь себя: Что делает продукт незаменимым в петле Hooked?</div><label class="opt" onclick="quiz(this,1,0)">Push-уведомления</label><label class="opt" onclick="quiz(this,1,1)">Фаза Investment (вложенный контент/настройки/связи)</label><label class="opt" onclick="quiz(this,1,2)">Красивый дизайн</label><div class="qfb">Незаменимость создаёт фаза Investment — вложенные пользователем данные, настройки, связи, а не push-уведомления или дизайн, которые легко скопировать. Ошибся → перечитай раздел выше.</div></div>
 </div>
 <div id="s9" class="view">
 <div class="hero">
@@ -663,7 +664,7 @@ p{margin:0 0 12px} .main p:last-child{margin-bottom:0}
 <div class="co senior"><span class="ct">🎓 Как думает senior</span><ul><li>Сначала чинит «дыры» (retention), потом наращивает acquisition.</li><li>Смотрит NRR и GRR вместе; ловит маскировку оттока расширением.</li><li>Действует на ранние сигналы оттока (health score yellow), не на red.</li></ul></div>
 <div class="co err"><span class="ct">⚠️ Частые ошибки</span><ul><li>Лить бюджет в привлечение при дырявом удержании.</li><li>Радоваться NRR>100% при низком GRR (структурно нестабильно).</li><li>Реагировать на отток постфактум, а не по ранним сигналам.</li></ul></div>
 <div class="chk"><span class="ct">✓ Чек-лист senior</span><label><input type="checkbox">Считаю retention по когортам + NRR/GRR (если подписка)</label><label><input type="checkbox">Есть механика привычки/bundle/лояльности</label><label><input type="checkbox">Health-scoring ловит отток заранее, есть proactive outreach</label></div>
-<div class="quiz"><div class="q">🎯 Проверь себя: NRR 110% при GRR 80% — это…</div><label class="opt" onclick="quiz(this,1,0)">Отличный результат</label><label class="opt" onclick="quiz(this,1,1)">Красный флаг: расширение маскирует отток</label><label class="opt" onclick="quiz(this,1,2)">Норма для SaaS</label><div class="qfb">Зелёным — верный ответ. Ошибся → перечитай раздел выше.</div></div>
+<div class="quiz"><div class="q">🎯 Проверь себя: NRR 110% при GRR 80% — это…</div><label class="opt" onclick="quiz(this,1,0)">Отличный результат</label><label class="opt" onclick="quiz(this,1,1)">Красный флаг: расширение маскирует отток</label><label class="opt" onclick="quiz(this,1,2)">Норма для SaaS</label><div class="qfb">Расширение действующих клиентов (NRR 110%) маскирует высокий отток базы (GRR 80%) — это красный флаг, а не признак успеха. Ошибся → перечитай раздел выше.</div></div>
 </div>
 <div id="s10" class="view">
 <div class="hero">
@@ -684,7 +685,7 @@ p{margin:0 0 12px} .main p:last-child{margin-bottom:0}
 <div class="co senior"><span class="ct">🎓 Как думает senior</span><ul><li>Не путает корреляцию (атрибуцию) с причинностью (инкрементальностью).</li><li>Смотрит LTV:CAC ВМЕСТЕ с payback; North Star ≠ выручка.</li><li>Считает sample заранее, не подглядывает в тест; решает данными, не HiPPO.</li></ul></div>
 <div class="co err"><span class="ct">⚠️ Частые ошибки</span><ul><li>Принять корреляцию за причинность («баннер→продажи», а был сезон).</li><li>Оптимизировать vanity-метрику (трафик/лайки) вместо денежной.</li><li>Останавливать A/B на «значимости» (peeking) → ложные выводы.</li></ul></div>
 <div class="chk"><span class="ct">✓ Чек-лист senior</span><label><input type="checkbox">Есть North Star (ценность клиента) + дерево драйверов</label><label><input type="checkbox">Смотрю LTV:CAC и payback вместе</label><label><input type="checkbox">Ключевые каналы проверены инкрементальностью, не только атрибуцией</label></div>
-<div class="quiz"><div class="q">🎯 Проверь себя: Что отвечает на вопрос «что РЕАЛЬНО вызвало продажи»?</div><label class="opt" onclick="quiz(this,1,0)">Last-click атрибуция</label><label class="opt" onclick="quiz(this,1,1)">Инкрементальность (geo-lift/holdout)</label><label class="opt" onclick="quiz(this,1,2)">Модель data-driven атрибуции</label><div class="qfb">Зелёным — верный ответ. Ошибся → перечитай раздел выше.</div></div>
+<div class="quiz"><div class="q">🎯 Проверь себя: Что отвечает на вопрос «что РЕАЛЬНО вызвало продажи»?</div><label class="opt" onclick="quiz(this,1,0)">Last-click атрибуция</label><label class="opt" onclick="quiz(this,1,1)">Инкрементальность (geo-lift/holdout)</label><label class="opt" onclick="quiz(this,1,2)">Модель data-driven атрибуции</label><div class="qfb">На реальную причинность отвечает инкрементальность через geo-lift или holdout-тесты, а не модели last-click или data-driven, которые лишь распределяют заслугу. Ошибся → перечитай раздел выше.</div></div>
 </div>
 <div id="s11" class="view">
 <div class="hero">
@@ -705,7 +706,7 @@ p{margin:0 0 12px} .main p:last-child{margin-bottom:0}
 <div class="co senior"><span class="ct">🎓 Как думает senior</span><ul><li>Строит процессы/роли/стек, которые масштабируют исполнение без него лично.</li><li>Проектирует martech как data-flow с замкнутой петлёй, не как набор тулзов.</li><li>Назначает одного Accountable на процесс (RACI), убирает размытую ответственность.</li></ul></div>
 <div class="co err"><span class="ct">⚠️ Частые ошибки</span><ul><li>«Купить инструменты» без архитектуры потоков данных.</li><li>RACI без активации (документ ради документа) = театр.</li><li>Размытая ответственность: за всё отвечают все = не отвечает никто.</li></ul></div>
 <div class="chk"><span class="ct">✓ Чек-лист senior</span><label><input type="checkbox">Есть RACI с одним Accountable на ключевой процесс</label><label><input type="checkbox">Стек спроектирован как data-flow с offline-петлёй</label><label><input type="checkbox">Ассеты в едином DAM, бренд защищён governance</label></div>
-<div class="quiz"><div class="q">🎯 Проверь себя: Martech-стек для senior — это в первую очередь…</div><label class="opt" onclick="quiz(this,1,0)">Список купленных инструментов</label><label class="opt" onclick="quiz(this,1,1)">Архитектура потоков данных с замкнутой петлёй</label><label class="opt" onclick="quiz(this,1,2)">Аналитический дашборд</label><div class="qfb">Зелёным — верный ответ. Ошибся → перечитай раздел выше.</div></div>
+<div class="quiz"><div class="q">🎯 Проверь себя: Martech-стек для senior — это в первую очередь…</div><label class="opt" onclick="quiz(this,1,0)">Список купленных инструментов</label><label class="opt" onclick="quiz(this,1,1)">Архитектура потоков данных с замкнутой петлёй</label><label class="opt" onclick="quiz(this,1,2)">Аналитический дашборд</label><div class="qfb">Для senior martech-стек — это архитектура потоков данных с замкнутой обратной связью, а не просто список купленных инструментов или дашборд. Ошибся → перечитай раздел выше.</div></div>
 </div>
 <div id="s12" class="view">
 <div class="hero">
@@ -726,7 +727,7 @@ p{margin:0 0 12px} .main p:last-child{margin-bottom:0}
 <div class="co senior"><span class="ct">🎓 Как думает senior</span><ul><li>Строит реферал-движок с первого клиента; просит на пике удовлетворённости.</li><li>Делает награду нативной продукту, double-sided, встроенной в онбординг.</li><li>Знает: первый отзыв/кейс разблокирует всю воронку при 0 доверия.</li></ul></div>
 <div class="co err"><span class="ct">⚠️ Частые ошибки</span><ul><li>Денежный реферал для high-ticket (клиент чувствует себя продавцом).</li><li>Просить реферал в случайный момент, а не на пике удовлетворённости.</li><li>Реферальная программа сбоку, а не вшитая в продукт/онбординг.</li></ul></div>
 <div class="chk"><span class="ct">✓ Чек-лист senior</span><label><input type="checkbox">Реферал вшит в продукт/онбординг, награда нативна, double-sided</label><label><input type="checkbox">Просьба о реферале/отзыве привязана к моменту успеха клиента</label><label><input type="checkbox">Сообщество имеет одну ясную цель; есть кейсы/отзывы</label></div>
-<div class="quiz"><div class="q">🎯 Проверь себя: Когда лучше всего просить реферал?</div><label class="opt" onclick="quiz(this,1,0)">В случайный момент рассылкой</label><label class="opt" onclick="quiz(this,1,1)">Сразу после видимого результата/победы клиента</label><label class="opt" onclick="quiz(this,1,2)">Раз в год</label><div class="qfb">Зелёным — верный ответ. Ошибся → перечитай раздел выше.</div></div>
+<div class="quiz"><div class="q">🎯 Проверь себя: Когда лучше всего просить реферал?</div><label class="opt" onclick="quiz(this,1,0)">В случайный момент рассылкой</label><label class="opt" onclick="quiz(this,1,1)">Сразу после видимого результата/победы клиента</label><label class="opt" onclick="quiz(this,1,2)">Раз в год</label><div class="qfb">Просить реферал лучше сразу после видимого результата клиента, пока эмоция успеха свежа, а не случайной рассылкой или раз в год. Ошибся → перечитай раздел выше.</div></div>
 </div>
 <div id="m1" class="view">
 <div class="hero">
@@ -747,7 +748,7 @@ p{margin:0 0 12px} .main p:last-child{margin-bottom:0}
 <div class="co senior"><span class="ct">🎓 Как думает senior</span><ul><li>Смотрит LTV:CAC и payback ВМЕСТЕ; cash-разрыв важнее красивого отношения.</li><li>Считает CAC и LTV по когортам и каналам, не «в среднем».</li><li>Использует здоровую экономику как маховик: выручка → в привлечение.</li></ul></div>
 <div class="co err"><span class="ct">⚠️ Частые ошибки</span><ul><li>Оценивать канал по «лайкам/охвату», а не CAC/окупаемости.</li><li>Хвалиться LTV:CAC 5:1, игнорируя 12-месячный payback (cash burn).</li><li>Средняя LTV/blended CAC скрывают убыточные когорты и каналы.</li></ul></div>
 <div class="chk"><span class="ct">✓ Чек-лист senior</span><label><input type="checkbox">Знаю CAC, LTV, LTV:CAC и payback своего бизнеса</label><label><input type="checkbox">Считаю их по когортам и каналам, не в среднем</label><label><input type="checkbox">Масштабирую канал только при здоровой экономике + коротком payback</label></div>
-<div class="quiz"><div class="q">🎯 Проверь себя: Что лучше для cash-потока?</div><label class="opt" onclick="quiz(this,1,0)">LTV:CAC 5:1 при payback 12 мес</label><label class="opt" onclick="quiz(this,1,1)">LTV:CAC 4:1 при payback 6 мес</label><label class="opt" onclick="quiz(this,1,2)">Они одинаковы</label><div class="qfb">Зелёным — верный ответ. Ошибся → перечитай раздел выше.</div></div>
+<div class="quiz"><div class="q">🎯 Проверь себя: Что лучше для cash-потока?</div><label class="opt" onclick="quiz(this,1,0)">LTV:CAC 5:1 при payback 12 мес</label><label class="opt" onclick="quiz(this,1,1)">LTV:CAC 4:1 при payback 6 мес</label><label class="opt" onclick="quiz(this,1,2)">Они одинаковы</label><div class="qfb">Короткий payback быстрее высвобождает деньги для реинвестирования в рост, даже при более скромном соотношении LTV:CAC — это важнее для cash-потока. Ошибся → перечитай раздел выше.</div></div>
 </div>
 <div id="m2" class="view">
 <div class="hero">
@@ -768,7 +769,7 @@ p{margin:0 0 12px} .main p:last-child{margin-bottom:0}
 <div class="co senior"><span class="ct">🎓 Как думает senior</span><ul><li>Считает sample size и MDE ДО запуска, фиксирует длительность.</li><li>Не подглядывает в наивном A/B; не p-hacking (не крутит 20 метрик).</li><li>Различает «что работает» (A/B) и «почему» (исследование) и «вызвало ли» (инкрементальность).</li></ul></div>
 <div class="co err"><span class="ct">⚠️ Частые ошибки</span><ul><li>Остановить тест на «значимости» (peeking) → ложный вывод.</li><li>Тестировать на крошечной выборке и «домысливать» результат.</li><li>Принять корреляцию по времени за причинность.</li></ul></div>
 <div class="chk"><span class="ct">✓ Чек-лист senior</span><label><input type="checkbox">Перед тестом посчитан sample size под нужный MDE и power 80%</label><label><input type="checkbox">Длительность зафиксирована заранее (или sequential-дизайн)</label><label><input type="checkbox">Для вывода о причинности — контроль/holdout, не «совпало</label></div>
-<div class="quiz"><div class="q">🎯 Проверь себя: Почему «подглядывание» в наивном A/B-тесте опасно?</div><label class="opt" onclick="quiz(this,1,0)">Замедляет тест</label><label class="opt" onclick="quiz(this,1,1)">Раздувает ложно-положительные (инфляция ошибки I рода)</label><label class="opt" onclick="quiz(this,1,2)">Портит дизайн страницы</label><div class="qfb">Зелёным — верный ответ. Ошибся → перечитай раздел выше.</div></div>
+<div class="quiz"><div class="q">🎯 Проверь себя: Почему «подглядывание» в наивном A/B-тесте опасно?</div><label class="opt" onclick="quiz(this,1,0)">Замедляет тест</label><label class="opt" onclick="quiz(this,1,1)">Раздувает ложно-положительные (инфляция ошибки I рода)</label><label class="opt" onclick="quiz(this,1,2)">Портит дизайн страницы</label><div class="qfb">Проверка результатов до набора нужной выборки раздувает ложно-положительные срабатывания (инфляция ошибки I рода), а не просто замедляет тест. Ошибся → перечитай раздел выше.</div></div>
 </div>
 <div id="m3" class="view">
 <div class="hero">
@@ -789,7 +790,7 @@ p{margin:0 0 12px} .main p:last-child{margin-bottom:0}
 <div class="co senior"><span class="ct">🎓 Как думает senior</span><ul><li>Понимает поток данных: пиксель/CAPI → CRM → аналитика → обратно в кабинеты.</li><li>Кормит рекл-алгоритмы качественной конверсией (из CRM), не «заполнил форму».</li><li>Знает ограничения трекинга (iOS, cookieless, локальные платформы) и обходит их.</li></ul></div>
 <div class="co err"><span class="ct">⚠️ Частые ошибки</span><ul><li>Оптимизировать рекламу на «заполнил форму» → мусорные лиды.</li><li>Только браузерный пиксель без server-side → потеря данных.</li><li>Грязные UTM (без словаря) → отчёты невозможно собрать.</li></ul></div>
 <div class="chk"><span class="ct">✓ Чек-лист senior</span><label><input type="checkbox">Есть dual-трекинг (пиксель + CAPI) с дедупом</label><label><input type="checkbox">UTM-дисциплина и единый словарь меток</label><label><input type="checkbox">Петля замкнута: реальные продажи возвращаются в кабинеты (offline upload)</label></div>
-<div class="quiz"><div class="q">🎯 Проверь себя: Зачем нужен server-side трекинг (CAPI) вдобавок к пикселю?</div><label class="opt" onclick="quiz(this,1,0)">Для красоты отчётов</label><label class="opt" onclick="quiz(this,1,1)">Браузерный пиксель режут adblock/ITP/iOS — server-side возвращает данные</label><label class="opt" onclick="quiz(this,1,2)">Чтобы тратить меньше</label><div class="qfb">Зелёным — верный ответ. Ошибся → перечитай раздел выше.</div></div>
+<div class="quiz"><div class="q">🎯 Проверь себя: Зачем нужен server-side трекинг (CAPI) вдобавок к пикселю?</div><label class="opt" onclick="quiz(this,1,0)">Для красоты отчётов</label><label class="opt" onclick="quiz(this,1,1)">Браузерный пиксель режут adblock/ITP/iOS — server-side возвращает данные</label><label class="opt" onclick="quiz(this,1,2)">Чтобы тратить меньше</label><div class="qfb">Server-side трекинг восстанавливает данные о конверсиях, которые теряет браузерный пиксель из-за adblock, ITP и ограничений iOS. Ошибся → перечитай раздел выше.</div></div>
 </div>
 <div id="m4" class="view">
 <div class="hero">
@@ -810,7 +811,7 @@ p{margin:0 0 12px} .main p:last-child{margin-bottom:0}
 <div class="co senior"><span class="ct">🎓 Как думает senior</span><ul><li>Видит бизнес как систему петель, строит насосы, а не носит вёдра.</li><li>Выбирает North Star = ценность клиента, декомпозирует в драйверы.</li><li>Инвестирует в петлю до очевидной потребности; при стагнации концентрирует, а не распыляет.</li></ul></div>
 <div class="co err"><span class="ct">⚠️ Частые ошибки</span><ul><li>Думать разрозненными кампаниями вместо системы петель.</li><li>Ставить выручку как North Star (lagging, не actionable).</li><li>При стагнации добавлять инициативы вместо концентрации.</li></ul></div>
 <div class="chk"><span class="ct">✓ Чек-лист senior</span><label><input type="checkbox">Назову хотя бы одну работающую петлю роста в бизнесе</label><label><input type="checkbox">Есть North Star = ценность клиента + дерево драйверов</label><label><input type="checkbox">Понимаю, во что инвестировать в петлю заранее</label></div>
-<div class="quiz"><div class="q">🎯 Проверь себя: Чем петля роста принципиально отличается от воронки?</div><label class="opt" onclick="quiz(this,1,0)">Она быстрее</label><label class="opt" onclick="quiz(this,1,1)">Output цикла становится input следующего (компаунд), а не линейный расход</label><label class="opt" onclick="quiz(this,1,2)">Она дешевле</label><div class="qfb">Зелёным — верный ответ. Ошибся → перечитай раздел выше.</div></div>
+<div class="quiz"><div class="q">🎯 Проверь себя: Чем петля роста принципиально отличается от воронки?</div><label class="opt" onclick="quiz(this,1,0)">Она быстрее</label><label class="opt" onclick="quiz(this,1,1)">Output цикла становится input следующего (компаунд), а не линейный расход</label><label class="opt" onclick="quiz(this,1,2)">Она дешевле</label><div class="qfb">В петле результат цикла становится топливом для следующего — компаунд-эффект; в воронке ресурс линейно расходуется и не возвращается. Ошибся → перечитай раздел выше.</div></div>
 </div>
 <div id="m5" class="view">
 <div class="hero">
@@ -833,7 +834,7 @@ p{margin:0 0 12px} .main p:last-child{margin-bottom:0}
 <div class="co senior"><span class="ct">🎓 Как думает senior</span><ul><li>Ставит диагноз до тактики; меряет результат деньгами, не активностью.</li><li>Идёт по алгоритму: диагноз→метод→данные→экономика→red-team→фокус.</li><li>Строит системы/петли, признаёт незнание и проверяет, растёт T-shape.</li></ul></div>
 <div class="co err"><span class="ct">⚠️ Частые ошибки</span><ul><li>Кидаться в тактику («запустим Reels») без диагноза узкого места.</li><li>Гордиться объёмом (охваты/посты) вместо денежного результата.</li><li>Блефовать вместо «не знаю, иду проверять»; распыляться на всё сразу.</li></ul></div>
 <div class="chk"><span class="ct">✓ Чек-лист senior</span><label><input type="checkbox">Под задачу есть диагноз узкого места, а не сразу тактика</label><label><input type="checkbox">Прошёл алгоритм: метод→данные→экономика→red-team→фокус</label><label><input type="checkbox">Знаю свою T-вертикаль и план непрерывного обучения</label></div>
-<div class="quiz"><div class="q">🎯 Проверь себя: Главное отличие senior от джуна —</div><label class="opt" onclick="quiz(this,1,0)">Знает больше тактик и инструментов</label><label class="opt" onclick="quiz(this,1,1)">Ставит диагноз, выбирает метод и отвечает за результат в деньгах</label><label class="opt" onclick="quiz(this,1,2)">Дольше работает в маркетинге</label><div class="qfb">Зелёным — верный ответ. Ошибся → перечитай раздел выше.</div></div>
+<div class="quiz"><div class="q">🎯 Проверь себя: Главное отличие senior от джуна —</div><label class="opt" onclick="quiz(this,1,0)">Знает больше тактик и инструментов</label><label class="opt" onclick="quiz(this,1,1)">Ставит диагноз, выбирает метод и отвечает за результат в деньгах</label><label class="opt" onclick="quiz(this,1,2)">Дольше работает в маркетинге</label><div class="qfb">Senior ставит диагноз, выбирает метод под ситуацию и отвечает за денежный результат, а не просто знает больше тактик и инструментов. Ошибся → перечитай раздел выше.</div></div>
 </div>
 <div id="m6" class="view">
 <div class="hero">
@@ -856,7 +857,7 @@ p{margin:0 0 12px} .main p:last-child{margin-bottom:0}
 <div class="co senior"><span class="ct">🎓 Как думает senior</span><ul><li>По симптому быстро выбирает метод, а не гадает и не лечит наугад.</li><li>Часто корень не там, где боль: «нет продаж» может быть проблемой Discovery/позиционирования, не рекламы.</li><li>Сначала диагноз узкого места на пути клиента, потом метод из шпаргалки.</li></ul></div>
 <div class="co err"><span class="ct">⚠️ Частые ошибки</span><ul><li>Лечить симптом не там: лить больше трафика в дырявое удержание/слабый оффер.</li><li>Применять модный метод, не подходящий ситуации/архетипу (FIT).</li><li>Брать инструмент до постановки диагноза.</li></ul></div>
 <div class="chk"><span class="ct">✓ Чек-лист senior</span><label><input type="checkbox">Назвал конкретный симптом/узкое место</label><label><input type="checkbox">Подобрал метод по шпаргалке под этот симптом</label><label><input type="checkbox">Проверил, что корень там, где боль (а не выше по воронке)</label></div>
-<div class="quiz"><div class="q">🎯 Проверь себя: «Трафик есть, а продаж нет» — куда смотреть ПЕРВЫМ?</div><label class="opt" onclick="quiz(this,1,0)">Лить ещё больше трафика</label><label class="opt" onclick="quiz(this,1,1)">Оффер + соответствие реклама↔страница + CRO</label><label class="opt" onclick="quiz(this,1,2)">Сменить канал рекламы</label><div class="qfb">Зелёным — верный ответ. Ошибся → перечитай раздел выше.</div></div>
+<div class="quiz"><div class="q">🎯 Проверь себя: «Трафик есть, а продаж нет» — куда смотреть ПЕРВЫМ?</div><label class="opt" onclick="quiz(this,1,0)">Лить ещё больше трафика</label><label class="opt" onclick="quiz(this,1,1)">Оффер + соответствие реклама↔страница + CRO</label><label class="opt" onclick="quiz(this,1,2)">Сменить канал рекламы</label><div class="qfb">Сначала проверяют оффер, соответствие рекламы странице и CRO — вливание трафика в сломанную воронку только сжигает бюджет впустую. Ошибся → перечитай раздел выше.</div></div>
 </div>
 <div id="c1" class="view">
 <div class="hero"><div class="eyebrow">Часть IV — Специализации · урок 1</div>
@@ -880,7 +881,7 @@ p{margin:0 0 12px} .main p:last-child{margin-bottom:0}
 <div class="co senior"><span class="ct">🎓 Как думает senior</span><ul><li>Senior сначала спрашивает «в каком месте воронки бизнес теряет больше всего денег?» — и только потом выбирает инструмент. Junior начинает с инструмента, который умеет.</li><li>Senior знает границы своего трека и язык соседних: performance-lead, который понимает LTV и удержание, спорит с финдиректором на равных, а не отчитывается кликами.</li><li>Senior строит карьеру как портфель кейсов с цифрами («вырастил X на Y% за Z месяцев»), а не как список обязанностей — и выбирает работу по плотности обучения, а не только по окладу.</li><li>Senior различает моду и спрос: не бежит в трек, где хайп и толпа джунов, а идёт туда, где дефицит специалистов и есть доступ к данным — потому что там быстрее растут и грейд, и ставка.</li></ul></div>
 <div class="co err"><span class="ct">⚠️ Частые ошибки</span><ul><li>Оставаться «маркетологом всего» после 2-3 лет практики: без глубокой специализации ты конкурируешь с самыми дешёвыми кандидатами на рынке, и потолок зарплаты наступает быстро.</li><li>Выбирать трек по хайпу, а не по своему типу: интроверт-аналитик, ушедший в SMM «потому что это модно», выгорит; и наоборот — креатору тоскливо в CRM-цепочках.</li><li>Судить все роли одной метрикой: требовать от бренд-кампании мгновенного ROAS или от performance — «любви к бренду». У каждой роли свой горизонт и своя метрика.</li><li>Игнорировать удержание и аналитику как «скучные» треки: там меньше конкуренции, выше дефицит и самый короткий путь к позиции, где ты влияешь на деньги бизнеса.</li></ul></div>
 <div class="chk"><span class="ct">✓ Чек-лист senior</span><label><input type="checkbox">Могу назвать основные специализации маркетинга и для каждой — суть работы и главную метрику.</label><label><input type="checkbox">Могу разложить роли по воронке (привлечение / конверсия / удержание) и объяснить, почему аналитика и CMO — сквозные.</label><label><input type="checkbox">Могу объяснить T-shaped модель и сформулировать, какая у меня перекладина и какую ножку я выбираю копать.</label><label><input type="checkbox">Могу сравнить in-house, агентство и фриланс и обосновать, какая среда подходит моему треку и этапу карьеры.</label></div>
-<div class="quiz"><div class="q">🎯 Проверь себя: Интернет-магазин растёт по новым клиентам, но 70% покупателей делают только один заказ и исчезают. Специалист какого трека должен взять эту проблему как свою основную?</div><label class="opt" onclick="quiz(this,1,0)">Performance-маркетолог — нужно докупить больше трафика, чтобы компенсировать отток</label><label class="opt" onclick="quiz(this,1,1)">Lifecycle/CRM-маркетолог — его зона это удержание: цепочки после покупки, реактивация, программа лояльности</label><label class="opt" onclick="quiz(this,1,2)">PR-специалист — нужно улучшить репутацию бренда в СМИ, тогда клиенты вернутся</label><div class="qfb">Зелёным — верный ответ. Ошибся → перечитай раздел выше.</div></div>
+<div class="quiz"><div class="q">🎯 Проверь себя: Интернет-магазин растёт по новым клиентам, но 70% покупателей делают только один заказ и исчезают. Специалист какого трека должен взять эту проблему как свою основную?</div><label class="opt" onclick="quiz(this,1,0)">Performance-маркетолог — нужно докупить больше трафика, чтобы компенсировать отток</label><label class="opt" onclick="quiz(this,1,1)">Lifecycle/CRM-маркетолог — его зона это удержание: цепочки после покупки, реактивация, программа лояльности</label><label class="opt" onclick="quiz(this,1,2)">PR-специалист — нужно улучшить репутацию бренда в СМИ, тогда клиенты вернутся</label><div class="qfb">Отток новых клиентов — зона lifecycle/CRM-маркетолога: удержание и реактивация решают причину, докупка трафика или улучшение репутации её не устраняют. Ошибся → перечитай раздел выше.</div></div>
 </div>
 <div id="c2" class="view">
 <div class="hero"><div class="eyebrow">Часть IV — Специализации · урок 2</div>
@@ -904,7 +905,7 @@ p{margin:0 0 12px} .main p:last-child{margin-bottom:0}
 <div class="co senior"><span class="ct">🎓 Как думает senior</span><ul><li>Начинает с альтернатив, а не с продукта: «с чем нас реально сравнивает клиент?» — и часто главный конкурент оказывается не компанией, а привычкой «делать по-старому».</li><li>Не верит словам продажников о причинах проигрышей — идёт к самому клиенту. Win/loss интервью для него важнее любого внутреннего мнения, включая мнение CEO.</li><li>Думает уровнями усилий: не «как запустить эту фичу погромче», а «какого tier этот запуск и что он должен изменить в позиционировании». Умеет сказать «это Tier 3, пресс-релиз не нужен».</li><li>Меряет себя метриками бизнеса: не «сделал 12 деков и 40 постов», а «win rate против конкурента X вырос с 30% до 45%, adoption новой фичи 25% за месяц».</li></ul></div>
 <div class="co err"><span class="ct">⚠️ Частые ошибки</span><ul><li>Путать мессаджинг с позиционированием: полировать слова на лендинге, когда не решено главное — в какой категории играем и против кого. Красивый текст поверх мутного позиционирования не работает.</li><li>Делать sales enablement «в стол»: presentations и battlecards, которыми продажи не пользуются. Материал без внедрения (тренинг, разбор, проверка использования) — потраченное время.</li><li>Запускать всё одинаково: фейерверк из каждой мелкой фичи выжигает внимание аудитории и команды, и когда выходит реально важное — никто уже не слушает. Нужны launch tiers.</li><li>Строить позиционирование из головы, а не из данных: без win/loss интервью и разговоров с клиентами PMM транслирует фантазии основателя, а не голос рынка — а это ровно противоположность его работы.</li></ul></div>
 <div class="chk"><span class="ct">✓ Чек-лист senior</span><label><input type="checkbox">Могу объяснить за минуту, чем PMM отличается от продакт-менеджера и от growth-маркетолога, и показать это на примере одного продукта.</label><label><input type="checkbox">Могу построить позиционирование по 5 шагам Данфорд: альтернативы → уникальные атрибуты → ценность → лучший сегмент → категория.</label><label><input type="checkbox">Могу собрать мессаджинг-хаус (главное обещание + 3 сообщения + доказательства) и присвоить релизу правильный launch tier.</label><label><input type="checkbox">Могу провести win/loss интервью с клиентом и превратить выводы в обновлённый battlecard для продаж.</label></div>
-<div class="quiz"><div class="q">🎯 Проверь себя: Отдел продаж стал чаще проигрывать сделки конкуренту. Продажники говорят: «у них дешевле». Что делает сильный PMM в первую очередь?</div><label class="opt" onclick="quiz(this,1,0)">Идёт к руководству с предложением снизить цену, раз рынок голосует деньгами</label><label class="opt" onclick="quiz(this,1,1)">Проводит win/loss интервью с ушедшими клиентами, чтобы узнать реальные причины, и уже по ним обновляет позиционирование и battlecards</label><label class="opt" onclick="quiz(this,1,2)">Запускает рекламную кампанию о преимуществах продукта, чтобы перекрыть активность конкурента</label><div class="qfb">Зелёным — верный ответ. Ошибся → перечитай раздел выше.</div></div>
+<div class="quiz"><div class="q">🎯 Проверь себя: Отдел продаж стал чаще проигрывать сделки конкуренту. Продажники говорят: «у них дешевле». Что делает сильный PMM в первую очередь?</div><label class="opt" onclick="quiz(this,1,0)">Идёт к руководству с предложением снизить цену, раз рынок голосует деньгами</label><label class="opt" onclick="quiz(this,1,1)">Проводит win/loss интервью с ушедшими клиентами, чтобы узнать реальные причины, и уже по ним обновляет позиционирование и battlecards</label><label class="opt" onclick="quiz(this,1,2)">Запускает рекламную кампанию о преимуществах продукта, чтобы перекрыть активность конкурента</label><div class="qfb">Сильный PMM сначала проводит win/loss-интервью, чтобы узнать реальные причины потерь сделок, а не сразу снижает цену или запускает рекламу. Ошибся → перечитай раздел выше.</div></div>
 </div>
 <div id="c3" class="view">
 <div class="hero"><div class="eyebrow">Часть IV — Специализации · урок 3</div>
@@ -928,7 +929,7 @@ p{margin:0 0 12px} .main p:last-child{margin-bottom:0}
 <div class="co senior"><span class="ct">🎓 Как думает senior</span><ul><li>Сначала спрашивает «где самое слабое звено воронки?», и только потом «что будем тестировать?» — эксперимент на сильном этапе — потраченный впустую месяц.</li><li>Считает retention до того, как масштабировать привлечение: лить трафик в продукт, который не удерживает, — значит платно арендовать пользователей, а не приобретать их.</li><li>Относится к проигравшим тестам как к активу: записанный вывод «не сработало, потому что…» экономит команде будущие месяцы; стыдно не проиграть тест, стыдно не задокументировать.</li><li>Не путает статзначимость со значимостью для бизнеса: +0,3% к конверсии может быть статистически достоверным, но не стоить недели разработки — и наоборот.</li></ul></div>
 <div class="co err"><span class="ct">⚠️ Частые ошибки</span><ul><li>Лить больше трафика в дырявую воронку: чинить acquisition, когда течёт activation или retention, — самый дорогой способ не расти.</li><li>Останавливать A/B-тест, как только «уже видно победителя»: на малой выборке лидер меняется несколько раз, ранняя остановка — главный источник ложных выводов.</li><li>Гипотеза без «потому что»: «давайте попробуем X» без причины из данных — это лотерея; в бэклог такие идеи попадают с Confidence = 1.</li><li>Тестировать несколько изменений сразу: если поменял и заголовок, и цену, и фото, ты не узнаешь, что именно сработало — знание не накапливается.</li></ul></div>
 <div class="chk"><span class="ct">✓ Чек-лист senior</span><label><input type="checkbox">Могу разметить воронку AARRR для конкретного бизнеса с реальными метриками на каждом этапе и назвать самое слабое звено.</label><label><input type="checkbox">Могу сформулировать гипотезу роста в формате «если — то — на сколько — потому что» и оценить её по ICE.</label><label><input type="checkbox">Могу спланировать честный A/B-тест: одна переменная, метрика успеха и выборка зафиксированы заранее, решение — по статзначимости.</label><label><input type="checkbox">Могу объяснить разницу между growth и performance и показать, где заканчивается зона performance-специалиста и продолжается зона growth.</label></div>
-<div class="quiz"><div class="q">🎯 Проверь себя: Стартап тратит весь бюджет на таргет. Регистраций много, но до первой покупки доходят 15%, а через месяц возвращаются 5%. Что в первую очередь сделает growth-маркетолог?</div><label class="opt" onclick="quiz(this,0,0)">Остановит масштабирование трафика и займётся экспериментами над активацией и удержанием — иначе каждый привлечённый пользователь сгорает впустую</label><label class="opt" onclick="quiz(this,0,1)">Увеличит бюджет на таргет: раз регистраций много, канал работает, нужно просто больше объёма</label><label class="opt" onclick="quiz(this,0,2)">Сменит рекламные креативы и добавит новые каналы привлечения, чтобы снизить стоимость регистрации</label><div class="qfb">Зелёным — верный ответ. Ошибся → перечитай раздел выше.</div></div>
+<div class="quiz"><div class="q">🎯 Проверь себя: Стартап тратит весь бюджет на таргет. Регистраций много, но до первой покупки доходят 15%, а через месяц возвращаются 5%. Что в первую очередь сделает growth-маркетолог?</div><label class="opt" onclick="quiz(this,0,0)">Остановит масштабирование трафика и займётся экспериментами над активацией и удержанием — иначе каждый привлечённый пользователь сгорает впустую</label><label class="opt" onclick="quiz(this,0,1)">Увеличит бюджет на таргет: раз регистраций много, канал работает, нужно просто больше объёма</label><label class="opt" onclick="quiz(this,0,2)">Сменит рекламные креативы и добавит новые каналы привлечения, чтобы снизить стоимость регистрации</label><div class="qfb">При низкой активации и удержании масштабирование трафика лишь ускоряет сжигание бюджета — сначала чинят конверсию в покупку и возврат пользователей. Ошибся → перечитай раздел выше.</div></div>
 </div>
 <div id="c4" class="view">
 <div class="hero"><div class="eyebrow">Часть IV — Специализации · урок 4</div>
@@ -952,7 +953,7 @@ p{margin:0 0 12px} .main p:last-child{margin-bottom:0}
 <div class="co senior"><span class="ct">🎓 Как думает senior</span><ul><li>Считает от предельного CAC, а не от бюджета: сначала «сколько мы можем платить за клиента, чтобы экономика сходилась», потом «сколько трафика мы можем купить по этой цене» — а не наоборот.</li><li>Не верит ни одному дашборду на 100%: кабинет Meta, GA4 и CRM показывают разные цифры, и senior сверяет их с самой честной метрикой — деньгами в кассе против общего рекламного бюджета (blended ROAS).</li><li>Относится к креативам как к портфелю инвестиций: постоянный конвейер тестов, где 8 из 10 креативов умрут, но 2 выживших окупят всё — и никогда не ставит весь бюджет на один «гениальный» ролик.</li><li>Задаёт вопрос об инкрементальности до масштабирования: «если я выключу этот канал, сколько продаж реально пропадёт?» — и готов пожертвовать красивым ROAS в отчёте ради правды.</li></ul></div>
 <div class="co err"><span class="ct">⚠️ Частые ошибки</span><ul><li>Считать окупаемость по ROAS из выручки, забыв про маржу: ROAS 3.0 при марже 30% — это работа в ноль, а не успех.</li><li>Молиться на ретаргетинг: у него всегда лучший ROAS в кабинете, но большая часть этих людей купила бы и без него — масштабировать надо холодный трафик, а не дожим.</li><li>Резко удваивать бюджет успешной кампании: алгоритм сбрасывает обучение, CPA взлетает, кампания «ломается». Рост — ступенями ~20%.</li><li>Тестировать десять аудиторий с одним креативом вместо одной широкой аудитории с десятью креативами: после iOS 14 креатив и есть таргетинг.</li></ul></div>
 <div class="chk"><span class="ct">✓ Чек-лист senior</span><label><input type="checkbox">Могу посчитать всю цепочку CPM → CTR → CPC → CR → CPA → CAC и найти, где в ней главный рычаг.</label><label><input type="checkbox">Могу определить безубыточный ROAS через маржу (1/маржа) и сказать, окупается ли канал на самом деле.</label><label><input type="checkbox">Могу объяснить разницу между last click и инкрементальностью и спроектировать простой тест с отключением канала.</label><label><input type="checkbox">Могу построить структуру кампании после iOS 14: консолидация, широкая аудитория, конвейер креативов с разными углами.</label></div>
-<div class="quiz"><div class="q">🎯 Проверь себя: У тебя два канала: ретаргетинг с ROAS 10 и холодный таргет с ROAS 2.5 (безубыточный ROAS = 2.2). Куда направить дополнительный бюджет на рост и почему?</div><label class="opt" onclick="quiz(this,1,0)">В ретаргетинг — у него в 4 раза выше отдача, это математически очевидно</label><label class="opt" onclick="quiz(this,1,1)">В холодный таргет — он приводит новых клиентов и масштабируем, а ретаргетинг ограничен размером тёплой аудитории и во многом дожимает тех, кто купил бы и так</label><label class="opt" onclick="quiz(this,1,2)">Поровну в оба — диверсификация всегда снижает риски</label><div class="qfb">Зелёным — верный ответ. Ошибся → перечитай раздел выше.</div></div>
+<div class="quiz"><div class="q">🎯 Проверь себя: У тебя два канала: ретаргетинг с ROAS 10 и холодный таргет с ROAS 2.5 (безубыточный ROAS = 2.2). Куда направить дополнительный бюджет на рост и почему?</div><label class="opt" onclick="quiz(this,1,0)">В ретаргетинг — у него в 4 раза выше отдача, это математически очевидно</label><label class="opt" onclick="quiz(this,1,1)">В холодный таргет — он приводит новых клиентов и масштабируем, а ретаргетинг ограничен размером тёплой аудитории и во многом дожимает тех, кто купил бы и так</label><label class="opt" onclick="quiz(this,1,2)">Поровну в оба — диверсификация всегда снижает риски</label><div class="qfb">Холодный таргет масштабируем и приводит новых клиентов, а ретаргетинг ограничен размером тёплой аудитории и часто просто дожимает тех, кто купил бы и так. Ошибся → перечитай раздел выше.</div></div>
 </div>
 <div id="c5" class="view">
 <div class="hero"><div class="eyebrow">Часть IV — Специализации · урок 5</div>
@@ -976,7 +977,7 @@ p{margin:0 0 12px} .main p:last-child{margin-bottom:0}
 <div class="co senior"><span class="ct">🎓 Как думает senior</span><ul><li>Считает бренд деньгами, а не «имиджем»: ценовая премия, доля брендового трафика, base demand при выключенной рекламе, влияние на CAC — и разговаривает с CFO на этом языке.</li><li>Думает точками входа в категорию: не «повысить узнаваемость вообще», а «в ситуации X человек должен вспомнить нас первыми» — и строит кампании под конкретные CEP.</li><li>Защищает консистентность как актив: знает, что смена логотипа, цвета или платформы «потому что приелось» сжигает годы накопленной памяти, и сопротивляется ребрендингу без данных.</li><li>Планирует на два горизонта сразу: активация закрывает квартал, бренд закрывает следующие три года — и не даёт срезать длинные деньги ради короткого отчёта.</li></ul></div>
 <div class="co err"><span class="ct">⚠️ Частые ошибки</span><ul><li>Тратить 100% бюджета на перформанс: спрос выедается, ставки растут, CAC ползёт вверх — а нового спроса никто не создаёт (перформанс-ловушка).</li><li>Мерить бренд-кампании метриками активации: требовать ROAS за неделю от охватного видео — гарантированный способ «доказать», что бренд не работает, и убить его бюджет.</li><li>Постоянно менять креатив, слоган и визуальный стиль: каждая смена обнуляет накопленную узнаваемость; отличительные активы работают через повторение годами.</li><li>Строить бренд без физической доступности: вкладываться в рекламу, когда товара нет на полке/маркетплейсе, доставка хромает, а карточка не находится в поиске — реклама сработает на конкурента.</li></ul></div>
 <div class="chk"><span class="ct">✓ Чек-лист senior</span><label><input type="checkbox">Могу объяснить владельцу бизнеса деньгами, зачем вкладываться в бренд: ценовая премия, base demand, снижение CAC — с примерами.</label><label><input type="checkbox">Могу оценить здоровье бренда: настроить простой трекинг (awareness/consideration) или собрать прокси из брендовых запросов и прямого трафика.</label><label><input type="checkbox">Могу применить правило SOV vs SOM: посчитать примерную долю голоса бренда против доли рынка и сказать, растёт он или проедает позицию.</label><label><input type="checkbox">Могу предложить сплит бюджета бренд/активация под конкретный бизнес и обосновать отклонение от базового 60/40.</label></div>
-<div class="quiz"><div class="q">🎯 Проверь себя: Бренд занимает 10% рынка, но его доля в рекламных затратах категории — 25%. Конкурент-лидер держит 40% рынка и 30% доли голоса. Что предсказывает модель ESOV?</div><label class="opt" onclick="quiz(this,1,0)">Маленький бренд переплачивает и зря сжигает бюджет — тратить надо ровно пропорционально доле рынка</label><label class="opt" onclick="quiz(this,1,1)">Маленький бренд с ESOV +15 будет отвоёвывать долю рынка, а лидер с ESOV -10 будет её постепенно терять</label><label class="opt" onclick="quiz(this,1,2)">Ничего предсказать нельзя: доля голоса влияет только на узнаваемость, а не на продажи</label><div class="qfb">Зелёным — верный ответ. Ошибся → перечитай раздел выше.</div></div>
+<div class="quiz"><div class="q">🎯 Проверь себя: Бренд занимает 10% рынка, но его доля в рекламных затратах категории — 25%. Конкурент-лидер держит 40% рынка и 30% доли голоса. Что предсказывает модель ESOV?</div><label class="opt" onclick="quiz(this,1,0)">Маленький бренд переплачивает и зря сжигает бюджет — тратить надо ровно пропорционально доле рынка</label><label class="opt" onclick="quiz(this,1,1)">Маленький бренд с ESOV +15 будет отвоёвывать долю рынка, а лидер с ESOV -10 будет её постепенно терять</label><label class="opt" onclick="quiz(this,1,2)">Ничего предсказать нельзя: доля голоса влияет только на узнаваемость, а не на продажи</label><div class="qfb">Модель ESOV предсказывает, что бренд с избыточной долей голоса относительно доли рынка отвоёвывает долю, а недоинвестирующий лидер её постепенно теряет. Ошибся → перечитай раздел выше.</div></div>
 </div>
 <div id="c6" class="view">
 <div class="hero"><div class="eyebrow">Часть IV — Специализации · урок 6</div>
@@ -1000,7 +1001,7 @@ p{margin:0 0 12px} .main p:last-child{margin-bottom:0}
 <div class="co senior"><span class="ct">🎓 Как думает senior</span><ul><li>Считает контент инвестицией с горизонтом 12-18 месяцев: перед стартом прикидывает стоимость производства кластера, прогноз трафика, конверсию и срок окупаемости — и умеет сказать «эту тему не берём, там нет покупателя».</li><li>Начинает с низа воронки: сначала закрывает все BoFu- и коммерческие запросы (где деньги), и только потом строит охватный ToFu — джун делает наоборот, потому что вверху красивее цифры трафика.</li><li>Перед созданием любой страницы смотрит выдачу и спрашивает «какой интент здесь побеждает?» — формат контента диктует поиск, а не желание команды.</li><li>Отчитывается выручкой из органики, а не позициями: если цепочка «трафик → лид → продажа» не сходится в CRM, для него канал не доказан — какие бы топы ни были.</li></ul></div>
 <div class="co err"><span class="ct">⚠️ Частые ошибки</span><ul><li>Мерить успех позициями и трафиком, а не лидами и выручкой — можно быть в топ-1 по 100 запросам и не заработать ни тенге.</li><li>Писать контент под запросы с большим объёмом, игнорируя интент: статья не встанет в выдачу, где побеждают карточки товаров, и наоборот.</li><li>«Опубликовал и забыл»: без дистрибуции (соцсети, рассылка, PR) и без регулярного обновления старых статей контент-актив тихо умирает.</li><li>Ждать результата через месяц и убивать канал на 3-м месяце — ровно перед тем, как кривая органики обычно начинает расти.</li></ul></div>
 <div class="chk"><span class="ct">✓ Чек-лист senior</span><label><input type="checkbox">Могу разложить контент-план по ToFu/MoFu/BoFu и объяснить, почему начинать надо с низа воронки.</label><label><input type="checkbox">Могу определить поисковый интент запроса по выдаче и выбрать правильный формат страницы под него.</label><label><input type="checkbox">Могу построить цепочку метрик «органический трафик → лиды → выручка» и объяснить, почему позиции — не KPI.</label><label><input type="checkbox">Могу назвать 3 конкретных действия для оптимизации под AI-поиск (AEO/GEO) и объяснить, какой контент переживёт эпоху zero-click.</label></div>
-<div class="quiz"><div class="q">🎯 Проверь себя: Статья вышла в топ-1 Google, трафик растёт три месяца подряд, но заявок с неё — ноль. Какой диагноз поставит senior в первую очередь?</div><label class="opt" onclick="quiz(this,1,0)">Нужно больше внешних ссылок — страница недостаточно авторитетна, поэтому не конвертит</label><label class="opt" onclick="quiz(this,1,1)">Запрос информационный (ToFu): читатель узнаёт, а не покупает — нужно проверить интент и достроить путь к BoFu-контенту и офферу</label><label class="opt" onclick="quiz(this,1,2)">SEO не подходит этому бизнесу — лучше перекинуть бюджет обратно в таргет</label><div class="qfb">Зелёным — верный ответ. Ошибся → перечитай раздел выше.</div></div>
+<div class="quiz"><div class="q">🎯 Проверь себя: Статья вышла в топ-1 Google, трафик растёт три месяца подряд, но заявок с неё — ноль. Какой диагноз поставит senior в первую очередь?</div><label class="opt" onclick="quiz(this,1,0)">Нужно больше внешних ссылок — страница недостаточно авторитетна, поэтому не конвертит</label><label class="opt" onclick="quiz(this,1,1)">Запрос информационный (ToFu): читатель узнаёт, а не покупает — нужно проверить интент и достроить путь к BoFu-контенту и офферу</label><label class="opt" onclick="quiz(this,1,2)">SEO не подходит этому бизнесу — лучше перекинуть бюджет обратно в таргет</label><div class="qfb">Диагноз — информационный интент запроса (ToFu): читатель ищет знания, а не покупку, нужно достроить путь к офферу, а не гнаться за ссылками. Ошибся → перечитай раздел выше.</div></div>
 </div>
 <div id="c7" class="view">
 <div class="hero"><div class="eyebrow">Часть IV — Специализации · урок 7</div>
@@ -1024,7 +1025,7 @@ p{margin:0 0 12px} .main p:last-child{margin-bottom:0}
 <div class="co senior"><span class="ct">🎓 Как думает senior</span><ul><li>Считает деньгами, а не лайками: раз в неделю смотрит цепочку reach→profile→click→lead, находит самое слабое звено и чинит его — а не «делает контент получше» вообще.</li><li>Думает форматами, а не постами: нашёл ролик с аномальным досмотром — не радуется, а спрашивает «какой это формат и как снять ещё 20 таких?».</li><li>Разделяет аренду и актив: охват из алгоритма — аренда внимания (может исчезнуть при смене алгоритма), база и комьюнити — актив; инвестирует в оба, но знает, что защищает бизнес именно второй.</li><li>Продаёт SMM внутри компании: приходит к директору не с «нам нужен контент», а с цифрой — «лид из соцсетей стоит X, из таргета Y, вот план как X снизить».</li></ul></div>
 <div class="co err"><span class="ct">⚠️ Частые ошибки</span><ul><li>Оптимизировать лайки и подписчиков вместо переходов и лидов — красивый отчёт, ноль пользы бизнесу.</li><li>Начинать ролики с логотипа, приветствия или подводки — зритель уходит до сути; первые 1–3 секунды решают судьбу всего охвата.</li><li>Постить «по наитию» без столпов и форматов: невозможно понять, что сработало, и невозможно повторить успех.</li><li>Считать комьюнити и UGC «само вырастет»: без спроектированных поводов, ритуалов и поощрения авторов не растёт ничего.</li></ul></div>
 <div class="chk"><span class="ct">✓ Чек-лист senior</span><label><input type="checkbox">Могу объяснить, как алгоритм рекомендаций решает, кому показать ролик, и назвать 2 главных сигнала (досмотр, шеры).</label><label><input type="checkbox">Могу построить контент-систему: 3–5 столпов, повторяемые форматы, календарь — и обосновать, какую задачу решает каждый столп.</label><label><input type="checkbox">Могу разобрать ролик: назвать тип хука, найти по retention-графику место, где зрители уходят, и предложить фикс.</label><label><input type="checkbox">Могу отчитаться о работе соцсетей воронкой reach→profile→click→lead и сравнить стоимость лида с платным трафиком.</label></div>
-<div class="quiz"><div class="q">🎯 Проверь себя: Директор говорит: «Наш SMM работает отлично — за месяц +40% лайков». Как на это смотрит senior SMM?</div><label class="opt" onclick="quiz(this,1,0)">Соглашается: рост лайков означает рост вовлечённости, значит алгоритм будет давать больше охвата</label><label class="opt" onclick="quiz(this,1,1)">Проверяет цепочку дальше: выросли ли переходы в профиль, клики и лиды — лайки сами по себе не показывают вклад в бизнес</label><label class="opt" onclick="quiz(this,1,2)">Предлагает закрепить успех и увеличить частоту постинга вдвое, пока алгоритм благосклонен</label><div class="qfb">Зелёным — верный ответ. Ошибся → перечитай раздел выше.</div></div>
+<div class="quiz"><div class="q">🎯 Проверь себя: Директор говорит: «Наш SMM работает отлично — за месяц +40% лайков». Как на это смотрит senior SMM?</div><label class="opt" onclick="quiz(this,1,0)">Соглашается: рост лайков означает рост вовлечённости, значит алгоритм будет давать больше охвата</label><label class="opt" onclick="quiz(this,1,1)">Проверяет цепочку дальше: выросли ли переходы в профиль, клики и лиды — лайки сами по себе не показывают вклад в бизнес</label><label class="opt" onclick="quiz(this,1,2)">Предлагает закрепить успех и увеличить частоту постинга вдвое, пока алгоритм благосклонен</label><div class="qfb">Senior проверяет, доходит ли вовлечённость до бизнес-метрик — переходов и лидов, а не принимает рост лайков за доказательство эффективности. Ошибся → перечитай раздел выше.</div></div>
 </div>
 <div id="c8" class="view">
 <div class="hero"><div class="eyebrow">Часть IV — Специализации · урок 8</div>
@@ -1048,7 +1049,7 @@ p{margin:0 0 12px} .main p:last-child{margin-bottom:0}
 <div class="co senior"><span class="ct">🎓 Как думает senior</span><ul><li>Смотрит на базу как на актив с денежной оценкой: «у нас 40 000 контактов, из них 3 000 в зоне риска — это ~15 млн ₸ выручки под угрозой, вот план спасения» — а не «давайте сделаем рассылку к празднику».</li><li>Сначала чинит retention, потом масштабирует привлечение: наливать трафик в дырявое ведро — самый дорогой способ сжечь бюджет, поэтому его первый вопрос к любому бизнесу — «покажите когорты».</li><li>Считает инкрементальность: если дать скидку 20% «чемпионам» из RFM, они купят и так — ты просто раздал маржу; офферы направляются туда, где они меняют поведение, а не туда, где приятно видеть конверсию.</li><li>Каждой метрике назначает действие: NPS без петли обратной связи, дашборд без решения и сегмент без сценария коммуникации для него — это работа в стол.</li></ul></div>
 <div class="co err"><span class="ct">⚠️ Частые ошибки</span><ul><li>Слать всей базе одно и то же («ковровая бомбардировка»): открываемость падает, люди отписываются, домен улетает в спам — сегментация это не опция, а гигиена.</li><li>Мерить рассылки открываемостью и кликами вместо денег: канал должен отчитываться выручкой и повторными покупками, иначе легко «улучшать» метрики, которые никому не нужны.</li><li>Давать скидки лояльным и забывать спящих: скидка тому, кто купил бы и так — подарок из маржи; оффер должен менять поведение, а не награждать уже случившееся.</li><li>Строить win-back, когда клиент уже ушёл, вместо ловли сигналов оттока заранее: удержать сомневающегося в разы дешевле, чем вернуть потерянного.</li></ul></div>
 <div class="chk"><span class="ct">✓ Чек-лист senior</span><label><input type="checkbox">Могу сегментировать базу по RFM в Excel/Sheets и назначить каждому сегменту свой сценарий коммуникации.</label><label><input type="checkbox">Могу спроектировать три базовые триггерные цепочки: welcome, брошенная корзина, win-back — с логикой запуска, каналами и таймингом.</label><label><input type="checkbox">Могу построить когортную таблицу и по retention-кривой сказать, выходит бизнес на плато или теряет всех клиентов.</label><label><input type="checkbox">Могу посчитать LTV по простой формуле и назвать четыре рычага его роста для конкретного бизнеса.</label></div>
-<div class="quiz"><div class="q">🎯 Проверь себя: У магазина падает прибыль. Таргет приводит новых клиентов по стабильной цене, но когортный анализ показывает: 85% клиентов покупают один раз и исчезают. Что сделает lifecycle-маркетолог в первую очередь?</div><label class="opt" onclick="quiz(this,1,0)">Увеличит бюджет на таргет — больше новых клиентов компенсируют уходящих</label><label class="opt" onclick="quiz(this,1,1)">Разберётся, почему нет второй покупки, и построит удержание (онбординг, триггеры, офферы на повтор) — дырявое ведро сначала чинят</label><label class="opt" onclick="quiz(this,1,2)">Запустит массовую скидочную рассылку по всей базе, чтобы поднять выручку в этом месяце</label><div class="qfb">Зелёным — верный ответ. Ошибся → перечитай раздел выше.</div></div>
+<div class="quiz"><div class="q">🎯 Проверь себя: У магазина падает прибыль. Таргет приводит новых клиентов по стабильной цене, но когортный анализ показывает: 85% клиентов покупают один раз и исчезают. Что сделает lifecycle-маркетолог в первую очередь?</div><label class="opt" onclick="quiz(this,1,0)">Увеличит бюджет на таргет — больше новых клиентов компенсируют уходящих</label><label class="opt" onclick="quiz(this,1,1)">Разберётся, почему нет второй покупки, и построит удержание (онбординг, триггеры, офферы на повтор) — дырявое ведро сначала чинят</label><label class="opt" onclick="quiz(this,1,2)">Запустит массовую скидочную рассылку по всей базе, чтобы поднять выручку в этом месяце</label><div class="qfb">Lifecycle-маркетолог сначала чинит удержание — онбординг, триггеры, повторные офферы; наращивать приток клиентов в дырявое ведро бессмысленно и дорого. Ошибся → перечитай раздел выше.</div></div>
 </div>
 <div id="c9" class="view">
 <div class="hero"><div class="eyebrow">Часть IV — Специализации · урок 9</div>
@@ -1072,7 +1073,7 @@ p{margin:0 0 12px} .main p:last-child{margin-bottom:0}
 <div class="co senior"><span class="ct">🎓 Как думает senior</span><ul><li>Начинает с решения, а не с данных: сначала спрашивает «какое решение мы примем по итогам этого анализа?» — если никакое, анализ не нужен.</li><li>Не верит ни одному источнику по отдельности: цифры рекламного кабинета сверяет с CRM, атрибуцию MTA калибрует инкрементальными тестами, красивый рост проверяет на сезонность и эффект новизны.</li><li>Считает ценность канала по когортам и LTV, а не по стоимости заявки: дорогой лид, который возвращается, лучше дешёвого, который исчезает.</li><li>Говорит на языке денег и рисков: не «конверсия выросла на 0,4 п.п.», а «это плюс ~2 млн ₸ выручки в месяц; уверенность средняя, проверим ещё 2 недели».</li></ul></div>
 <div class="co err"><span class="ct">⚠️ Частые ошибки</span><ul><li>Смотреть только на атрибуцию платформ: складывать «продажи» из кабинетов Meta и Google и получать больше, чем реальных заказов в CRM — каждая платформа приписывает продажу себе.</li><li>Останавливать A/B-тест в момент, когда «стало значимо» (peeking): так побеждает случайный шум; длительность и размер выборки фиксируются до старта.</li><li>Оптимизировать метрики нижнего уровня (CTR, CPM) без связи с KPI-деревом: кликабельность растёт, а выручка — нет, потому что кликают не те люди.</li><li>Строить дашборды «про всё»: 40 графиков без порогов и владельцев, по которым никто не принимает решений — это украшение, а не аналитика.</li></ul></div>
 <div class="chk"><span class="ct">✓ Чек-лист senior</span><label><input type="checkbox">Могу разложить бизнес-цель в KPI-дерево до метрик, на которые влияю руками, и по нему за 10 минут локализовать причину падения выручки.</label><label><input type="checkbox">Могу объяснить разницу MTA / MMM / инкрементальности и сказать, когда отчёту рекламного кабинета верить нельзя.</label><label><input type="checkbox">Могу спроектировать честный A/B-тест: посчитать нужную выборку до старта, зафиксировать срок и не подглядывать.</label><label><input type="checkbox">Могу сравнить два канала по когортам и LTV, а не по стоимости заявки, и обосновать перераспределение бюджета цифрами.</label></div>
-<div class="quiz"><div class="q">🎯 Проверь себя: Отчёт показывает: у ретаргетинга и брендового поиска лучший ROI среди всех каналов по последнему клику. Как на это отреагирует senior-аналитик?</div><label class="opt" onclick="quiz(this,1,0)">Перелить максимум бюджета в эти каналы — цифры ROI говорят сами за себя</label><label class="opt" onclick="quiz(this,1,1)">Усомниться: эти каналы ловят людей в конце пути и часто приписывают себе покупки, которые случились бы и так; проверить инкрементальность geo-тестом</label><label class="opt" onclick="quiz(this,1,2)">Отключить остальные каналы, раз их ROI ниже, и сэкономить бюджет</label><div class="qfb">Зелёным — верный ответ. Ошибся → перечитай раздел выше.</div></div>
+<div class="quiz"><div class="q">🎯 Проверь себя: Отчёт показывает: у ретаргетинга и брендового поиска лучший ROI среди всех каналов по последнему клику. Как на это отреагирует senior-аналитик?</div><label class="opt" onclick="quiz(this,1,0)">Перелить максимум бюджета в эти каналы — цифры ROI говорят сами за себя</label><label class="opt" onclick="quiz(this,1,1)">Усомниться: эти каналы ловят людей в конце пути и часто приписывают себе покупки, которые случились бы и так; проверить инкрементальность geo-тестом</label><label class="opt" onclick="quiz(this,1,2)">Отключить остальные каналы, раз их ROI ниже, и сэкономить бюджет</label><div class="qfb">Last-click часто приписывает ретаргетингу и брендовому поиску покупки, которые случились бы и так; нужна проверка инкрементальности через geo-тест. Ошибся → перечитай раздел выше.</div></div>
 </div>
 <div id="c10" class="view">
 <div class="hero"><div class="eyebrow">Часть IV — Специализации · урок 10</div>
@@ -1096,7 +1097,7 @@ p{margin:0 0 12px} .main p:last-child{margin-bottom:0}
 <div class="co senior"><span class="ct">🎓 Как думает senior</span><ul><li>Думает историями, а не релизами: перед любым запуском спрашивает «а что здесь заголовок для журналиста?» — и если заголовка нет, создаёт его (исследование, конфликт, цифра, первые на рынке).</li><li>Строит отношения с журналистами ДО того, как они понадобятся: помогает с фактурой и комментариями бескорыстно месяцами, чтобы в нужный момент его питч открыли первым.</li><li>Готовится к кризису в мирное время: держит карту репутационных рисков, шаблоны заявлений и одного назначенного спикера — потому что знает, что импровизация в первый час кризиса дороже года работы.</li><li>Привязывает PR к деньгам: отчитывается не «вышло 15 публикаций», а «брендовый трафик вырос на 25%, SOV догнал лидера категории, ссылки с tier-1 медиа подняли органику по коммерческим запросам».</li></ul></div>
 <div class="co err"><span class="ct">⚠️ Частые ошибки</span><ul><li>Рассылать один безликий пресс-релиз по сотне адресов вместо 10 персональных питчей журналистам, которые реально пишут на эту тему — так письма летят в спам, а репутация отправителя сгорает.</li><li>Молчать в кризис «пока разберёмся» — информационный вакуум заполнит чужая версия событий; или удалять негативные комментарии, включая эффект Стрейзанд.</li><li>Мерить PR количеством публикаций или AVE вместо влияния на бизнес: брендовый трафик, share of voice, тональность, ссылки для SEO.</li><li>Делать инфоповоды «про себя» («мы запустили», «нам 5 лет») вместо историй про читателя и рынок — журналисту нужен материал для ЕГО аудитории, а не твоя реклама бесплатно.</li></ul></div>
 <div class="chk"><span class="ct">✓ Чек-лист senior</span><label><input type="checkbox">Могу отличить paid / owned / earned media и объяснить, почему earned даёт больше доверия при меньших деньгах.</label><label><input type="checkbox">Могу написать питч журналисту: 5-7 предложений, цифра или конфликт в начале, привязка к его изданию и повестке.</label><label><input type="checkbox">Могу выстроить реакцию на кризис по правилу первого часа: признать факт, показать эмпатию, дать шаги и сроки, отчитаться.</label><label><input type="checkbox">Могу измерить эффект PR-кампании через share of voice, динамику брендовых запросов и количество/качество упоминаний — и объяснить, почему AVE не метрика.</label></div>
-<div class="quiz"><div class="q">🎯 Проверь себя: Стартап без рекламного бюджета хочет получить статью в Forbes Kazakhstan. Какой подход правильный с точки зрения PR?</div><label class="opt" onclick="quiz(this,2,0)">Отправить в редакцию пресс-релиз о запуске продукта с описанием всех его преимуществ</label><label class="opt" onclick="quiz(this,2,1)">Предложить редакции оплатить размещение статьи о компании в рекламном формате</label><label class="opt" onclick="quiz(this,2,2)">Собрать данные и упаковать историю, интересную аудитории Forbes (исследование рынка, конфликт, необычная цифра), и персонально питчнуть журналиста, который пишет на эту тему</label><div class="qfb">Зелёным — верный ответ. Ошибся → перечитай раздел выше.</div></div>
+<div class="quiz"><div class="q">🎯 Проверь себя: Стартап без рекламного бюджета хочет получить статью в Forbes Kazakhstan. Какой подход правильный с точки зрения PR?</div><label class="opt" onclick="quiz(this,2,0)">Отправить в редакцию пресс-релиз о запуске продукта с описанием всех его преимуществ</label><label class="opt" onclick="quiz(this,2,1)">Предложить редакции оплатить размещение статьи о компании в рекламном формате</label><label class="opt" onclick="quiz(this,2,2)">Собрать данные и упаковать историю, интересную аудитории Forbes (исследование рынка, конфликт, необычная цифра), и персонально питчнуть журналиста, который пишет на эту тему</label><div class="qfb">Для PR в Forbes нужна история, интересная аудитории издания, персонально запитчена профильному журналисту — пресс-релиз или платное размещение здесь не работают. Ошибся → перечитай раздел выше.</div></div>
 </div>
 <div id="c11" class="view">
 <div class="hero"><div class="eyebrow">Часть IV — Специализации · урок 11</div>
@@ -1120,7 +1121,7 @@ p{margin:0 0 12px} .main p:last-child{margin-bottom:0}
 <div class="co senior"><span class="ct">🎓 Как думает senior</span><ul><li>«Сначала диагноз, потом действия»: не запускаю ни один канал и не нанимаю ни одного человека, пока не знаю в цифрах, где именно бизнес теряет деньги.</li><li>«Говорю с собственником на языке P&amp;L»: не «охваты выросли на 40%», а «маркетинг принёс 18 млн ₸ выручки при 3 млн затрат, окупаемость клиента — 2 месяца».</li><li>«Кабинет всегда врёт в свою пользу»: верю holdout-тестам и инкрементальности, а не last-click атрибуции — Adidas на этом потерял годы бюджета.</li><li>«Стратегия — это отказ»: если я выбрал фокус на retention, я осознанно не масштабирую холодный трафик в этом квартале, и я могу объяснить почему.</li></ul></div>
 <div class="co err"><span class="ct">⚠️ Частые ошибки</span><ul><li>Остаться специалистом с должностью: продолжать самому крутить таргет вместо управления системой — команда без стратегии, а ты в операционке по уши.</li><li>Защищать бюджет охватами, подписчиками и CTR вместо выручки, CAC и ROMI — собственник слышит «расход», а не «инвестиция».</li><li>Перестраивать всё в первые 30 дней и обещать цифры роста до диагноза — потом весь год объясняешь, почему план не сошёлся.</li><li>Нанимать копию себя (ещё одного таргетолога) вместо роли под самое узкое место воронки — деньги на зарплату есть, роста нет.</li></ul></div>
 <div class="chk"><span class="ct">✓ Чек-лист senior</span><label><input type="checkbox">могу разложить маркетинговую стратегию по Румельту: честный диагноз → направляющая политика → 3–5 связных действий</label><label><input type="checkbox">могу построить бюджет от цели по выручке назад (цель → клиенты → CAC → бюджет) и защитить его перед собственником через юнит-экономику</label><label><input type="checkbox">могу приоритизировать каналы через ICE-скоринг и подготовить месячный отчёт собственнику из 5 цифр</label><label><input type="checkbox">могу составить план первых 90 дней в новой роли и решить, какие функции держать in-house, а какие отдать агентству</label></div>
-<div class="quiz"><div class="q">🎯 Проверь себя: Собственник говорит: «Урезаем маркетинг вдвое, сейчас не до него». Как реагирует сильный Head of Marketing?</div><label class="opt" onclick="quiz(this,0,0)">Показывает в цифрах, какие каналы отключатся и сколько выручки и клиентов это будет стоить через 1–3 месяца, и предлагает вариант: что резать в первую очередь с минимальным ущербом</label><label class="opt" onclick="quiz(this,0,1)">Соглашается и режет все статьи бюджета пропорционально на 50%, чтобы никого не обидеть</label><label class="opt" onclick="quiz(this,0,2)">Объясняет, что маркетинг — это долгосрочные инвестиции в бренд, и просит оставить бюджет без изменений</label><div class="qfb">Зелёным — верный ответ. Ошибся → перечитай раздел выше.</div></div>
+<div class="quiz"><div class="q">🎯 Проверь себя: Собственник говорит: «Урезаем маркетинг вдвое, сейчас не до него». Как реагирует сильный Head of Marketing?</div><label class="opt" onclick="quiz(this,0,0)">Показывает в цифрах, какие каналы отключатся и сколько выручки и клиентов это будет стоить через 1–3 месяца, и предлагает вариант: что резать в первую очередь с минимальным ущербом</label><label class="opt" onclick="quiz(this,0,1)">Соглашается и режет все статьи бюджета пропорционально на 50%, чтобы никого не обидеть</label><label class="opt" onclick="quiz(this,0,2)">Объясняет, что маркетинг — это долгосрочные инвестиции в бренд, и просит оставить бюджет без изменений</label><div class="qfb">Сильный Head of Marketing показывает в цифрах цену отключения каналов и предлагает приоритеты сокращения, а не режет бюджет поровну или просто спорит. Ошибся → перечитай раздел выше.</div></div>
 </div>
 <div id="frameworks" class="view"><div class="hero"><div class="eyebrow">Справочник</div><h2>Фреймворки</h2><p>Рабочие карточки: суть, когда применять, senior-нюанс. Кликни — раскроется.</p></div>
 <input class="search" placeholder="🔍 Поиск фреймворка…" oninput="srch(this,'#frameworks .fcard')">
@@ -1606,6 +1607,7 @@ function load(){
  if(!s.tc||typeof s.tc!=='object')s.tc={};
  if(typeof s.syncBucket!=='string')s.syncBucket='';
  if(typeof s.syncOn!=='boolean')s.syncOn=true;
+ if(s.syncOn&&!s.syncBucket)s.syncOn=false; // дефолт-бакет мёртв: синк только с явным кодом
  if(!s.mastery||typeof s.mastery!=='object')s.mastery={};
  if(!s.transfer||typeof s.transfer!=='object')s.transfer={plans:[],checkins:[]};
  if(!s.calib||typeof s.calib!=='object')s.calib={};
@@ -1614,12 +1616,30 @@ function load(){
 function save(s){localStorage.setItem(KEY,JSON.stringify(s||S));schedulePush();}
 function today(){const d=new Date();return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0');}
 function tc(){if(S.tc.date!==today())S.tc={date:today(),cards:0,lessons:0,exam:0};return S.tc;}
-function markActivity(){if(!S.days[today()]){S.days[today()]=true;save();}}
+function markActivity(){
+ if(!S.days[today()]){
+  S.days[today()]=true;
+  if(!S.freeze||typeof S.freeze!=='object')S.freeze={t:1,earned:0};
+  S.freeze.earned++;
+  if(S.freeze.earned%5===0&&S.freeze.t<2){S.freeze.t++;toast('❄ Заработана заморозка стрика (+1)');}
+  save();
+ }
+}
 function addXP(n){S.xp+=n;save();}
 function level(){
  let cur=LEVELS[0],next=null;
  for(let i=0;i<LEVELS.length;i++){if(S.xp>=LEVELS[i][0])cur=LEVELS[i];else{next=LEVELS[i];break;}}
  return {name:cur[1],base:cur[0],next:next?next[0]:null,nextName:next?next[1]:null};
+}
+function fkey(d){return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0');}
+function applyFreeze(){
+ if(!S.freeze||typeof S.freeze!=='object')S.freeze={t:1,earned:0};
+ const y=new Date();y.setDate(y.getDate()-1);
+ const db=new Date();db.setDate(db.getDate()-2);
+ if(!S.days[fkey(y)]&&S.days[fkey(db)]&&S.freeze.t>0){
+  S.days[fkey(y)]='❄';S.freeze.t--;save();
+  toast('❄ Заморозка спасла твой стрик ('+S.freeze.t+' осталось)');
+ }
 }
 function streak(){
  let n=0,d=new Date();
@@ -1736,7 +1756,7 @@ function isLesson(id){return /^(f|s|m|c)\d+$/.test(id);}
 function lessonTotal(){return document.querySelectorAll('.nl[data-lesson="1"]').length;}
 function lessonDone(id){
  if(S.done.includes(id))return;
- S.done.push(id);markActivity();tc().lessons++;addXP(40);save();paint();
+ S.done.push(id);CARDS=null;markActivity();tc().lessons++;addXP(40);save();paint();
  const t=document.querySelector('.nl[data-t="'+id+'"]');
  toast('✓ Урок пройден (+40 XP): '+(t?t.textContent.trim():id));
  const btn=document.querySelector('#'+id+' .donebtn');if(btn)syncDoneBtn(btn,id);
@@ -1809,10 +1829,14 @@ function masteryHTML(id){
  }
  return '<div class="mastery" id="mst-'+id+'">'+inner+'</div>';
 }
+function preQi(id){
+ const b=masteryBank()[id];if(!b)return -1;
+ let qi=b.qs.findIndex(q=>q.lv==='apply');return qi<0?0:qi;
+}
 function startMastery(id){
  const bank=masteryBank()[id];if(!bank)return;
  const st=mst(id);
- let idx=bank.qs.map((_,i)=>i);
+ let idx=bank.qs.map((_,i)=>i).filter(i=>i!==preQi(id)); // прогноз-вопрос не участвует в сдаче
  const ws=new Set(st.wrong||[]);
  idx=[...mShuffle(idx.filter(i=>ws.has(i))),...mShuffle(idx.filter(i=>!ws.has(i)))].slice(0,5);
  idx=mShuffle(idx);
@@ -1843,6 +1867,8 @@ function renderRecall(id){
 }
 function revealRecall(id){
  const bank=masteryBank()[id],host=document.getElementById('mst-'+id);if(!host)return;
+ const ta=host.querySelector('textarea');
+ if(ta&&ta.value.trim().length<25){toast('Сначала объясни своими словами — хотя бы пару предложений. Усилие вспомнить и есть запоминание.');return;}
  host.innerHTML='<div class="mh">Ключевые идеи урока</div>'+
   '<ol style="margin:10px 0 14px 18px;font-size:14.5px">'+bank.recall.map(r=>'<li style="margin:6px 0">'+r+'</li>').join('')+'</ol>'+
   '<p style="color:var(--muted);font-size:13.5px">Что-то упустил — вернись, перечитай тот раздел, потом жми дальше.</p>'+
@@ -1885,13 +1911,26 @@ function confMQ(sure){
  save();markActivity();
 }
 function finishMastery(){
- const id=MQ.id,qs=MQ.qs,res=MQ.res;
+ const id=MQ.id,qs=MQ.qs,res=MQ.res,part=MQ.part;
  const host=document.getElementById('mst-'+id);
  MQ=null;
  const li=qs.map((q,i)=>({q:q,ok:res[i]})).filter(x=>!x.q.inter);
  const inter=qs.map((q,i)=>({q:q,ok:res[i]})).find(x=>x.q.inter);
  const score=id==='CHAL'?res.filter(Boolean).length:li.filter(x=>x.ok).length;
  const missed=(id==='CHAL'?qs.filter((q,i)=>!res[i]):li.filter(x=>!x.ok).map(x=>x.q));
+ if(id==='PLACE'){ // экстерн по части
+  const p=part,need=Math.max(6,qs.length-1);
+  const host2=document.getElementById('mst-PLACE');
+  if(score>=need){
+   const ls=partLessons(p).filter(x=>!S.done.includes(x));
+   ls.forEach(x=>{S.done.push(x);const st2=mst(x);st2.best=Math.max(st2.best,4);st2.ts=Date.now();});
+   CARDS=null;addXP(20*ls.length);markActivity();save();paint();
+   if(host2)host2.innerHTML='<div class="mh">🏆 Экстерн сдан: '+score+' из '+qs.length+'</div><p style="color:var(--muted);font-size:14px">Часть засчитана ('+ls.length+' уроков, +'+(20*ls.length)+' XP). Уроки открыты для повторения, карточки и челлендж будут гонять этот материал.</p><button class="bigbtn" onclick="renderDash()">К дашборду</button>';
+  }else{
+   if(host2)host2.innerHTML='<div class="mh">✖ Экстерн: '+score+' из '+qs.length+' (нужно '+need+')</div><p style="color:var(--muted);font-size:14px">Значит, в этой части есть чему научиться — иди по урокам, это быстрее, чем кажется.</p><button class="bigbtn ghost" onclick="renderDash()">Ок</button>';
+  }
+  return;
+ }
  if(id==='CHAL'){ // челлендж дня: interleaving + decay
   qs.forEach((q,i)=>{const st=mst(q.lid);
    if(res[i]){st.stale=false;}
@@ -1945,7 +1984,7 @@ function aiExplain(id){
   if(j.error)throw new Error(j.error);
   host.innerHTML='<div class="mh">Разбор объяснения'+(j.score!=null?': '+j.score+'/100':'')+'</div>'+
    ((j.covered||[]).length?'<p style="font-size:13.5px">✅ Передал: '+j.covered.map(esc).join(' · ')+'</p>':'')+
-   ((j.missed||[]).length?'<p style="font-size:13.5px">⚠️ Упустил: '+j.missed.map(esc).join(' · ')+'</p>':'')+
+   ((j.missed||[]).length?'<p style="font-size:13.5px">⚠️ Доработай — ответь себе: '+j.missed.map(esc).join(' · ')+'</p>':'')+
    ((j.wrong||[]).length?'<p style="font-size:13.5px">✖ Неточно: '+j.wrong.map(esc).join(' · ')+'</p>':'')+
    (j.next?'<p style="color:var(--muted);font-size:13.5px">💡 '+esc(j.next)+'</p>':'')+
    '<button class="bigbtn" onclick="nextMQ()">Шаг 2 — вопросы ▶</button>';
@@ -2029,6 +2068,31 @@ function calibPanel(){
   '<div class="tp-item" style="cursor:default"><span class="tp-check" style="background:var(--badbg);color:var(--bad)">'+Math.round(sw/sure*100)+'%</span>уверенных ответов — ошибки ('+sw+' из '+sure+'). Это зоны иллюзии знания.</div>'+
   rows.slice(0,3).map(r=>'<div class="tp-item" onclick="show(\''+r.id+'\')"><span class="tp-check">→</span>'+esc(lessonTitle(r.id))+' — уверенных ошибок: '+r.sw+'</div>').join('')+'</div>';
 }
+
+/* ===== placement: экстерн по части курса (Math Academy diagnostic) ===== */
+function partLessons(p){return [...document.querySelectorAll('.nl[data-lesson="1"]')].map(n=>n.dataset.t).filter(id=>id[0]===p);}
+function placePanel(){
+ if(S.placeHide)return '';
+ if(S.done.filter(isLesson).length>=3)return '';
+ return '<div class="sec-t" style="margin-top:22px">🚀 Уже знаешь маркетинг?</div><div class="mastery" id="mst-PLACE" style="margin:0">'+
+  '<p style="color:var(--muted);font-size:14px;margin:0 0 10px">Сдай часть курса экстерном: 8 сложных вопросов, нужно 7 верных — вся часть засчитается, и ты не будешь скучать на азах. Провал ничего не ломает.</p>'+
+  PARTS.map(pt=>{const ls=partLessons(pt.p);const dn=ls.filter(id=>S.done.includes(id)).length;
+   return dn>=ls.length?'':'<button class="bigbtn ghost" style="margin:2px 4px 2px 0" onclick="startPlacement(\''+pt.p+'\')">'+pt.t+'</button>';}).join('')+
+  '<div><button class="bigbtn ghost" style="margin-top:8px;font-size:12px;padding:6px 10px" onclick="S.placeHide=1;save();renderDash()">Я учусь с нуля — скрыть</button></div></div>';
+}
+function startPlacement(p){
+ const mb=masteryBank();
+ const undone=partLessons(p).filter(id=>!S.done.includes(id)&&mb[id]);
+ let qs=[];
+ undone.forEach(id=>{mb[id].qs.forEach((q,i)=>{if(q.lv!=='recall')qs.push(Object.assign({bi:i,lid:id},q));});});
+ qs=mShuffle(qs);
+ // не больше 2 вопросов с одного урока
+ const cnt={},pick=[];
+ for(const q of qs){cnt[q.lid]=(cnt[q.lid]||0);if(cnt[q.lid]>=2)continue;cnt[q.lid]++;pick.push(q);if(pick.length===8)break;}
+ if(pick.length<6){toast('Эта часть почти пройдена — экстерн не нужен');return;}
+ MQ={id:'PLACE',part:p,qs:pick,i:-1,right:0,res:[],wrongNow:[],answered:false,pend:null};
+ nextMQ();
+}
 /* ===== ИИ-дрилл: бесконечные свежие вопросы ===== */
 let AIQ=null;
 function aiDrill(){
@@ -2062,12 +2126,13 @@ function aiDrillAns(el){
 /* ===== pretesting: прогноз-вопрос до урока (метаанализ 2023, g=0.54) ===== */
 function preHTML(id){
  const b=masteryBank()[id];if(!b)return '';
- let qi=b.qs.findIndex(q=>q.lv==='apply');if(qi<0)qi=0;
+ const qi=preQi(id);
  const q=b.qs[qi],order=mShuffle([0,1,2,3]);
  return '<div class="mastery mpre" id="pre-'+id+'"><span class="mchip">🔮 Прогноз до урока — попробуй угадать</span>'+
   '<div class="q" style="font-weight:800;margin-bottom:10px">'+q.q+'</div>'+
   order.map(k=>'<label class="opt" data-k="'+k+'" onclick="ansPre(this,\''+id+'\','+qi+')">'+q.o[k]+'</label>').join('')+
-  '<div class="mwhy"></div></div>';
+  '<div class="mwhy"></div>'+
+  '<p style="margin:10px 0 0;font-size:12.5px"><a href="#" style="color:var(--muted)" onclick="document.getElementById(\'mst-'+id+'\').scrollIntoView({behavior:\'smooth\'});return false">⬇ уже читал — сразу к проверке мастерства</a></p></div>';
 }
 function ansPre(el,id,qi){
  const host=document.getElementById('pre-'+id);if(!host||host.dataset.a)return;host.dataset.a='1';
@@ -2118,6 +2183,13 @@ function buildCards(){
   if(h&&e)CARDS.push({id:'fw'+i,src:'Фреймворк',front:h.innerText.trim(),
    back:e.innerText.trim()+(w?'\n\n'+w.innerText.trim():'')});
  });
+ // карточки из сданных уроков: 3 ключевые идеи (successive relearning контента)
+ const mbk=masteryBank();
+ for(const lid in mbk){
+  if(!S.done.includes(lid))continue;
+  CARDS.push({id:'l'+lid,src:'Урок',front:'Назови 3 ключевые идеи урока «'+lessonTitle(lid)+'»',
+   back:mbk[lid].recall.map((r,i)=>(i+1)+'. '+r).join('\n')});
+ }
  return CARDS;
 }
 function dueCards(){
@@ -2138,7 +2210,7 @@ function nextCard(){
  document.getElementById('tr-stats').innerHTML=
   '<div class="kpi"><b>'+TQ.length+'</b><span>в очереди</span></div>'+
   '<div class="kpi"><b>'+TDONE+'</b><span>за сессию</span></div>'+
-  '<div class="kpi"><b>'+learned+' / '+total+'</b><span>карточек в работе</span></div>';
+  '<div class="kpi"><b>'+learned+' / '+total+'</b><span>в работе · открываются по мере уроков</span></div>';
  if(!TQ.length){
   TCUR=null;
   host.innerHTML='<div class="co tip"><span class="ct">🎉 Очередь пуста</span>Все карточки на сегодня повторены. Возвращайся завтра — интервалы работают на тебя. Или пройди <a href="#exam" onclick="show(\'exam\')">экзамен</a>.</div>';
@@ -2172,15 +2244,19 @@ function grade(g){
   st.box=Math.min(st.box+(g===2?2:1),INT.length-1);
   if(st.box<1)st.box=1;
   st.due=Date.now()+INT[st.box];
+  // successive relearning: 3 успешных интервальных повтора = закреплено, дальше только maintenance раз в полгода
+  st.wins=(st.wins||0)+1;
+  if(st.wins>=3&&st.box>=4){st.ret=1;st.due=Date.now()+180*DAY;}
   TQ.shift();TDONE++;tc().cards++;addXP(2);
  }
+ if(g===0){st.wins=0;st.ret=0;}
  S.cards[TCUR.id]=st;markActivity();save();
  nextCard();
 }
 function esc(s){const d=document.createElement('div');d.textContent=s;return d.innerHTML;}
 
 /* ===== экзамен (банк вопросов с объяснениями) ===== */
-let POOL=null,EQ=[],EI=0,ESC=0,EANS=false,EDIFF=0;
+let POOL=null,EQ=[],EI=0,ESC=0,EANS=false,EDIFF=0,EMODE=null;
 function buildPool(){
  if(POOL)return POOL;
  POOL=[];
@@ -2193,7 +2269,7 @@ function buildPool(){
  // 2) плюс банк «Проверки мастерства» из уроков
  const mb=masteryBank(),PT={f:'Уроки: Фундамент',s:'Уроки: Система',m:'Уроки: Мастерство',c:'Уроки: Специализации'};
  for(const lid in mb){
-  (mb[lid].qs||[]).forEach(q=>POOL.push({q:q.q,opts:q.o.map((t,i)=>({text:t,correct:i===q.c})),why:q.why||'',diff:q.lv==='recall'?1:(q.lv==='apply'?2:3),t:PT[lid[0]]||'Из уроков'}));
+  (mb[lid].qs||[]).forEach(q=>POOL.push({q:q.q,opts:q.o.map((t,i)=>({text:t,correct:i===q.c})),why:q.why||'',diff:q.lv==='recall'?1:(q.lv==='apply'?2:3),t:PT[lid[0]]||'Из уроков',lid:lid}));
  }
  return POOL;
 }
@@ -2208,15 +2284,28 @@ function renderExamHome(){
    '<div class="kpi"><b>'+buildPool().length+'</b><span>вопросов в базе</span></div>'+
    '<div class="kpi"><b>'+(best===null?'—':best+'%')+'</b><span>лучший результат</span></div>'+
    '<div class="kpi"><b>'+S.exams.length+'</b><span>попыток</span></div></div>'+
+  '<div class="sec-t">Охват</div>'+
+  '<div class="difseg">'+[['done','Только пройденное'],['all','Весь курс']].map(m=>'<button class="difbtn'+(examMode()===m[0]?' on':'')+'" onclick="EMODE=\''+m[0]+'\';renderExamHome()">'+m[1]+'</button>').join('')+'</div>'+
+  (examMode()==='all'&&S.done.filter(isLesson).length<lessonTotal()?'<p style="font-size:12.5px;color:var(--muted);margin:6px 0 0">⚠️ Весь курс = будут вопросы из непройденных тем. Это нормально для примерки, но честный замер — «Только пройденное».</p>':'')+
   '<div class="sec-t">Сложность</div>'+
   '<div class="difseg">'+diffs.map(d=>'<button class="difbtn'+(EDIFF===d[0]?' on':'')+'" onclick="EDIFF='+d[0]+';renderExamHome()">'+d[1]+'</button>').join('')+'</div>'+
-  '<button class="bigbtn" style="margin-top:14px" onclick="startExam()">▶ Начать экзамен — 12 вопросов</button> '+(topicRows().length?'<button class="bigbtn ghost" style="margin-top:14px" onclick="drillWeak()">🎯 Дрилл слабых тем</button>':'')+(topicRows().length?('<div class="sec-t">Точность по темам</div><div class="tstats">'+topicRows().map(r=>'<div class="trow"><span class="tname">'+esc(r.t)+'</span><div class="tbar"><div class="tbarf '+(r.acc<50?'bad':r.acc<70?'mid':'ok')+'" style="width:'+r.acc+'%"></div></div><span class="tacc">'+r.acc+'%</span></div>').join('')+'</div>'):'')+
+  '<button class="bigbtn" style="margin-top:14px" onclick="startExam()">▶ Начать экзамен — 12 вопросов · ~10 мин</button> '+(topicRows().length?'<button class="bigbtn ghost" style="margin-top:14px" onclick="drillWeak()">🎯 Дрилл слабых тем</button>':'')+(topicRows().length?('<div class="sec-t">Точность по темам</div><div class="tstats">'+topicRows().map(r=>'<div class="trow"><span class="tname">'+esc(r.t)+'</span><div class="tbar"><div class="tbarf '+(r.acc<50?'bad':r.acc<70?'mid':'ok')+'" style="width:'+r.acc+'%"></div></div><span class="tacc">'+r.acc+'%</span></div>').join('')+'</div>'):'')+
   (graderURL()?'<button class="bigbtn ghost" style="margin-top:14px" onclick="aiDrill()">🤖 Бесконечный дрилл — ИИ пишет свежие вопросы</button> ':'')+
   '<div class="co tip" style="margin-top:16px"><span class="ct">💡 Как готовиться к собеседованию</span>Ставь уровень <b>Senior</b> — это вопросы на трейдоффы и приоритизацию, которые задают на реальных интервью Head of Marketing. После каждого ответа читай объяснение «почему».</div>'+
   (hist?'<div class="sec-t">Последние попытки</div><div class="exhist">'+hist+'</div>':'');
 }
+function examMode(){
+ if(EMODE)return EMODE;
+ const dn=S.done.filter(isLesson).length;
+ return dn>=1&&dn<lessonTotal()?'done':'all';
+}
 function startExam(weak){
  let pool=buildPool().filter(q=>!EDIFF||q.diff===EDIFF);
+ if(examMode()==='done'){
+  const dset=new Set(S.done);
+  const dp=pool.filter(q=>q.lid&&dset.has(q.lid));
+  if(dp.length>=12)pool=dp;else toast('По пройденному пока мало вопросов — беру весь курс');
+ }
  if(pool.length<4)pool=[...buildPool()];
  if(weak){const w=weakTopicSet();const wp=pool.filter(q=>w.has(q.t));if(wp.length>=8)pool=wp;}
  pool=[...pool];
@@ -2226,12 +2315,13 @@ function startExam(weak){
 function renderExamQ(){
  const host=document.getElementById('ex-body');EANS=false;
  if(EI>=EQ.length){
-  const rec={date:today(),score:ESC,total:EQ.length};
-  S.exams.push(rec);markActivity();tc().exam++;addXP(10+ESC*5);save();
   const p=Math.round(ESC/EQ.length*100);
-  host.innerHTML='<div class="co '+(p>=80?'tip':'')+'" style="text-align:center">'+
+  const rec={date:today(),score:ESC,total:EQ.length,pass:p>=80,master:p>=90};
+  S.exams.push(rec);markActivity();tc().exam++;addXP(10+ESC*5+(p>=90?15:0));save();
+  host.innerHTML='<div class="co '+(p>=80?'tip':'err')+'" style="text-align:center">'+
    '<div style="font-size:42px;font-weight:800;margin-bottom:6px">'+ESC+' / '+EQ.length+'</div>'+
-   '<div>+'+(10+ESC*5)+' XP · '+(p>=80?'🏆 Senior-уровень. Так держать.':p>=50?'Неплохо, но перечитай уроки, где ошибся.':'Слабо. Вернись к урокам и карточкам — потом снова.')+'</div></div>'+
+   '<div>+'+(10+ESC*5+(p>=90?15:0))+' XP · '+(p>=90?'🏆 МАСТЕР (90%+, бонус +15 XP). Уровень собеседования.':p>=80?'✅ Сдано — порог 80% взят.':'✖ Не сдано: порог 80%. Это не приговор — дрилл слабых тем и пересдача.')+'</div></div>'+
+   (p<80&&topicRows().length?'<button class="bigbtn" onclick="drillWeak()">🎯 Дрилл слабых тем → пересдача</button> ':'')+
    '<button class="bigbtn" onclick="startExam()">Ещё раз</button> '+
    '<button class="bigbtn ghost" onclick="renderExamHome()">К результатам</button>';
   renderDash();return;
@@ -2259,7 +2349,7 @@ function examAns(el,ok){
 }
 
 /* ===== заметки ===== */
-function noteChange(id,el){S.notes[id]=el.value;save();}
+function noteChange(id,el){S.notes[id]=el.value;save();const t=el.parentElement.querySelector('.note-t span');if(t)t.textContent='— сохранено ✓';}
 
 /* ===== ачивки ===== */
 function achievements(){
@@ -2288,7 +2378,7 @@ function todayPlan(){
  else items.push({done:true,txt:'Все уроки пройдены',act:null});
  const lastExam=S.exams.length?S.exams[S.exams.length-1].date:null;
  const needExam=!lastExam||(new Date(today())-new Date(lastExam))/DAY>=3;
- if(needExam)items.push({done:t.exam>=1,txt:t.exam>=1?'Экзамен сдан ✓':'Экзамен (раз в 3 дня)',act:'exam'});
+ if(needExam)items.push({done:t.exam>=1,txt:t.exam>=1?'Экзамен сдан ✓':'Экзамен: 12 вопросов, ~10 мин (раз в 3 дня)',act:'exam'});
  return items;
 }
 function nextLesson(){
@@ -2340,6 +2430,7 @@ function renderDash(){
    '<div class="kpi"><b>'+due+'</b><span>карточек к повторению</span></div>'+
    '<div class="kpi"><b>'+best+'</b><span>лучший экзамен</span></div></div>'+
   achHtml+
+  placePanel()+
   transferPanel()+
   chalPanel()+
   calibPanel()+
@@ -2347,7 +2438,7 @@ function renderDash(){
   '<div class="dbars">'+bars+'</div>'+
   '<div class="dactions">'+resume+
    '<button class="bigbtn ghost" onclick="show(\'trainer\')">🎴 Тренажёр'+(due?' ('+due+')':'')+'</button>'+
-   '<button class="bigbtn ghost" onclick="show(\'exam\')">📝 Экзамен</button></div>'+
+   '<button class="bigbtn ghost" onclick="show(\'exam\')">📝 Экзамен · 12 вопросов ~10 мин</button></div>'+
   '<div class="dio">☁ <span id="sync-dot"></span> · <a href="#" onclick="show(\'sync\');return false">настроить синхронизацию между устройствами</a></div>';
  setSyncStatus(syncState);
 }
@@ -2365,6 +2456,11 @@ function importProgress(inp){
 }
 
 /* ===== экран синхронизации ===== */
+function resetProgress(){
+ if(!confirm('Сбросить ВЕСЬ прогресс (уроки, XP, карточки, планы)? Это необратимо.'))return;
+ if(!confirm('Точно? Второе подтверждение.'))return;
+ localStorage.removeItem(KEY);location.reload();
+}
 function renderSync(){
  const host=document.getElementById('sync-body');if(!host)return;
  host.innerHTML=
@@ -2383,7 +2479,8 @@ function renderSync(){
   '<div class="co" style="margin-top:14px"><span class="ct">⚠️ Первый раз</span>Личный код привязан к почте <b>kazsultan.uni@gmail.com</b>. Один раз проверь ящик и нажми ссылку подтверждения от kvdb.io — после этого синк заработает на всех устройствах. Если письма нет — просто задай <b>свой</b> код (12+ символов), он создастся автоматически.</div>'+
   '<div class="synccard" style="margin-top:14px">'+'<div class="sec-t" style="margin-top:0">🤖 ИИ-разбор ответов (Кейс-тренажёр)</div>'+'<p style="font-size:13px;color:var(--muted);margin:0 0 8px">Чтобы Claude оценивал твои открытые ответы: на Mac запусти <b>grader/start.sh</b>, скопируй показанный адрес (https://…trycloudflare.com) и вставь сюда.</p>'+'<div class="syncrow"><input class="syncinp" id="grader-url" value="'+esc(S.graderUrl||'')+'" placeholder="https://xxxx.trycloudflare.com">'+'<button class="bigbtn ghost" onclick="saveGrader()">Сохранить</button></div>'+'<div class="dio" id="grader-stat" style="margin-top:8px"></div></div>'+
   '<div class="co" style="margin-top:14px"><span class="ct">💾 Резервная копия файлом</span>Можно и без облака: <a href="#" onclick="exportProgress();return false">скачать файл прогресса</a> и <a href="#" onclick="document.getElementById(\'imp\').click();return false">загрузить его</a> на другом устройстве.'+
-   '<input type="file" id="imp" accept=".json" style="display:none" onchange="importProgress(this)"></div>';
+   '<input type="file" id="imp" accept=".json" style="display:none" onchange="importProgress(this)"></div>'+
+  '<div class="co err" style="margin-top:14px"><span class="ct">🗑 Опасная зона</span><a href="#" onclick="resetProgress();return false">Сбросить весь прогресс</a> — двойное подтверждение, необратимо.</div>';
  setSyncStatus(syncState);
 }
 function toggleSync(on){S.syncOn=on;save();setSyncStatus(on?'idle':'off');if(on)pushCloud();}
@@ -2502,13 +2599,14 @@ function renderCases(){
  const cards=sc.map((s,i)=>{
   const d=done[i];
   return '<div class="ccase" onclick="CASEI='+i+';renderCases()">'+
-   '<div class="ccase-h"><span class="cdom">'+esc(s.domain)+'</span>'+(d?'<span class="cdone">✓ '+d+'</span>':'')+'</div>'+
+   '<div class="ccase-h"><span class="cdom">'+esc(s.domain)+' · ~20 мин</span>'+(d?'<span class="cdone">✓ '+d+'</span>':'<span class="cdone" style="background:var(--bg);color:var(--muted)">не решён</span>')+'</div>'+
    '<div class="ccase-t">'+esc(s.title)+'</div></div>';
  }).join('');
  const cfg=graderURL()?'':'<div class="co err"><span class="ct">⚠️ Грейдер не подключён</span>Чтобы ИИ проверял твои ответы, запусти грейдер на Mac и впиши его адрес в <a href="#sync" onclick="show(\'sync\');return false">Синхронизация → ИИ-разбор</a>. Без него можно писать ответ и сверяться с эталоном вручную.</div>';
  host.innerHTML=cfg+'<div class="ccases">'+cards+'</div>';
 }
 function renderCaseOne(s){
+ CHL=0;
  const host=document.getElementById('cases-body');
  const i=CASEI;
  const rub=s.rubric.map(r=>'<li><b>'+esc(r.criterion)+':</b> '+esc(r.strong)+'</li>').join('');
@@ -2523,11 +2621,26 @@ function renderCaseOne(s){
    '<details class="crub"><summary>Показать рубрику (по чему оценивают)</summary><ul>'+rub+'</ul></details>'+
    '<textarea class="caseinp" id="case-inp" placeholder="Твой развёрнутый ответ… Рассуждай как Head of Marketing: диагноз, приоритеты, цифры.">'+esc(saved)+'</textarea>'+
    '<div class="caserow"><button class="bigbtn" id="case-submit" onclick="submitCase()">🤖 Проверить ответ у Claude</button>'+
+    (graderURL()?'<button class="bigbtn ghost" id="case-hint" onclick="caseHint()">💡 Подсказка (не решение)</button>':'')+
     '<button class="bigbtn ghost" onclick="revealModel()">Показать эталон без проверки</button></div>'+
+   '<div id="case-hints"></div>'+
    '<div id="case-result"></div>'+
   '</div>';
  const ta=document.getElementById('case-inp');
  ta.oninput=()=>{S.caseAnswers=S.caseAnswers||{};S.caseAnswers[i]=ta.value;save();};
+}
+let CHL=0;
+function caseHint(){
+ const s=scenarios()[CASEI];if(!s||!graderURL())return;
+ CHL=Math.min(3,CHL+1);
+ const box=document.getElementById('case-hints');if(!box)return;
+ const lvl=['','Наводящий вопрос','Направление','Аналогия'][CHL];
+ box.innerHTML+='<div class="mwhy" style="display:block" id="chint-'+CHL+'">💡 Уровень '+CHL+' ('+lvl+'): думаю…</div>';
+ fetch(graderURL()+'/grade',{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({kind:'hint',situation:s.situation,question:s.question,answer:(document.getElementById('case-inp')||{value:''}).value,level:CHL})})
+ .then(r=>r.json()).then(j=>{
+  const el=document.getElementById('chint-'+CHL);
+  if(el)el.innerHTML='💡 <b>Уровень '+CHL+' ('+lvl+'):</b> '+esc(j.hint||j.error||'…')+(CHL<3?'':'<br><span style="color:var(--muted);font-size:12px">Дальше подсказок нет — реши сам, полный разбор будет после проверки ответа.</span>');
+ }).catch(e=>{const el=document.getElementById('chint-'+CHL);if(el)el.textContent='ИИ недоступен: '+e.message;});
 }
 function revealModel(){
  const s=scenarios()[CASEI];
@@ -2655,7 +2768,16 @@ addEventListener('hashchange',()=>{
  const cur=document.querySelector('.view.active');
  if(h&&document.getElementById(h)&&(!cur||cur.id!==h))show(h);
 });
+addEventListener('scroll',()=>{
+ const bar=document.getElementById('readbar');if(!bar)return;
+ const v=document.querySelector('.view.active');
+ if(!v||!isLesson(v.id)){bar.style.width='0';return;}
+ const max=document.documentElement.scrollHeight-innerHeight;
+ bar.style.width=(max>0?Math.min(100,Math.round(scrollY/max*100)):0)+'%';
+},{passive:true});
 addEventListener('DOMContentLoaded',()=>{
+ const rb=document.createElement('div');rb.id='readbar';document.body.appendChild(rb);
+ applyFreeze();
  injectUI();renderDash();paint();
  const h=location.hash.replace('#','');
  show(h&&document.getElementById(h)?h:'home');

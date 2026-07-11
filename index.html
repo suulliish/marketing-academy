@@ -102,8 +102,20 @@ p{margin:0 0 12px} .main p:last-child{margin-bottom:0}
 .mchip{display:inline-block;font-size:11px;font-weight:700;padding:2px 8px;border-radius:20px;background:var(--bg);border:1px solid var(--line);color:var(--muted);margin-bottom:8px}
 .mwhy{font-size:13.5px;margin-top:10px;padding:10px 12px;border-radius:var(--r-xs);background:var(--bg);display:none}
 .opt.sel{border-color:var(--accent);box-shadow:inset 0 0 0 1px var(--accent)}
-.methoddeep details{margin:8px 0;padding:10px 12px;border:1px solid var(--line);border-radius:var(--r-xs);background:var(--bg)}
-.methoddeep summary{cursor:pointer;font-weight:600;color:var(--accent)}
+.methoddeep{margin-top:24px}
+.deep-head{margin:8px 0 12px;padding-top:16px;border-top:2px solid var(--line)}
+.deep-t{font-weight:800;font-size:18px;display:block}
+.deep-sub{font-size:13px;color:var(--muted)}
+.methoddeep .drow{margin:8px 0;border:1px solid var(--line);border-radius:var(--r-xs);background:#fff;overflow:hidden}
+.methoddeep .drow>summary{cursor:pointer;padding:14px 16px;font-weight:700;font-size:15px;list-style:none;background:var(--bg);transition:.12s}
+.methoddeep .drow>summary::-webkit-details-marker{display:none}
+.methoddeep .drow>summary::before{content:'▸ ';color:var(--accent);font-weight:800}
+.methoddeep .drow[open]>summary::before{content:'▾ '}
+.methoddeep .drow[open]>summary{border-bottom:1px solid var(--line)}
+.methoddeep .drow-b{padding:4px 16px 12px}
+.methoddeep .drow-b .co{margin:12px 0}
+.methoddeep .drow-b details{margin:8px 0;padding:10px 12px;border:1px solid var(--line);border-radius:var(--r-xs);background:var(--bg)}
+.methoddeep .drow-b details summary{cursor:pointer;font-weight:600;color:var(--accent)}
 .methoddeep table{border-collapse:collapse;width:100%;margin:8px 0;font-size:14px}
 .methoddeep td,.methoddeep th{border:1px solid var(--line);padding:6px 9px;text-align:left}
 
@@ -1811,6 +1823,17 @@ function srch(box,sel){const v=box.value.toLowerCase();document.querySelectorAll
 let MBANK=null;
 let DEPTH=null;
 function depthBank(){if(DEPTH)return DEPTH;try{DEPTH=JSON.parse(document.getElementById('depth-bank').textContent);}catch(e){DEPTH={};}return DEPTH;}
+function structureDepth(html){
+ const parts=html.split(/(?=<div class="sec-t">)/).filter(p=>p.trim());
+ let rows='';
+ parts.forEach((p,idx)=>{
+  const m=p.match(/<div class="sec-t">([\s\S]*?)<\/div>/);
+  if(!m){rows+=p;return;}
+  const title=m[1],body=p.slice(m.index+m[0].length);
+  rows+='<details class="drow"'+(idx===0?' open':'')+'><summary>'+title+'</summary><div class="drow-b">'+body+'</div></details>';
+ });
+ return '<div class="deep-head"><span class="deep-t">🎓 Глубокие разборы</span><span class="deep-sub">разбери каждый метод на примере — жми, чтобы раскрыть</span></div>'+rows;
+}
 let SITU=null;
 function situBank(){if(SITU)return SITU;try{SITU=JSON.parse(document.getElementById('situ-bank').textContent);}catch(e){SITU={};}return SITU;}
 function situSt(id){if(!S.situ||typeof S.situ!=='object')S.situ={};if(!S.situ[id])S.situ[id]={done:false,best:0,ans:''};return S.situ[id];}
@@ -1854,7 +1877,7 @@ function submitSitu(id){
    ((j.gaps||[]).length?'<b>Пробелы:</b> '+j.gaps.map(esc).join('; ')+'<br>':'')+
    (j.next?'<b>Дальше:</b> '+esc(j.next):'')+'</div>'+
    '<details style="margin-top:10px"><summary style="cursor:pointer;color:var(--accent)">Сверить с эталоном</summary>'+situModel(id)+'</details>';
- }).catch(e=>{box.innerHTML='<div class="co err"><span class="ct">ИИ недоступен: '+esc(e.message)+'</span>Сверься с эталоном сам:</div>'+situModel(id);});
+ }).catch(e=>{const a=/401|authenticate|Invalid auth/i.test(e.message);box.innerHTML='<div class="co err"><span class="ct">'+(a?'ИИ не авторизован':'ИИ недоступен')+'</span>'+(a?'На Mac один раз: <b>claude setup-token</b> → вставь токен в grader/.token (см. grader/SETUP.md). Пока сверься с эталоном:':'('+esc(e.message)+') Сверься с эталоном сам:')+'</div>'+situModel(id);});
 }
 function masteryBank(){
  if(MBANK)return MBANK;
@@ -2598,7 +2621,7 @@ function renderSync(){
    '<div class="dio" style="margin-top:12px">Статус: <span id="sync-dot"></span></div>'+
   '</div>'+
   '<div class="co" style="margin-top:14px"><span class="ct">⚠️ Первый раз</span>Личный код привязан к почте <b>kazsultan.uni@gmail.com</b>. Один раз проверь ящик и нажми ссылку подтверждения от kvdb.io — после этого синк заработает на всех устройствах. Если письма нет — просто задай <b>свой</b> код (12+ символов), он создастся автоматически.</div>'+
-  '<div class="synccard" style="margin-top:14px">'+'<div class="sec-t" style="margin-top:0">🤖 ИИ-разбор ответов (Кейс-тренажёр)</div>'+'<p style="font-size:13px;color:var(--muted);margin:0 0 8px">Чтобы Claude оценивал твои открытые ответы: на Mac запусти <b>grader/start.sh</b>, скопируй показанный адрес (https://…trycloudflare.com) и вставь сюда.</p>'+'<div class="syncrow"><input class="syncinp" id="grader-url" value="'+esc(S.graderUrl||'')+'" placeholder="https://xxxx.trycloudflare.com">'+'<button class="bigbtn ghost" onclick="saveGrader()">Сохранить</button></div>'+'<div class="dio" id="grader-stat" style="margin-top:8px"></div></div>'+
+  '<div class="synccard" style="margin-top:14px">'+'<div class="sec-t" style="margin-top:0">🤖 ИИ-разбор ответов (Кейс-тренажёр)</div>'+'<p style="font-size:13px;color:var(--muted);margin:0 0 8px">Чтобы Claude оценивал твои открытые ответы: на Mac запусти <b>grader/start.sh</b>, скопируй показанный адрес (https://…trycloudflare.com) и вставь сюда.</p>'+'<div class="syncrow"><input class="syncinp" id="grader-url" value="'+esc(S.graderUrl||'')+'" placeholder="https://xxxx.trycloudflare.com">'+'<button class="bigbtn ghost" onclick="saveGrader()">Сохранить</button></div>'+'<button class="bigbtn" style="margin-top:8px" onclick="autoGrader()">🔍 Найти грейдер автоматически (на этом Mac)</button>'+'<div class="dio" id="grader-stat" style="margin-top:8px"></div></div>'+
   '<div class="co" style="margin-top:14px"><span class="ct">💾 Резервная копия файлом</span>Можно и без облака: <a href="#" onclick="exportProgress();return false">скачать файл прогресса</a> и <a href="#" onclick="document.getElementById(\'imp\').click();return false">загрузить его</a> на другом устройстве.'+
    '<input type="file" id="imp" accept=".json" style="display:none" onchange="importProgress(this)"></div>'+
   '<div class="co err" style="margin-top:14px"><span class="ct">🗑 Опасная зона</span><a href="#" onclick="resetProgress();return false">Сбросить весь прогресс</a> — двойное подтверждение, необратимо.</div>';
@@ -2680,7 +2703,7 @@ function injectUI(){
    if(hero){const ph=document.createElement('div');ph.innerHTML=preHTML(v.id);if(ph.firstChild)hero.after(ph.firstChild);}
   }
   if(depthBank()[v.id]){
-   const dp=document.createElement('div');dp.className='methoddeep';dp.innerHTML=depthBank()[v.id];v.appendChild(dp);
+   const dp=document.createElement('div');dp.className='methoddeep';dp.innerHTML=structureDepth(depthBank()[v.id]);v.appendChild(dp);
   }
   const wrap=document.createElement('div');wrap.className='lesson-foot';
   let btn=null;
@@ -2806,7 +2829,21 @@ async function submitCase(){
  }finally{btn.disabled=false;btn.textContent='🤖 Проверить ответ у Claude';}
 }
 
-function saveGrader(){const v=document.getElementById('grader-url').value.trim().replace(/\/+$/,'');S.graderUrl=v;save();const st=document.getElementById('grader-stat');if(st)st.textContent='Проверяю…';fetch(v+'/health').then(r=>r.json()).then(j=>{if(st)st.textContent=j.ok?('🟢 грейдер на связи ('+j.mode+', '+j.model+')'):'🔴 отвечает, но странно';toast('Грейдер подключён');}).catch(()=>{if(st)st.textContent='🔴 не отвечает — запущен ли start.sh?';});}
+function autoGrader(){
+ const st=document.getElementById('grader-stat');if(st)st.textContent='Ищу грейдер на этом Mac…';
+ fetch('http://localhost:8790/url').then(r=>r.json()).then(j=>{
+  const url=(j&&j.url)||'';
+  if(url){S.graderUrl=url;save();const inp=document.getElementById('grader-url');if(inp)inp.value=url;
+   if(st)st.innerHTML='🟢 Нашёл и подключил! Публичный адрес:<br><b>'+esc(url)+'</b><br>Скопируй его и вставь на телефоне тем же полем.';toast('Грейдер подключён');}
+  else{if(st)st.textContent='Грейдер запущен, но туннель ещё поднимается — подожди 10 сек и нажми снова.';}
+ }).catch(()=>{if(st)st.textContent='🔴 Не нашёл. Открой академию НА самом Mac (где запущен грейдер), либо вставь https-адрес вручную (см. grader/SETUP.md).';});
+}
+function saveGrader(){let v=document.getElementById('grader-url').value.trim().replace(/\/+$/,'');S.graderUrl=v;save();const st=document.getElementById('grader-stat');if(st)st.textContent='Проверяю…';
+ fetch(v+'/health').then(r=>r.json()).then(j=>{
+  if(j.ok&&j.url&&j.url!==v&&/localhost|127\.0\.0\.1/.test(v)){S.graderUrl=j.url;save();const inp=document.getElementById('grader-url');if(inp)inp.value=j.url;if(st)st.innerHTML='🟢 Подключено. Для телефона используй публичный адрес:<br><b>'+esc(j.url)+'</b>';}
+  else if(st)st.textContent=j.ok?('🟢 грейдер на связи ('+j.mode+', '+j.model+')'):'🔴 отвечает, но странно';
+  toast('Грейдер подключён');
+ }).catch(()=>{if(st)st.textContent='🔴 не отвечает. Запущен ли грейдер на Mac? Нажми «Найти автоматически» или см. grader/SETUP.md';});}
 
 
 /* ===== v7: адаптивность — трекинг слабых тем ===== */

@@ -2714,9 +2714,9 @@ const DAY=86400000;
 const INT=[600000,1*DAY,3*DAY,8*DAY,16*DAY,35*DAY,70*DAY];
 const PARTS=[{p:'f',t:'Фундамент'},{p:'s',t:'Система'},{p:'m',t:'Мастерство'},{p:'t',t:'Мышление'},{p:'c',t:'Специализации'},{p:'w',t:'Маркетолог+'}];
 const LEVELS=[[0,'Новичок'],[150,'Стажёр'],[400,'Junior'],[900,'Middle'],[1800,'Senior-track'],[3000,'Senior']];
-/* --- облачная синхронизация (kvdb.io) --- */
-const SYNC_BASE='https://kvdb.io';
-const SYNC_DEFAULT='8ZRY8zrWRtc5KX66bFfVoc'; // общий bucket этого пользователя
+/* --- облако академии (Cloud Run: ИИ-проверка Gemini + прогресс) --- */
+const CLOUD_URL='https://academy-api-264603430786.us-central1.run.app';
+const CLOUD_KEY='Yee9Ry88WOhlEpfn5lmlwquf';
 let syncTimer=null, syncState='idle'; // idle|ok|err|off|busy
 
 let S=load();
@@ -2729,7 +2729,7 @@ function load(){
  if(!s.tc||typeof s.tc!=='object')s.tc={};
  if(typeof s.syncBucket!=='string')s.syncBucket='';
  if(typeof s.syncOn!=='boolean')s.syncOn=true;
- if(s.syncOn&&!s.syncBucket)s.syncOn=false; // дефолт-бакет мёртв: синк только с явным кодом
+ if(!s.cloud24){s.syncOn=true;s.graderUrl='';s.cloud24=1;} // v24: облако без кода
  if(!s.mastery||typeof s.mastery!=='object')s.mastery={};
  if(!s.transfer||typeof s.transfer!=='object')s.transfer={plans:[],checkins:[]};
  if(!s.calib||typeof s.calib!=='object')s.calib={};
@@ -2779,37 +2779,38 @@ function toast(msg){
 }
 
 /* ===== облачный синк ===== */
-function bucket(){return (S.syncBucket||SYNC_DEFAULT).trim();}
-function syncURL(){return SYNC_BASE+'/'+bucket()+'/progress';}
-function setSyncStatus(st){syncState=st;const el=document.getElementById('sync-dot');if(el){
+function syncURL(){return CLOUD_URL+'/progress?k='+CLOUD_KEY;}
+function setSyncStatus(st){syncState=st;document.querySelectorAll('#sync-dot').forEach(el=>{
  const map={ok:['🟢','синхронизировано'],err:['🔴','ошибка синка'],off:['⚪','синк выключен'],busy:['🟡','синхронизирую…'],idle:['⚪','—']};
- const m=map[st]||map.idle;el.textContent=m[0]+' '+m[1];}}
+ const m=map[st]||map.idle;el.textContent=m[0]+' '+m[1];});}
 function schedulePush(){
  if(!S.syncOn)return;
  clearTimeout(syncTimer);
  syncTimer=setTimeout(pushCloud,1500);
 }
 function pushCloud(){
- if(!S.syncOn){setSyncStatus('off');return;}
- setSyncStatus('busy');
- const body=JSON.stringify(S);
- fetch(syncURL(),{method:'PUT',headers:{'Content-Type':'text/plain'},body})
-  .then(r=>{setSyncStatus(r.ok?'ok':'err');})
-  .catch(()=>setSyncStatus('err'));
-}
-function pullCloud(silent){
  if(!S.syncOn){setSyncStatus('off');return Promise.resolve();}
+ return pullCloud(true,true).then(ok=>{
+  if(!ok)return;
+  setSyncStatus('busy');
+  return fetch(syncURL(),{method:'PUT',headers:{'Content-Type':'text/plain'},body:JSON.stringify(S)})
+   .then(r=>{setSyncStatus(r.ok?'ok':'err');})
+   .catch(()=>setSyncStatus('err'));
+ });
+}
+function pullCloud(silent,quiet){
+ if(!S.syncOn){setSyncStatus('off');return Promise.resolve(false);}
  setSyncStatus('busy');
  return fetch(syncURL(),{method:'GET',cache:'no-store'})
-  .then(r=>{if(!r.ok)throw 0;return r.json();})
+  .then(r=>{if(r.status===404)return null;if(!r.ok)throw 0;return r.json();})
   .then(remote=>{
-   const merged=mergeState(S,remote);
-   S=merged;localStorage.setItem(KEY,JSON.stringify(S));
+   if(remote){S=mergeState(S,remote);localStorage.setItem(KEY,JSON.stringify(S));}
    setSyncStatus('ok');
-   paint();renderDash();
+   if(!quiet){paint();renderDash();schedulePush();}
    if(!silent)toast('Прогресс подтянут с облака');
+   return true;
   })
-  .catch(()=>{setSyncStatus('err');if(!silent)toast('Не удалось прочитать облако (проверь код / подтверди почту)');});
+  .catch(()=>{setSyncStatus('err');if(!silent)toast('Облако не ответило, попробуй позже');return false;});
 }
 function mergeState(a,b){
  if(!b||typeof b!=='object')return a;
@@ -2852,8 +2853,10 @@ function mergeState(a,b){
  [...new Set([...Object.keys(a.calib||{}),...Object.keys(b.calib||{})])].forEach(k=>{
   const av=(a.calib||{})[k]||{},bv=(b.calib||{})[k]||{};
   m.calib[k]={sr:Math.max(av.sr||0,bv.sr||0),sw:Math.max(av.sw||0,bv.sw||0),ur:Math.max(av.ur||0,bv.ur||0),uw:Math.max(av.uw||0,bv.uw||0)};});
+ ['think','calc','caseAnswers','topicStats'].forEach(k=>{m[k]=Object.assign({},b[k]||{},a[k]||{});});
+ m.casesDone=Object.assign({},b.casesDone||{});for(const k in (a.casesDone||{}))m.casesDone[k]=Math.max(a.casesDone[k]||0,m.casesDone[k]||0);
  m.last=a.last||b.last;
- m.syncBucket=a.syncBucket;m.syncOn=a.syncOn;
+ m.syncOn=a.syncOn;m.cloud24=1;
  return m;
 }
 
@@ -2947,13 +2950,13 @@ function situHTML(id){
  const st=situSt(id);
  const rub=(s.rubric||[]).map(r=>'<li><b>'+esc(r.criterion)+':</b> '+esc(r.strong)+'</li>').join('');
  return '<div class="mastery" id="situ-'+id+'"><div class="mh">🎯 Ситуационный тест'+(st.best?' — лучший балл '+st.best+'/100':'')+'</div>'+
-  '<p style="color:var(--muted);font-size:14px;margin:0 0 8px">Примени метод урока на живой ситуации. Пиши развёрнуто, как Head of Marketing — Claude оценит по рубрике.</p>'+
+  '<p style="color:var(--muted);font-size:14px;margin:0 0 8px">Примени метод урока на живой ситуации. Пиши развёрнуто, как Head of Marketing — ИИ оценит по рубрике.</p>'+
   '<div class="csit" style="font-size:14.5px;margin:8px 0">'+esc(s.scenario)+'</div>'+
   '<div class="cq" style="font-weight:700;margin:6px 0">'+esc(s.question)+'</div>'+
   '<details class="crub"><summary>Показать рубрику (по чему оценивают)</summary><ul>'+rub+'</ul></details>'+
   '<textarea class="mrec" id="situ-inp-'+id+'" placeholder="Твой развёрнутый ответ: диагноз, приоритеты, применение метода, где уместно — цифры…">'+esc(st.ans||'')+'</textarea>'+
-  '<button class="bigbtn" onclick="submitSitu(\''+id+'\')">🤖 Проверить ответ у Claude</button> '+
-  '<button class="bigbtn ghost" onclick="situToClaude(\''+id+'\',this)">📋 Проверить в Claude (без грейдера)</button> '+
+  '<button class="bigbtn" onclick="submitSitu(\''+id+'\')">🤖 Проверить ответ у ИИ</button> '+
+  '<button class="bigbtn ghost" onclick="situToClaude(\''+id+'\',this)">📋 Скопировать для Claude</button> '+
   '<button class="bigbtn ghost" onclick="revealSitu(\''+id+'\')">Показать эталон без проверки</button>'+
   '<div id="situ-res-'+id+'"></div></div>';
 }
@@ -2970,8 +2973,8 @@ function submitSitu(id){
  if(ans.length<20){box.innerHTML='<div class="whybox">Напиши развёрнутый ответ (хотя бы пару абзацев) — тогда есть что оценивать.</div>';return;}
  const url=graderURL();
  if(!url){box.innerHTML='<div class="co err"><span class="ct">Грейдер не подключён</span>ИИ-оценка недоступна — запусти грейдер на Mac (см. grader/SETUP.md). Пока сверься с эталоном сам:</div>'+situModel(id);return;}
- box.innerHTML='<div class="whybox">🤖 Claude читает твой ответ… 10-30 секунд.</div>';
- fetch(url+'/grade',{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({kind:'case',situation:s.scenario,question:s.question,rubric:s.rubric,model_answer:s.model_answer,answer:ans})})
+ box.innerHTML='<div class="whybox">🤖 ИИ читает твой ответ… 5-20 секунд.</div>';
+ fetch(url+'/grade?k='+CLOUD_KEY,{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({kind:'case',situation:s.scenario,question:s.question,rubric:s.rubric,model_answer:s.model_answer,answer:ans})})
  .then(r=>r.json()).then(j=>{
   if(j.error)throw new Error(j.error);
   const first=!st.done&&(j.score||0)>=70;
@@ -2983,7 +2986,7 @@ function submitSitu(id){
    ((j.gaps||[]).length?'<b>Пробелы:</b> '+j.gaps.map(esc).join('; ')+'<br>':'')+
    (j.next?'<b>Дальше:</b> '+esc(j.next):'')+'</div>'+
    '<details style="margin-top:10px"><summary style="cursor:pointer;color:var(--accent)">Сверить с эталоном</summary>'+situModel(id)+'</details>';
- }).catch(e=>{const a=/401|authenticate|Invalid auth/i.test(e.message);box.innerHTML='<div class="co err"><span class="ct">'+(a?'ИИ не авторизован':'ИИ недоступен')+'</span>'+(a?'На Mac один раз: <b>claude setup-token</b> → вставь токен в grader/.token (см. grader/SETUP.md). Пока сверься с эталоном:':'('+esc(e.message)+') Сверься с эталоном сам:')+'</div>'+situModel(id);});
+ }).catch(e=>{const a=/401|authenticate|Invalid auth/i.test(e.message);box.innerHTML='<div class="co err"><span class="ct">'+(a?'ИИ не авторизован':'ИИ недоступен')+'</span>'+(a?'Облако не пустило запрос. Пока сверься с эталоном:':'('+esc(e.message)+') Сверься с эталоном сам:')+'</div>'+situModel(id);});
 }
 function masteryBank(){
  if(MBANK)return MBANK;
@@ -3024,7 +3027,7 @@ function prefetchVariants(mq){
  mq.qs.forEach(q=>{
   const lid=q.lid||mq.id;const st=mst(lid);
   if(!(st.wrong||[]).includes(q.bi))return; // вариацию делаем ТОЛЬКО для ранее проваленного вопроса
-  fetch(u+'/grade',{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({kind:'variant',lesson:lessonTitle(lid),orig:{q:q.q,o:q.o,c:q.c,why:q.why}})})
+  fetch(u+'/grade?k='+CLOUD_KEY,{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({kind:'variant',lesson:lessonTitle(lid),orig:{q:q.q,o:q.o,c:q.c,why:q.why}})})
    .then(r=>r.json()).then(v=>{
     if(v&&v.q&&Array.isArray(v.o)&&v.o.length===4&&typeof v.c==='number'&&v.c>=0&&v.c<4){
      q.q=v.q;q.o=v.o;q.c=v.c;q.why=v.why||q.why;q.variant=true;
@@ -3061,7 +3064,7 @@ function renderRecall(id){
  host.innerHTML='<div class="mh">Шаг 1 из 2 — объясни, как стажёру</div>'+
   '<p style="color:var(--muted);font-size:14px">Не подглядывая в конспект, объясни главное из урока своими словами — как будто учишь стажёра. Проговаривание для другого укрепляет память сильнее перечитывания.</p>'+
   '<textarea class="mrec" placeholder="Смотри, суть в том, что…"></textarea>'+
-  (ai?'<button class="bigbtn" onclick="aiExplain(\''+id+'\')">🤖 Проверить у Claude</button> <button class="bigbtn ghost" onclick="revealRecall(\''+id+'\')">Сверить с идеями сам</button>'
+  (ai?'<button class="bigbtn" onclick="aiExplain(\''+id+'\')">🤖 Проверить у ИИ</button> <button class="bigbtn ghost" onclick="revealRecall(\''+id+'\')">Сверить с идеями сам</button>'
      :'<button class="bigbtn" onclick="revealRecall(\''+id+'\')">Сверить с ключевыми идеями</button>');
  host.scrollIntoView({block:'center'});
 }
@@ -3178,8 +3181,8 @@ function aiExplain(id){
  const ta=host.querySelector('textarea');const ans=(ta?ta.value:'').trim();
  if(ans.length<25){toast('Объясни хотя бы в пару предложений');return;}
  host.querySelectorAll('button').forEach(b=>{b.disabled=true;});
- const b0=host.querySelector('button');if(b0)b0.textContent='Claude читает…';
- fetch(graderURL()+'/grade',{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({kind:'explain',lesson_title:lessonTitle(id),recall:masteryBank()[id].recall,answer:ans})})
+ const b0=host.querySelector('button');if(b0)b0.textContent='ИИ читает…';
+ fetch(graderURL()+'/grade?k='+CLOUD_KEY,{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({kind:'explain',lesson_title:lessonTitle(id),recall:masteryBank()[id].recall,answer:ans})})
  .then(r=>r.json()).then(j=>{
   if(j.error)throw new Error(j.error);
   host.innerHTML='<div class="mh">Разбор объяснения'+(j.score!=null?': '+j.score+'/100':'')+'</div>'+
@@ -3203,8 +3206,8 @@ function savePlan(id){
 function aiPlan(id){
  const ta=document.getElementById('plan-'+id);if(!ta)return;
  const txt=ta.value.trim();if(txt.length<10){toast('Сначала напиши план');return;}
- const fb=document.getElementById('planfb-'+id);if(fb)fb.innerHTML='<p style="color:var(--muted);font-size:13px">Claude смотрит план…</p>';
- fetch(graderURL()+'/grade',{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({kind:'plan',lesson_title:lessonTitle(id),answer:txt})})
+ const fb=document.getElementById('planfb-'+id);if(fb)fb.innerHTML='<p style="color:var(--muted);font-size:13px">ИИ смотрит план…</p>';
+ fetch(graderURL()+'/grade?k='+CLOUD_KEY,{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({kind:'plan',lesson_title:lessonTitle(id),answer:txt})})
  .then(r=>r.json()).then(j=>{
   if(j.error)throw new Error(j.error);
   if(fb)fb.innerHTML='<div class="mwhy" style="display:block"><b>'+(j.ok?'👍 План рабочий.':'Слабовато.')+'</b> '+esc(j.feedback||'')+(j.improved?'<br>Вариант: <i>'+esc(j.improved)+'</i>':'')+'</div>';
@@ -3225,7 +3228,7 @@ function saveCheckin(ai){
  if(ai&&graderURL()){
   const fb=document.getElementById('checkin-fb');if(fb)fb.innerHTML='<p style="color:var(--muted);font-size:13px">Ментор читает…</p>';
   const ctx=S.done.filter(isLesson).slice(-5).map(lessonTitle).join('; ');
-  fetch(graderURL()+'/grade',{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({kind:'checkin',answer:txt,context:ctx})})
+  fetch(graderURL()+'/grade?k='+CLOUD_KEY,{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({kind:'checkin',answer:txt,context:ctx})})
   .then(r=>r.json()).then(j=>{
    if(j.error)throw new Error(j.error);
    const c=tf().checkins.slice(-1)[0];c.ai=j;save();
@@ -3301,8 +3304,8 @@ function aiDrill(){
  const all=topicRows().map(r=>r.t);
  const topics=weak.length?weak:(all.length?all:['маркетинговая стратегия']);
  const topic=topics[Math.floor(Math.random()*topics.length)];
- host.innerHTML='<div class="exprog">🤖 Claude пишет новый вопрос по теме «'+esc(topic)+'»…</div>';
- fetch(graderURL()+'/grade',{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({kind:'genq',topic:topic,diff:EDIFF||2})})
+ host.innerHTML='<div class="exprog">🤖 ИИ пишет новый вопрос по теме «'+esc(topic)+'»…</div>';
+ fetch(graderURL()+'/grade?k='+CLOUD_KEY,{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({kind:'genq',topic:topic,diff:EDIFF||2})})
  .then(r=>r.json()).then(j=>{
   if(j.error||!j.q||!Array.isArray(j.o)||j.o.length<3||typeof j.c!=='number')throw new Error(j.error||'кривой формат вопроса');
   AIQ={j:j,topic:topic,done:false};
@@ -3714,31 +3717,25 @@ function resetProgress(){
 function renderSync(){
  const host=document.getElementById('sync-body');if(!host)return;
  host.innerHTML=
-  '<div class="co tip"><span class="ct">☁ Как это работает</span>Прогресс хранится в этом браузере. Чтобы он был одинаковым на телефоне и ноутбуке, включи облачный синк: на всех устройствах открой сайт с <b>одним и тем же кодом синхронизации</b> — прогресс будет автоматически сливаться (берётся максимум: пройденные уроки, карточки, XP не теряются).</div>'+
+  '<div class="co tip"><span class="ct">☁ Как это работает</span>Прогресс сохраняется в твоё облако автоматически, ничего вводить не нужно. Открой курс на телефоне или ноутбуке, и прогресс подтянется сам. При слиянии берётся максимум: пройденные уроки, карточки и XP не теряются. Раз в день в облаке остаётся резервная копия.</div>'+
   '<div class="synccard">'+
-   '<label class="synctoggle"><input type="checkbox" id="sync-on" '+(S.syncOn?'checked':'')+' onchange="toggleSync(this.checked)"> Включить облачную синхронизацию</label>'+
-   '<div class="sec-t" style="margin-top:14px">Код синхронизации</div>'+
-   '<p style="font-size:13px;color:var(--muted);margin:0 0 8px">Одинаковый код на всех устройствах = общий прогресс. По умолчанию — твой личный код. Можешь задать свой (любые буквы/цифры, 12+ символов).</p>'+
-   '<div class="syncrow"><input class="syncinp" id="sync-bucket" value="'+esc(S.syncBucket||SYNC_DEFAULT)+'" placeholder="код синхронизации">'+
-    '<button class="bigbtn ghost" onclick="saveBucket()">Сохранить</button></div>'+
+   '<label class="synctoggle"><input type="checkbox" id="sync-on" '+(S.syncOn?'checked':'')+' onchange="toggleSync(this.checked)"> Облачное сохранение включено</label>'+
    '<div class="syncrow" style="margin-top:12px">'+
     '<button class="bigbtn" onclick="pullCloud(false)">⬇ Загрузить с облака</button>'+
-    '<button class="bigbtn ghost" onclick="pushCloud();toast(\'Отправлено в облако\')">⬆ Отправить в облако</button></div>'+
+    '<button class="bigbtn ghost" onclick="pushCloud().then(()=>toast(\'Сохранено в облако\'))">⬆ Сохранить сейчас</button></div>'+
    '<div class="dio" style="margin-top:12px">Статус: <span id="sync-dot"></span></div>'+
   '</div>'+
-  '<div class="co" style="margin-top:14px"><span class="ct">⚠️ Первый раз</span>Личный код привязан к почте <b>kazsultan.uni@gmail.com</b>. Один раз проверь ящик и нажми ссылку подтверждения от kvdb.io — после этого синк заработает на всех устройствах. Если письма нет — просто задай <b>свой</b> код (12+ символов), он создастся автоматически.</div>'+
-  '<div class="synccard" style="margin-top:14px">'+'<div class="sec-t" style="margin-top:0">🤖 ИИ-разбор ответов (Кейс-тренажёр)</div>'+'<p style="font-size:13px;color:var(--muted);margin:0 0 8px">Чтобы Claude оценивал твои открытые ответы: на Mac запусти <b>grader/start.sh</b>, скопируй показанный адрес (https://…trycloudflare.com) и вставь сюда.</p>'+'<div class="syncrow"><input class="syncinp" id="grader-url" value="'+esc(S.graderUrl||'')+'" placeholder="https://xxxx.trycloudflare.com">'+'<button class="bigbtn ghost" onclick="saveGrader()">Сохранить</button></div>'+'<button class="bigbtn" style="margin-top:8px" onclick="autoGrader()">🔍 Найти грейдер автоматически (на этом Mac)</button>'+'<div class="dio" id="grader-stat" style="margin-top:8px"></div></div>'+
+  '<div class="synccard" style="margin-top:14px"><div class="sec-t" style="margin-top:0">🤖 ИИ-проверка ответов</div>'+
+   '<p style="font-size:13px;color:var(--muted);margin:0 0 8px">Кейсы, объяснения, планы и тренажёр мышления проверяет Gemini в твоём Google Cloud (за счёт кредитов, как у бота). Лимит 150 проверок в день, чтобы облако не тратило лишнего.</p>'+
+   '<div class="dio" id="grader-stat">Проверяю связь…</div></div>'+
   '<div class="co" style="margin-top:14px"><span class="ct">💾 Резервная копия файлом</span>Можно и без облака: <a href="#" onclick="exportProgress();return false">скачать файл прогресса</a> и <a href="#" onclick="document.getElementById(\'imp\').click();return false">загрузить его</a> на другом устройстве.'+
    '<input type="file" id="imp" accept=".json" style="display:none" onchange="importProgress(this)"></div>'+
   '<div class="co err" style="margin-top:14px"><span class="ct">🗑 Опасная зона</span><a href="#" onclick="resetProgress();return false">Сбросить весь прогресс</a> — двойное подтверждение, необратимо.</div>';
  setSyncStatus(syncState);
+ fetch(CLOUD_URL+'/').then(r=>r.json()).then(j=>{const st=document.getElementById('grader-stat');if(st)st.textContent='🟢 ИИ на связи · '+j.model+' · осталось сегодня: '+j.left;})
+  .catch(()=>{const st=document.getElementById('grader-stat');if(st)st.textContent='🔴 облако не ответило';});
 }
 function toggleSync(on){S.syncOn=on;save();setSyncStatus(on?'idle':'off');if(on)pushCloud();}
-function saveBucket(){
- const v=document.getElementById('sync-bucket').value.trim();
- if(v.length<8){toast('Код слишком короткий (мин. 8 символов)');return;}
- S.syncBucket=v;save();toast('Код сохранён');pullCloud(false);
-}
 
 /* ===== инъекция UI ===== */
 function injectUI(){
@@ -3793,7 +3790,7 @@ function injectUI(){
   cont.appendChild(sv);
   const cv=document.createElement('div');cv.id='drill';cv.className='view';
   cv.innerHTML='<div class="hero"><div class="eyebrow">Практика · senior</div><h2>Кейс-тренажёр 🤖</h2>'+
-   '<p>Открытые кейсы уровня собеседования Head of Marketing. Пишешь развёрнутый ответ — Claude оценивает его по рубрике: балл, сильные стороны, пробелы. Именно это делает из тебя senior, а не тест из вариантов.</p></div>'+
+   '<p>Открытые кейсы уровня собеседования Head of Marketing. Пишешь развёрнутый ответ — ИИ оценивает его по рубрике: балл, сильные стороны, пробелы. Именно это делает из тебя senior, а не тест из вариантов.</p></div>'+
    '<div id="cases-body"></div>';
   cont.appendChild(cv);
   const pv=document.createElement('div');pv.id='path';pv.className='view';
@@ -3857,7 +3854,7 @@ addEventListener('keydown',e=>{
 
 
 /* ===== v6: Кейс-тренажёр (открытые ответы, ИИ-оценка) ===== */
-function graderURL(){return (S.graderUrl||'').trim().replace(/\/+$/,'');}
+function graderURL(){return CLOUD_URL;}
 function scenarios(){try{return JSON.parse(document.getElementById('scenarios').textContent);}catch(e){return[];}}
 let CASEI=-1;
 function renderCases(){
@@ -3889,9 +3886,9 @@ function renderCaseOne(s){
    '<div class="cq">'+esc(s.question)+'</div>'+
    '<details class="crub"><summary>Показать рубрику (по чему оценивают)</summary><ul>'+rub+'</ul></details>'+
    '<textarea class="caseinp" id="case-inp" placeholder="Твой развёрнутый ответ… Рассуждай как Head of Marketing: диагноз, приоритеты, цифры.">'+esc(saved)+'</textarea>'+
-   '<div class="caserow"><button class="bigbtn" id="case-submit" onclick="submitCase()">🤖 Проверить ответ у Claude</button>'+
+   '<div class="caserow"><button class="bigbtn" id="case-submit" onclick="submitCase()">🤖 Проверить ответ у ИИ</button>'+
     (graderURL()?'<button class="bigbtn ghost" id="case-hint" onclick="caseHint()">💡 Подсказка (не решение)</button>':'')+
-    '<button class="bigbtn ghost" onclick="caseToClaude(this)">📋 Проверить в Claude (без грейдера)</button>'+
+    '<button class="bigbtn ghost" onclick="caseToClaude(this)">📋 Скопировать для Claude</button>'+
     '<button class="bigbtn ghost" onclick="revealModel()">Показать эталон без проверки</button></div>'+
    '<div id="case-hints"></div>'+
    '<div id="case-result"></div>'+
@@ -3906,7 +3903,7 @@ function caseHint(){
  const box=document.getElementById('case-hints');if(!box)return;
  const lvl=['','Наводящий вопрос','Направление','Аналогия'][CHL];
  box.innerHTML+='<div class="mwhy" style="display:block" id="chint-'+CHL+'">💡 Уровень '+CHL+' ('+lvl+'): думаю…</div>';
- fetch(graderURL()+'/grade',{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({kind:'hint',situation:s.situation,question:s.question,answer:(document.getElementById('case-inp')||{value:''}).value,level:CHL})})
+ fetch(graderURL()+'/grade?k='+CLOUD_KEY,{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({kind:'hint',situation:s.situation,question:s.question,answer:(document.getElementById('case-inp')||{value:''}).value,level:CHL})})
  .then(r=>r.json()).then(j=>{
   const el=document.getElementById('chint-'+CHL);
   if(el)el.innerHTML='💡 <b>Уровень '+CHL+' ('+lvl+'):</b> '+esc(j.hint||j.error||'…')+(CHL<3?'':'<br><span style="color:var(--muted);font-size:12px">Дальше подсказок нет — реши сам, полный разбор будет после проверки ответа.</span>');
@@ -3927,10 +3924,10 @@ async function submitCase(){
  if(ans.length<20){box.innerHTML='<div class="whybox">Напиши развёрнутый ответ (хотя бы пару абзацев) — тогда есть что оценивать.</div>';return;}
  const url=graderURL();
  if(!url){box.innerHTML='<div class="co err"><span class="ct">Грейдер не подключён</span>Запусти его на Mac и впиши адрес в <a href="#sync" onclick="show(\'sync\');return false">Синхронизация → ИИ-разбор</a>. Пока показываю эталон для самопроверки.</div>'+modelBlock(s);return;}
- const btn=document.getElementById('case-submit');btn.disabled=true;btn.textContent='⏳ Claude читает твой ответ…';
+ const btn=document.getElementById('case-submit');btn.disabled=true;btn.textContent='⏳ ИИ читает твой ответ…';
  box.innerHTML='<div class="whybox">Оцениваю… это занимает 10-30 секунд.</div>';
  try{
-  const r=await fetch(url+'/grade',{method:'POST',headers:{'Content-Type':'application/json'},
+  const r=await fetch(url+'/grade?k='+CLOUD_KEY,{method:'POST',headers:{'Content-Type':'application/json'},
    body:JSON.stringify({situation:s.situation,question:s.question,rubric:s.rubric,model_answer:s.model_answer,answer:ans})});
   const j=await r.json();
   if(!r.ok||j.error)throw new Error(j.error||('HTTP '+r.status));
@@ -3947,26 +3944,9 @@ async function submitCase(){
    modelBlock(s);
   renderDash();
  }catch(e){
-  box.innerHTML='<div class="co err"><span class="ct">Не получилось оценить</span>'+esc(String(e.message||e))+'<br><br>Проверь, что грейдер запущен (bash start.sh) и адрес верный в разделе Синхронизация. Пока — эталон для самопроверки:</div>'+modelBlock(s);
- }finally{btn.disabled=false;btn.textContent='🤖 Проверить ответ у Claude';}
+  box.innerHTML='<div class="co err"><span class="ct">Не получилось оценить</span>'+esc(String(e.message||e))+'<br><br>Облако не ответило, попробуй ещё раз через минуту. Пока — эталон для самопроверки:</div>'+modelBlock(s);
+ }finally{btn.disabled=false;btn.textContent='🤖 Проверить ответ у ИИ';}
 }
-
-function autoGrader(){
- const st=document.getElementById('grader-stat');if(st)st.textContent='Ищу грейдер на этом Mac…';
- fetch('http://localhost:8790/url').then(r=>r.json()).then(j=>{
-  const url=(j&&j.url)||'';
-  if(url){S.graderUrl=url;save();const inp=document.getElementById('grader-url');if(inp)inp.value=url;
-   if(st)st.innerHTML='🟢 Нашёл и подключил! Публичный адрес:<br><b>'+esc(url)+'</b><br>Скопируй его и вставь на телефоне тем же полем.';toast('Грейдер подключён');}
-  else{if(st)st.textContent='Грейдер запущен, но туннель ещё поднимается — подожди 10 сек и нажми снова.';}
- }).catch(()=>{if(st)st.textContent='🔴 Не нашёл. Открой академию НА самом Mac (где запущен грейдер), либо вставь https-адрес вручную (см. grader/SETUP.md).';});
-}
-function saveGrader(){let v=document.getElementById('grader-url').value.trim().replace(/\/+$/,'');S.graderUrl=v;save();const st=document.getElementById('grader-stat');if(st)st.textContent='Проверяю…';
- fetch(v+'/health').then(r=>r.json()).then(j=>{
-  if(j.ok&&j.url&&j.url!==v&&/localhost|127\.0\.0\.1/.test(v)){S.graderUrl=j.url;save();const inp=document.getElementById('grader-url');if(inp)inp.value=j.url;if(st)st.innerHTML='🟢 Подключено. Для телефона используй публичный адрес:<br><b>'+esc(j.url)+'</b>';}
-  else if(st)st.textContent=j.ok?('🟢 грейдер на связи ('+j.mode+', '+j.model+')'):'🔴 отвечает, но странно';
-  toast('Грейдер подключён');
- }).catch(()=>{if(st)st.textContent='🔴 не отвечает. Запущен ли грейдер на Mac? Нажми «Найти автоматически» или см. grader/SETUP.md';});}
-
 
 /* ===== v7: адаптивность — трекинг слабых тем ===== */
 function recordTopic(t,ok){if(!t)return;const s=S.topicStats[t]||{r:0,w:0};if(ok)s.r++;else s.w++;S.topicStats[t]=s;save();}
@@ -4010,7 +3990,7 @@ function PATH(){return [
   items:()=>[
    {ok:examBestPct()>=80,l:'Лучший экзамен ≥80% (сейчас '+examBestPct()+'%)',go:'exam'},
    {ok:(function(){const r=topicRows();return r.length>=6&&r.every(x=>x.acc>=60);})(),l:'Ни одной темы <60% (пройди дрилл слабых)',go:'exam'}]},
- {t:'Этап 7 · Практика senior',d:'Открытые кейсы уровня собеседования, оценка Claude.',
+ {t:'Этап 7 · Практика senior',d:'Открытые кейсы уровня собеседования, оценка ИИ.',
   items:()=>[{ok:casesGraded(70)>=6,l:'6 кейсов оценены на 70+ ('+casesGraded(70)+'/6)',go:'drill'}]},
 ];}
 function stageDone(st){return st.items().every(i=>i.ok);}
@@ -4302,7 +4282,8 @@ function renderThinkOne(d){
   '<div class="ccase-full"><span class="cdom">'+(TH_TYPES[d.type]||d.type)+' · сложность '+('●'.repeat(d.difficulty||1))+(d.model?' · модель: '+esc(d.model):'')+'</span>'+
   '<h3 style="margin:8px 0 4px">'+esc(d.title)+'</h3><div class="csit">'+esc(d.prompt)+'</div><div class="cq">'+esc(d.question)+'</div>'+work+
   '<div class="caserow"><button class="bigbtn" onclick="thReveal(\''+d.id+'\')">🧠 Показать разбор эксперта</button>'+
-  '<button class="bigbtn ghost" onclick="thClaude(\''+d.id+'\',this)">📋 Проверить в Claude</button></div><div id="th-res"></div></div>';
+  '<button class="bigbtn ghost" onclick="thAI(\''+d.id+'\',this)">🤖 Проверить ход мысли у ИИ</button>'+
+  '<button class="bigbtn ghost" onclick="thClaude(\''+d.id+'\',this)">📋 Скопировать для Claude</button></div><div id="th-ai"></div><div id="th-res"></div></div>';
  const ta=document.getElementById('th-ans');ta.oninput=()=>{S.think=S.think||{};S.think[d.id]=Object.assign(S.think[d.id]||{},{ans:ta.value});save();};
  if(st.done)thReveal(d.id,true);
 }
@@ -4323,6 +4304,24 @@ function thReveal(id,silent){
 }
 function thRate(id,r){S.think=S.think||{};const st=S.think[id]=Object.assign(S.think[id]||{},{rate:r});
  if(!st.done){st.done=true;st.ts=Date.now();addXP(r===3?8:5);markActivity();}save();paint();thReveal(id,true);toast(r===3?'Отлично — ход мысли как у эксперта':'Записано. Вернись к задаче через пару недель');}
+function thAI(id,btn){const d=thinkBank().find(x=>x.id===id);const ta=document.getElementById('th-ans');const ans=(ta?ta.value:'').trim();
+ const box=document.getElementById('th-ai');if(!box)return;
+ if(ans.length<15){box.innerHTML='<div class="whybox">Сначала запиши свой ход мысли: с чего начнёшь, какие гипотезы, как проверишь.</div>';return;}
+ const pick=((S.think||{})[id]||{}).pick;
+ btn.disabled=true;box.innerHTML='<div class="whybox">🤖 ИИ разбирает ход мысли… 5-20 секунд.</div>';
+ fetch(CLOUD_URL+'/grade?k='+CLOUD_KEY,{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({kind:'think',type:TH_TYPES[d.type]||d.type,prompt:d.prompt,question:d.question,
+  options:d.options?thOrder(d).map((i,pos)=>'AB'[pos]+': '+d.options[i]).join('\n')+(pick!=null?'\nУченик выбрал: '+'AB'[thOrder(d).indexOf(pick)]:''):'',
+  steps:(d.steps||[]).map((s,i)=>(i+1)+'. '+s).join('\n'),expert:d.answer||'',trap:d.trap||'',answer:ans})})
+ .then(r=>r.json()).then(j=>{if(j.error)throw new Error(j.error);
+  const sc=Math.max(0,Math.min(10,+j.score||0));
+  const st=S.think[id]=Object.assign(S.think[id]||{},{ai:sc});save();
+  box.innerHTML='<div class="co '+(sc>=7?'tip':'')+'" style="margin-top:12px"><span class="ct">Ход мысли: '+sc+'/10</span>'+
+   ((j.did||[]).length?'<b>Сделал сам:</b> '+j.did.map(esc).join('; ')+'<br>':'')+
+   ((j.missed||[]).length?'<b>Пропустил:</b> '+j.missed.map(esc).join('; ')+'<br>':'')+
+   (j.trap?'<b>Ловушка:</b> '+esc(j.trap)+'<br>':'')+
+   (j.ask?'<b>Спрашивай себя:</b> '+esc(j.ask):'')+'</div>';
+ }).catch(e=>{box.innerHTML='<div class="co err"><span class="ct">ИИ недоступен</span>'+esc(String(e.message||e))+'. Можно открыть разбор эксперта или скопировать задачу для Claude.</div>';})
+ .finally(()=>{btn.disabled=false;});}
 function thClaude(id,btn){const d=thinkBank().find(x=>x.id===id);const ta=document.getElementById('th-ans');const ans=(ta?ta.value:'').trim();
  if(ans.length<15){alert('Сначала запиши свой ход мысли.');return;}
  const pick=((S.think||{})[id]||{}).pick;

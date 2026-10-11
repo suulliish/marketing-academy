@@ -551,6 +551,14 @@ body.nb-lock{overflow:hidden}
 .nbx-pal .nbx-pal-x{font-size:13px;font-weight:600;color:var(--muted);padding:0 10px}
 #nb-print mark{color:inherit;background:#ffe066}#nb-print mark[data-c="g"]{background:#b6ecaa}#nb-print mark[data-c="p"]{background:#ffb8d4}#nb-print mark[data-c="b"]{background:#b5dcff}#nb-print mark[data-c="o"]{background:#ffc98f}
 #nb-print span[data-tc="accent"]{color:#3b55e6}#nb-print span[data-tc="bad"]{color:#c8324a}#nb-print span[data-tc="ok"]{color:#15803d}#nb-print span[data-tc="warn"]{color:#b8740a}
+
+/* отменить / повторить */
+.nbx-tools [data-cmd="undo"],.nbx-tools [data-cmd="redo"]{display:inline-flex;align-items:center;gap:5px}
+.nbx-tools [data-cmd="undo"]{margin-left:8px;border-left:1px solid var(--grid)!important;border-radius:0 8px 8px 0}
+.nbx-tools svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.nbx-tools button:disabled{opacity:.35;cursor:default}
+.nbx-tools button:disabled:hover{background:transparent}
+@media (max-width:680px){.nbx-tools [data-cmd="undo"] span,.nbx-tools [data-cmd="redo"] span{display:none}}
 /* v25: конец */
 </style></head><body><div class="app">
 <aside class="side"><div class="brand">Marketing <span>Systems</span> Academy</div>
@@ -4303,8 +4311,14 @@ function termDict(){
   const title=b.innerText.trim(),def=s.innerText.trim();
   const ent={i,title,def};TDICT.push(ent);
   // алиасы: заголовок делим по скобкам, запятым и « / »
-  title.split(/[(),]|\s\/\s/).map(a=>a.trim().replace(/^и\s+/,'')).forEach(a=>{
-   if(a.length<3||/^\d+$/.test(a))return;
+  const main=title.split('(')[0].trim(),inPar=(title.match(/\(([^)]*)\)/)||['',''])[1];
+  const mainCyr=/[А-Яа-яЁё]/.test(main)&&!/[A-Za-z぀-ヿ一-鿿가-힯]/.test(main);
+  const parts=title.split(/[(),]|\s\/\s/).map(a=>a.trim().replace(/^и\s+/,'')).filter(Boolean);
+  if(/4P/.test(title))parts.push('4P','4Р','Маркетинг-микс');
+  parts.forEach(a=>{
+   if(inPar.includes(a)&&/^[А-Яа-яЁё]/.test(a)&&(mainCyr||(!/\s/.test(a)&&a.length<8)))return; // уточнение, а не синоним
+   if(/^\d+$/.test(a))return;
+   if(a.length<3&&!/^[0-9A-ZА-Я]{2}$/.test(a))return;
    if(ABLOCK.has(a.toLowerCase()))return; // многозначные слова не линкуем
    const k=a.toLowerCase();
    if(seen.has(k))return;seen.add(k);
@@ -4335,6 +4349,7 @@ function termifyView(root){
   return NodeFilter.FILTER_ACCEPT;
  }});
  const nodes=[];let n;while(n=w.nextNode())nodes.push(n);
+ const SEEN=new Set([...root.querySelectorAll('.term')].map(t=>t.dataset.tid));
  for(const node of nodes){
   const txt=node.nodeValue;
   TREG.lastIndex=0;
@@ -4344,7 +4359,7 @@ function termifyView(root){
   let last=0,m;
   while(m=TREG.exec(txt)){
    const ent=resolveTerm(m[0]);
-   if(!ent)continue;
+   if(!ent||SEEN.has(String(ent.i)))continue;SEEN.add(String(ent.i));
    if(m.index>last)frag.appendChild(document.createTextNode(txt.slice(last,m.index)));
    const sp=document.createElement('span');
    sp.className='term';sp.dataset.tid=ent.i;sp.textContent=m[0];
@@ -4893,7 +4908,8 @@ function nbRender(keepScroll){
  ed.innerHTML=nbBlocksHTML();
  ed.querySelectorAll('figure').forEach(nbHydrate);
  NB_BASE={};[...ed.children].forEach(el=>{if(el.dataset.b)NB_BASE[el.dataset.b]=nbBlockHTML(el);});
- nbEnsureTail(ed);NB_STALE=0;nbCount();nbInk();
+
+ nbEnsureTail(ed);NB_STALE=0;nbCount();nbInk();nbHistReset();
  if(keepScroll&&pg)pg.scrollTop=top;
 }
 function nbIsEmpty(el){return el.tagName==='P'&&el.dataset.k!=='date'&&!el.textContent.trim()&&!el.querySelector('figure,hr');}
@@ -4971,7 +4987,10 @@ function nbFmt(cmd){
  if(cmd==='pen'){nbPen(true);return;}
  if(document.activeElement!==ed)ed.focus();
  const ex=(c,v)=>document.execCommand(c,false,v),blk=()=>nbBlockOf(getSelection().anchorNode);
- if(/^(bold|italic|underline|strikeThrough|undo|redo)$/.test(cmd))ex(cmd);
+ if(cmd==='undo')return nbUndo();
+ if(cmd==='redo')return nbRedo();
+ nbHistPush();
+ if(/^(bold|italic|underline|strikeThrough)$/.test(cmd))ex(cmd);
  else if(cmd==='h2'||cmd==='h3'){const b=blk();ex('formatBlock',b&&b.tagName===cmd.toUpperCase()?'p':cmd);}
  else if(cmd==='ul'||cmd==='ol'||cmd==='todo')nbList(cmd);
  else if(cmd==='quote'){const b=blk();ex('formatBlock',b&&b.tagName==='BLOCKQUOTE'?'p':'blockquote');}
@@ -4980,6 +4999,23 @@ function nbFmt(cmd){
  nbSoon();
 }
 
+
+
+/* своя история правок: встроенная отмена браузера в Safari отменяет действия самого браузера (возвращает закрытую вкладку) */
+let NB_H=[],NB_HP=-1,NB_HT=0;
+function nbSnap(){const ed=document.getElementById('nbx-doc'),els=[...ed.children];let e=els.length;while(e>0&&nbIsEmpty(els[e-1]))e--; // хвостовые пустые строки не в счёт
+ return {html:els.slice(0,e).map(nbBlockHTML).join(''),caret:nbCaretSave()};}
+function nbHistReset(){NB_H=[nbSnap()];NB_HP=0;NB_HT=0;nbHistBtns();}
+function nbHistPush(){const ed=document.getElementById('nbx-doc');if(!ed)return;const sn=nbSnap();if(NB_HP>=0&&NB_H[NB_HP].html===sn.html)return;
+ NB_H=NB_H.slice(0,NB_HP+1);NB_H.push(sn);if(NB_H.length>150)NB_H.shift();NB_HP=NB_H.length-1;nbHistBtns();}
+function nbHistApply(sn){const ed=document.getElementById('nbx-doc');ed.innerHTML=sn.html;ed.querySelectorAll('figure').forEach(nbHydrate);nbEnsureTail(ed);
+ ed.focus({preventScroll:true});nbCaretLoad(sn.caret);nbSaveDoc();nbInk();nbCount();NB_HT=0;}
+function nbUndo(){if(NB_HP<0)return;const cur=nbSnap();
+ if(NB_H[NB_HP].html!==cur.html){NB_H=NB_H.slice(0,NB_HP+1);NB_H.push(cur);NB_HP=NB_H.length-1;}
+ if(NB_HP===0){toast('Отменять больше нечего');return;}NB_HP--;nbHistApply(NB_H[NB_HP]);nbHistBtns();}
+function nbRedo(){if(NB_HP>=NB_H.length-1)return;NB_HP++;nbHistApply(NB_H[NB_HP]);nbHistBtns();}
+function nbHistBtns(){const u=document.querySelector('#nbx .nbx-tools [data-cmd="undo"]'),r=document.querySelector('#nbx .nbx-tools [data-cmd="redo"]');
+ if(u)u.disabled=NB_HP<=0&&!(NB_HP===0&&NB_H[0]&&document.getElementById('nbx-doc')&&NB_H[0].html!==nbSnap().html);if(r)r.disabled=NB_HP>=NB_H.length-1;}
 
 /* маркер и цвет текста: палитра под кнопкой, выделение не теряется */
 let NB_RANGE=null;
@@ -4999,6 +5035,7 @@ function nbPalette(kind){
  setTimeout(()=>document.addEventListener('mousedown',function off(e){if(!pal.contains(e.target)){pal.remove();document.removeEventListener('mousedown',off);}}),0);
 }
 function nbApplyColor(kind,v){
+ nbHistPush();
  const ed=document.getElementById('nbx-doc'),r=NB_RANGE;if(!r)return;NB_RANGE=null;
  const tag=kind==='mark'?'MARK':'SPAN',attr=kind==='mark'?'c':'tc';
  // снять прежний маркер/цвет внутри выделения и вокруг него
@@ -5013,6 +5050,7 @@ function nbApplyColor(kind,v){
 
 /* списки и задачи собираем сами: встроенная команда браузера вкладывает список внутрь абзаца */
 function nbList(kind){
+ nbHistPush();
  const ed=document.getElementById('nbx-doc'),b=nbBlockOf(getSelection().anchorNode);if(!b||b.tagName==='FIGURE'||b.tagName==='HR')return;
  const want=kind==='ol'?'OL':'UL',todo=kind==='todo';
  if(b.tagName==='UL'||b.tagName==='OL'){
@@ -5026,7 +5064,7 @@ function nbList(kind){
 /* сокращения как в заметочниках: «# », «## », «- », «1. », «[] », «> » в начале строки; «---» + Enter — линия.
    Ловим по вводу текста, а не по клавишам: так работает и на телефонных клавиатурах */
 function nbMdSpace(){
- const s=getSelection();if(!s.rangeCount||!s.isCollapsed)return;
+ nbHistPush();const s=getSelection();if(!s.rangeCount||!s.isCollapsed)return;
  const b=nbBlockOf(s.anchorNode);if(!b||b.tagName!=='P'||b.dataset.k==='date')return;
  const m=b.textContent.match(/^(##|#|-|\*|1\.|\[\]|>)[\s\u00a0]$/);if(!m)return;
  const cmd={'#':'h2','##':'h3','-':'ul','*':'ul','1.':'ol','[]':'todo','>':'quote'}[m[1]];
@@ -5071,7 +5109,7 @@ function nbBuild(){
  if(document.getElementById('nbx'))return;
  const o=v25el('div','nbx');o.id='nbx';o.hidden=true;o.setAttribute('role','dialog');o.setAttribute('aria-label','Черновик');
  const T=[['h2','Заголовок','Заголовок'],['h3','Подзаголовок','Подзаголовок'],['bold','<b>Ж</b>','Жирный'],['italic','<i>К</i>','Курсив'],['underline','<u>Ч</u>','Подчеркнуть'],['strikeThrough','<s>З</s>','Зачеркнуть'],['mark','<mark data-c="y">Маркер</mark> ▾','Маркер'],['color','<span data-tc="bad">А</span> Цвет ▾','Цвет текста'],
-  ['ul','• Список','Список'],['ol','1. Список','Нумерованный список'],['todo','☐ Задачи','Чек-лист'],['quote','❝ Цитата','Цитата'],['hr','— Линия','Разделитель'],['pen','✎ Перо','Рисовать по листу'],['undo','↶','Отменить'],['redo','↷','Вернуть']];
+  ['ul','• Список','Список'],['ol','1. Список','Нумерованный список'],['todo','☐ Задачи','Чек-лист'],['quote','❝ Цитата','Цитата'],['hr','— Линия','Разделитель'],['pen','✎ Перо','Рисовать по листу'],['undo','<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 14 4 9l5-5"/><path d="M4 9h10.5a5.5 5.5 0 0 1 0 11H11"/></svg><span>Отменить</span>','Отменить (⌘Z)'],['redo','<svg viewBox="0 0 24 24" aria-hidden="true"><path d="m15 14 5-5-5-5"/><path d="M20 9H9.5a5.5 5.5 0 0 0 0 11H13"/></svg><span>Повторить</span>','Повторить (⇧⌘Z)']];
  o.innerHTML='<div class="nbx-top"><button type="button" class="nbx-x" data-x="close" aria-label="Закрыть черновик">✕</button><b class="nbx-name">Черновик</b><span class="nbx-meta"><span id="nbx-st">Сохранено</span> · <span id="nbx-wc"></span></span><span class="nb-grow"></span>'+
   '<button type="button" class="nbx-ib" data-x="find">Поиск</button><button type="button" class="nbx-ib" data-x="more">PDF и копии</button></div>'+
   '<div class="nbx-find" hidden><input type="search" placeholder="Найти в черновике" aria-label="Найти в черновике"><span class="nbx-fn"></span><button type="button" data-f="prev" aria-label="Предыдущее">↑</button><button type="button" data-f="next" aria-label="Следующее">↓</button><button type="button" data-f="close" aria-label="Закрыть поиск">✕</button></div>'+
@@ -5087,14 +5125,18 @@ function nbBuild(){
  ed.addEventListener('input',e=>{if(e.inputType==='insertText'&&e.data&&/[\s\u00a0]$/.test(e.data))nbMdSpace();nbSoon();nbCount();clearTimeout(nbInk._t);nbInk._t=setTimeout(nbInk,120);});
  if(window.ResizeObserver)new ResizeObserver(()=>{clearTimeout(nbInk._t);nbInk._t=setTimeout(nbInk,80);}).observe(ed);
  nbPenWire(o);
- ed.addEventListener('beforeinput',nbMdEnter);
+ ed.addEventListener('beforeinput',e=>{
+  if(e.inputType==='historyUndo'){e.preventDefault();nbUndo();return;}if(e.inputType==='historyRedo'){e.preventDefault();nbRedo();return;}
+  const now=Date.now();if(now-NB_HT>900||/^(insertParagraph|delete|insertFromPaste)/.test(e.inputType))nbHistPush();NB_HT=now;nbMdEnter(e);});
+ ed.addEventListener('input',()=>{const u=document.querySelector('#nbx .nbx-tools [data-cmd="undo"]');if(u)u.disabled=false;});
  ed.addEventListener('keydown',e=>{
+  if((e.metaKey||e.ctrlKey)&&!e.altKey){const k=e.key.toLowerCase();if(k==='z'){e.preventDefault();e.shiftKey?nbRedo():nbUndo();return;}if(k==='y'){e.preventDefault();nbRedo();return;}}
   if(e.key==='Enter'&&!e.shiftKey)setTimeout(()=>{const a=getSelection().anchorNode,el=a&&(a.nodeType===1?a:a.parentElement),li=el&&el.closest&&el.closest('li');if(li&&!li.textContent.trim())delete li.dataset.done;},0);});
  ed.addEventListener('paste',e=>{e.preventDefault();const t=(e.clipboardData||window.clipboardData).getData('text');document.execCommand('insertText',false,t);});
  ed.addEventListener('drop',e=>{e.preventDefault();const t=e.dataTransfer&&e.dataTransfer.getData('text/plain');if(!t)return;const r=document.caretRangeFromPoint&&document.caretRangeFromPoint(e.clientX,e.clientY);if(r){const s=getSelection();s.removeAllRanges();s.addRange(r);}document.execCommand('insertText',false,t);});
  ed.addEventListener('mousedown',nbTodoClick);
  ed.addEventListener('click',e=>{const b=e.target.closest&&e.target.closest('.nbx-fact button');if(!b)return;const f=b.closest('figure');
-  if(b.dataset.fa==='del'){if(!confirm(f.dataset.k==='draw'?'Убрать рисунок из черновика?':'Убрать схему из черновика?'))return;if(f.dataset.k==='draw'&&nbD().draws[f.dataset.id])nbD().draws[f.dataset.id]={del:1,ts:Date.now()};f.remove();nbEnsureTail(ed);nbSaveDoc();}
+  if(b.dataset.fa==='del'){nbHistPush();if(!confirm(f.dataset.k==='draw'?'Убрать рисунок из черновика?':'Убрать схему из черновика?'))return;if(f.dataset.k==='draw'&&nbD().draws[f.dataset.id])nbD().draws[f.dataset.id]={del:1,ts:Date.now()};f.remove();nbEnsureTail(ed);nbSaveDoc();}
   else if(f.dataset.k==='draw')nbOpenDraw(f.dataset.id);
   else{NB_SELB=f;nbOpenDraw(null,{lid:f.dataset.lid,fi:+f.dataset.fi,ft:f.dataset.ft});}});
  o.addEventListener('keydown',e=>{if(e.key==='Escape'&&!NBDRAW){e.preventDefault();if(NB_PEN)nbPen(false);else if(!o.querySelector('.nbx-find').hidden)nbFind(false);else nbClose();}
@@ -5112,6 +5154,7 @@ function nbOpen(focusEnd){
  if(!hasToday){nbEnsureTail(ed);const t=document.createElement('template');t.innerHTML=nbDateBlock();ed.lastElementChild.before(t.content.firstChild);}
  nbEnsureTail(ed);
  if(focusEnd!==false){ed.focus({preventScroll:true});nbCaretEnd(ed.lastElementChild);requestAnimationFrame(()=>{pg.scrollTop=pg.scrollHeight;});}
+ if(!NB_H.length)nbHistReset();
  nbCount();nbStatus('Сохранено');
 }
 let NB_AFTER=null;

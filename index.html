@@ -604,7 +604,10 @@ body.nb-lock{overflow:hidden}
 .ls-gli mark{background:var(--warnbg);color:inherit;border-radius:3px}
 .ls-glempty{color:var(--muted);padding:10px 12px;margin:0}
 .ls-glhint{padding:8px 16px;border-top:1px solid var(--line)}
+.ls-pre{margin-top:10px;font-size:13.5px;line-height:1.5;opacity:.9}
+.ls-pre a{color:inherit;font-weight:700;text-decoration:underline;text-underline-offset:3px}
 /* ls: конец */
+.ng.ngs{font-size:10px;margin:10px 8px 4px 14px;color:var(--muted);letter-spacing:.06em}
 </style></head><body><div class="app">
 <aside class="side"><div class="brand">Marketing <span>Systems</span> Academy</div>
 <div class="sub">Путь к senior-маркетологу · теория + система + мастерство</div>
@@ -612,79 +615,87 @@ body.nb-lock{overflow:hidden}
 <div class="ng">Начало</div>
 <div class="nl" data-t="home" onclick="show('home')"><span class="dot"></span>Обзор</div>
 <div class="ng">Часть I — Фундамент</div>
-<div class="nl" data-lesson="1" data-t="f1" onclick="show('f1')"><span class="n">1</span>Что такое маркетинг на самом деле</div>
-<div class="nl" data-lesson="1" data-t="f2" onclick="show('f2')"><span class="n">2</span>Почему люди покупают: психология решения</div>
-<div class="nl" data-lesson="1" data-t="f3" onclick="show('f3')"><span class="n">3</span>STP: кому продавать (сегментация → таргетинг → позиция)</div>
-<div class="nl" data-lesson="1" data-t="f4" onclick="show('f4')"><span class="n">4</span>Бренд: как он реально растит продажи</div>
-<div class="nl" data-lesson="1" data-t="f5" onclick="show('f5')"><span class="n">5</span>Ценообразование: самый недооценённый рычаг прибыли</div>
-<div class="nl" data-lesson="1" data-t="f6" onclick="show('f6')"><span class="n">6</span>Исследования и стратегия: как принимать решения</div>
-<div class="nl" data-lesson="1" data-t="f7" onclick="show('f7')"><span class="n">7</span>Копирайтинг: текст, который продаёт</div>
-<div class="nl" data-lesson="1" data-t="f8" onclick="show('f8')"><span class="n">8</span>Переговоры и продажа услуг</div>
-<div class="nl" data-lesson="1" data-t="f9" onclick="show('f9')"><span class="n">9</span>Этика и граница манипуляции</div>
-<div class="nl" data-lesson="1" data-t="f10" onclick="show('f10')"><span class="n">10</span>Международный маркетинг</div>
-<div class="ng">Часть II — Система (путь клиента)</div>
-<div class="nl" data-lesson="1" data-t="s1" onclick="show('s1')"><span class="n">1</span>Discovery — кто наш клиент и его «работа»</div>
-<div class="nl" data-lesson="1" data-t="s2" onclick="show('s2')"><span class="n">2</span>Positioning — место в голове (Dunford)</div>
-<div class="nl" data-lesson="1" data-t="s3" onclick="show('s3')"><span class="n">3</span>Brand — голос, облик, заметность</div>
-<div class="nl" data-lesson="1" data-t="s4" onclick="show('s4')"><span class="n">4</span>PMM — оффер и продающие страницы</div>
-<div class="nl" data-lesson="1" data-t="s5" onclick="show('s5')"><span class="n">5</span>GTM — выход на рынок и его последовательность</div>
-<div class="nl" data-lesson="1" data-t="s6" onclick="show('s6')"><span class="n">6</span>Channels — машина привлечения трафика</div>
-<div class="nl" data-lesson="1" data-t="s7" onclick="show('s7')"><span class="n">7</span>Content — система контента, не «посты по наитию»</div>
-<div class="nl" data-lesson="1" data-t="s8" onclick="show('s8')"><span class="n">8</span>Lifecycle — довести до ценности и привычки</div>
-<div class="nl" data-lesson="1" data-t="s9" onclick="show('s9')"><span class="n">9</span>Retention — удержать платящих (двигатель прибыли)</div>
-<div class="nl" data-lesson="1" data-t="s10" onclick="show('s10')"><span class="n">10</span>Analytics — измерять правду (корреляция ≠ причинность)</div>
-<div class="nl" data-lesson="1" data-t="s11" onclick="show('s11')"><span class="n">11</span>Brand-Ops — маркетинг как машина (система, команда, стек)</div>
-<div class="nl" data-lesson="1" data-t="s12" onclick="show('s12')"><span class="n">12</span>Advocacy — клиент приводит клиента (маховик)</div>
-<div class="ng">Часть III — Мастерство</div>
-<div class="nl" data-lesson="1" data-t="m1" onclick="show('m1')"><span class="n">1</span>Юнит-экономика: язык денег маркетинга</div>
-<div class="nl" data-lesson="1" data-t="m2" onclick="show('m2')"><span class="n">2</span>Эксперименты и статистика: не обмануться шумом</div>
-<div class="nl" data-lesson="1" data-t="m3" onclick="show('m3')"><span class="n">3</span>Martech и трекинг: технический этаж профессии</div>
-<div class="nl" data-lesson="1" data-t="m4" onclick="show('m4')"><span class="n">4</span>Growth-мышление: петли, North Star, ставка на будущее</div>
-<div class="nl" data-lesson="1" data-t="m5" onclick="show('m5')"><span class="n">5</span>Путь и мышление senior: что отличает от джуна</div>
-<div class="nl" data-lesson="1" data-t="m6" onclick="show('m6')"><span class="n">6</span>Шпаргалка: ситуация → какой метод применить</div>
-<div class="nl" data-lesson="1" data-t="m7" onclick="show('m7')"><span class="n">7</span>AI в маркетинге: как меняется профессия</div>
-<div class="nl" data-lesson="1" data-t="m8" onclick="show('m8')"><span class="n">8</span>Медиапланирование: охват и частота</div>
-<div class="nl" data-lesson="1" data-t="m9" onclick="show('m9')"><span class="n">9</span>Годовой маркетинговый план</div>
-<div class="nl" data-lesson="1" data-t="m10" onclick="show('m10')"><span class="n">10</span>Креативный бриф и работа с креативом</div>
-<div class="nl" data-lesson="1" data-t="m11" onclick="show('m11')"><span class="n">11</span>Маркетплейсы как дисциплина</div>
-<div class="nl" data-lesson="1" data-t="m12" onclick="show('m12')"><span class="n">12</span>Работа с агентствами и подрядчиками</div>
-<div class="ng">Мышление маркетолога</div>
-<div class="nl" data-lesson="1" data-t="t1" onclick="show('t1')"><span class="n">1</span>Ментальные модели маркетолога</div>
-<div class="nl" data-lesson="1" data-t="t2" onclick="show('t2')"><span class="n">2</span>От симптома к причине</div>
-<div class="nl" data-lesson="1" data-t="t3" onclick="show('t3')"><span class="n">3</span>Разбор чужого маркетинга (teardown)</div>
-<div class="nl" data-lesson="1" data-t="t4" onclick="show('t4')"><span class="n">4</span>Думать как клиент</div>
-<div class="nl" data-lesson="1" data-t="t5" onclick="show('t5')"><span class="n">5</span>Решения в неопределённости</div>
-<div class="nl" data-lesson="1" data-t="t6" onclick="show('t6')"><span class="n">6</span>Нелогичные решения, которые работают</div>
-<div class="nl" data-lesson="1" data-t="t7" onclick="show('t7')"><span class="n">7</span>Системное мышление</div>
-<div class="nl" data-lesson="1" data-t="t8" onclick="show('t8')"><span class="n">8</span>Ясно излагать мысль</div>
-<div class="ng">Часть IV — Специализации</div>
-<div class="nl" data-lesson="1" data-t="c1" onclick="show('c1')"><span class="n">1</span>Карта маркетинга: как выбрать свой трек</div>
-<div class="nl" data-lesson="1" data-t="c2" onclick="show('c2')"><span class="n">2</span>Product Marketing (PMM)</div>
-<div class="nl" data-lesson="1" data-t="c3" onclick="show('c3')"><span class="n">3</span>Growth — эксперименты вместо мнений</div>
-<div class="nl" data-lesson="1" data-t="c4" onclick="show('c4')"><span class="n">4</span>Performance — платный трафик</div>
-<div class="nl" data-lesson="1" data-t="c5" onclick="show('c5')"><span class="n">5</span>Brand — спрос, который не покупаешь</div>
-<div class="nl" data-lesson="1" data-t="c6" onclick="show('c6')"><span class="n">6</span>Content и SEO</div>
-<div class="nl" data-lesson="1" data-t="c7" onclick="show('c7')"><span class="n">7</span>SMM и Community</div>
-<div class="nl" data-lesson="1" data-t="c8" onclick="show('c8')"><span class="n">8</span>Lifecycle / CRM / Retention</div>
-<div class="nl" data-lesson="1" data-t="c9" onclick="show('c9')"><span class="n">9</span>Marketing Analytics</div>
-<div class="nl" data-lesson="1" data-t="c10" onclick="show('c10')"><span class="n">10</span>PR и коммуникации</div>
-<div class="nl" data-lesson="1" data-t="c11" onclick="show('c11')"><span class="n">11</span>Head of Marketing / CMO — путь наверх</div>
-<div class="nl" data-lesson="1" data-t="c12" onclick="show('c12')"><span class="n">12</span>Demand Gen / B2B-маркетинг</div>
-<div class="nl" data-lesson="1" data-t="c13" onclick="show('c13')"><span class="n">13</span>CX: опыт клиента</div>
-<div class="nl" data-lesson="1" data-t="c14" onclick="show('c14')"><span class="n">14</span>Айдентика и бренд-дизайн</div>
-<div class="nl" data-lesson="1" data-t="c15" onclick="show('c15')"><span class="n">15</span>Лидерство и управление командой</div>
-<div class="nl" data-lesson="1" data-t="c16" onclick="show('c16')"><span class="n">16</span>Product management для маркетолога</div>
-<div class="nl" data-lesson="1" data-t="c17" onclick="show('c17')"><span class="n">17</span>Retail и trade-маркетинг</div>
-<div class="nl" data-lesson="1" data-t="c18" onclick="show('c18')"><span class="n">18</span>Партнёрства и ко-маркетинг</div>
-<div class="ng">Часть V — Маркетолог+</div>
-<div class="nl" data-lesson="1" data-t="w1" onclick="show('w1')"><span class="n">1</span>Китай: хуки и контент</div>
-<div class="nl" data-lesson="1" data-t="w2" onclick="show('w2')"><span class="n">2</span>Китай: продажа в эфире</div>
-<div class="nl" data-lesson="1" data-t="w3" onclick="show('w3')"><span class="n">3</span>Китай: своя база клиентов и вирусный рост</div>
-<div class="nl" data-lesson="1" data-t="w4" onclick="show('w4')"><span class="n">4</span>Япония и Корея: ремесло вовлечения</div>
-<div class="nl" data-lesson="1" data-t="w5" onclick="show('w5')"><span class="n">5</span>Индия, MENA, Латам, ЮВА, Турция</div>
-<div class="nl" data-lesson="1" data-t="w6" onclick="show('w6')"><span class="n">6</span>Европа, Израиль, Африка</div>
-<div class="nl" data-lesson="1" data-t="w7" onclick="show('w7')"><span class="n">7</span>Классический директ-респонс</div>
-<div class="nl" data-lesson="1" data-t="w8" onclick="show('w8')"><span class="n">8</span>Закрытые школы: игры, дропы, люкс</div>
+<div class="nl" data-lesson="1" data-part="f" data-t="f1" onclick="show('f1')"><span class="n">1</span>Что такое маркетинг на самом деле</div>
+<div class="nl" data-lesson="1" data-part="f" data-t="f2" onclick="show('f2')"><span class="n">2</span>Почему люди покупают: психология решения</div>
+<div class="nl" data-lesson="1" data-part="f" data-t="f6" onclick="show('f6')"><span class="n">3</span>Исследования и стратегия: как принимать решения</div>
+<div class="nl" data-lesson="1" data-part="f" data-t="f3" onclick="show('f3')"><span class="n">4</span>STP: кому продавать (сегментация → таргетинг → позиция)</div>
+<div class="nl" data-lesson="1" data-part="f" data-t="f4" onclick="show('f4')"><span class="n">5</span>Бренд: как он реально растит продажи</div>
+<div class="nl" data-lesson="1" data-part="f" data-t="f5" onclick="show('f5')"><span class="n">6</span>Ценообразование: самый недооценённый рычаг прибыли</div>
+<div class="nl" data-lesson="1" data-part="f" data-t="m1" onclick="show('m1')"><span class="n">7</span>Юнит-экономика: язык денег маркетинга</div>
+<div class="nl" data-lesson="1" data-part="f" data-t="m2" onclick="show('m2')"><span class="n">8</span>Эксперименты и статистика: не обмануться шумом</div>
+<div class="nl" data-lesson="1" data-part="f" data-t="f7" onclick="show('f7')"><span class="n">9</span>Копирайтинг: текст, который продаёт</div>
+<div class="nl" data-lesson="1" data-part="f" data-t="f9" onclick="show('f9')"><span class="n">10</span>Этика и граница манипуляции</div>
+<div class="ng">Часть II — Мышление маркетолога</div>
+<div class="nl" data-lesson="1" data-part="t" data-t="t1" onclick="show('t1')"><span class="n">1</span>Ментальные модели маркетолога</div>
+<div class="nl" data-lesson="1" data-part="t" data-t="t2" onclick="show('t2')"><span class="n">2</span>От симптома к причине</div>
+<div class="nl" data-lesson="1" data-part="t" data-t="t3" onclick="show('t3')"><span class="n">3</span>Разбор чужого маркетинга (teardown)</div>
+<div class="nl" data-lesson="1" data-part="t" data-t="t4" onclick="show('t4')"><span class="n">4</span>Думать как клиент</div>
+<div class="nl" data-lesson="1" data-part="t" data-t="t5" onclick="show('t5')"><span class="n">5</span>Решения в неопределённости</div>
+<div class="nl" data-lesson="1" data-part="t" data-t="t6" onclick="show('t6')"><span class="n">6</span>Нелогичные решения, которые работают</div>
+<div class="nl" data-lesson="1" data-part="t" data-t="t7" onclick="show('t7')"><span class="n">7</span>Системное мышление</div>
+<div class="nl" data-lesson="1" data-part="t" data-t="t8" onclick="show('t8')"><span class="n">8</span>Ясно излагать мысль</div>
+<div class="ng">Часть III — Система (путь клиента)</div>
+<div class="nl" data-lesson="1" data-part="s" data-t="s1" onclick="show('s1')"><span class="n">1</span>Discovery — кто наш клиент и его «работа»</div>
+<div class="nl" data-lesson="1" data-part="s" data-t="s2" onclick="show('s2')"><span class="n">2</span>Positioning — место в голове (Dunford)</div>
+<div class="nl" data-lesson="1" data-part="s" data-t="s3" onclick="show('s3')"><span class="n">3</span>Brand — голос, облик, заметность</div>
+<div class="nl" data-lesson="1" data-part="s" data-t="s4" onclick="show('s4')"><span class="n">4</span>PMM — оффер и продающие страницы</div>
+<div class="nl" data-lesson="1" data-part="s" data-t="s5" onclick="show('s5')"><span class="n">5</span>GTM — выход на рынок и его последовательность</div>
+<div class="nl" data-lesson="1" data-part="s" data-t="s6" onclick="show('s6')"><span class="n">6</span>Channels — машина привлечения трафика</div>
+<div class="nl" data-lesson="1" data-part="s" data-t="s7" onclick="show('s7')"><span class="n">7</span>Content — система контента, не «посты по наитию»</div>
+<div class="nl" data-lesson="1" data-part="s" data-t="s8" onclick="show('s8')"><span class="n">8</span>Lifecycle — довести до ценности и привычки</div>
+<div class="nl" data-lesson="1" data-part="s" data-t="s9" onclick="show('s9')"><span class="n">9</span>Retention — удержать платящих (двигатель прибыли)</div>
+<div class="nl" data-lesson="1" data-part="s" data-t="m3" onclick="show('m3')"><span class="n">10</span>Martech и трекинг: технический этаж профессии</div>
+<div class="nl" data-lesson="1" data-part="s" data-t="s10" onclick="show('s10')"><span class="n">11</span>Analytics — измерять правду (корреляция ≠ причинность)</div>
+<div class="nl" data-lesson="1" data-part="s" data-t="s11" onclick="show('s11')"><span class="n">12</span>Brand-Ops — маркетинг как машина (система, команда, стек)</div>
+<div class="nl" data-lesson="1" data-part="s" data-t="s12" onclick="show('s12')"><span class="n">13</span>Advocacy — клиент приводит клиента (маховик)</div>
+<div class="ng">Часть IV — Практика senior</div>
+<div class="nl" data-lesson="1" data-part="m" data-t="m4" onclick="show('m4')"><span class="n">1</span>Growth-мышление: петли, North Star, ставка на будущее</div>
+<div class="nl" data-lesson="1" data-part="m" data-t="m8" onclick="show('m8')"><span class="n">2</span>Медиапланирование: охват и частота</div>
+<div class="nl" data-lesson="1" data-part="m" data-t="m9" onclick="show('m9')"><span class="n">3</span>Годовой маркетинговый план</div>
+<div class="nl" data-lesson="1" data-part="m" data-t="m10" onclick="show('m10')"><span class="n">4</span>Креативный бриф и работа с креативом</div>
+<div class="nl" data-lesson="1" data-part="m" data-t="m11" onclick="show('m11')"><span class="n">5</span>Маркетплейсы как дисциплина</div>
+<div class="nl" data-lesson="1" data-part="m" data-t="m12" onclick="show('m12')"><span class="n">6</span>Работа с агентствами и подрядчиками</div>
+<div class="nl" data-lesson="1" data-part="m" data-t="m7" onclick="show('m7')"><span class="n">7</span>AI в маркетинге: как меняется профессия</div>
+<div class="nl" data-lesson="1" data-part="m" data-t="f8" onclick="show('f8')"><span class="n">8</span>Переговоры и продажа услуг</div>
+<div class="ng">Часть V — Специализации</div>
+<div class="nl" data-lesson="1" data-part="c" data-t="c1" onclick="show('c1')"><span class="n">1</span>Карта маркетинга: как выбрать свой трек</div>
+<div class="ng ngs">Привлечение</div>
+<div class="nl" data-lesson="1" data-part="c" data-t="c4" onclick="show('c4')"><span class="n">2</span>Performance — платный трафик</div>
+<div class="nl" data-lesson="1" data-part="c" data-t="c6" onclick="show('c6')"><span class="n">3</span>Content и SEO</div>
+<div class="nl" data-lesson="1" data-part="c" data-t="c7" onclick="show('c7')"><span class="n">4</span>SMM и Community</div>
+<div class="nl" data-lesson="1" data-part="c" data-t="c10" onclick="show('c10')"><span class="n">5</span>PR и коммуникации</div>
+<div class="nl" data-lesson="1" data-part="c" data-t="c18" onclick="show('c18')"><span class="n">6</span>Партнёрства и ко-маркетинг</div>
+<div class="nl" data-lesson="1" data-part="c" data-t="c17" onclick="show('c17')"><span class="n">7</span>Retail и trade-маркетинг</div>
+<div class="ng ngs">Продукт и рост</div>
+<div class="nl" data-lesson="1" data-part="c" data-t="c2" onclick="show('c2')"><span class="n">8</span>Product Marketing (PMM)</div>
+<div class="nl" data-lesson="1" data-part="c" data-t="c16" onclick="show('c16')"><span class="n">9</span>Product management для маркетолога</div>
+<div class="nl" data-lesson="1" data-part="c" data-t="c3" onclick="show('c3')"><span class="n">10</span>Growth — эксперименты вместо мнений</div>
+<div class="ng ngs">Бренд</div>
+<div class="nl" data-lesson="1" data-part="c" data-t="c5" onclick="show('c5')"><span class="n">11</span>Brand — спрос, который не покупаешь</div>
+<div class="nl" data-lesson="1" data-part="c" data-t="c14" onclick="show('c14')"><span class="n">12</span>Айдентика и бренд-дизайн</div>
+<div class="ng ngs">Клиент</div>
+<div class="nl" data-lesson="1" data-part="c" data-t="c8" onclick="show('c8')"><span class="n">13</span>Lifecycle / CRM / Retention</div>
+<div class="nl" data-lesson="1" data-part="c" data-t="c13" onclick="show('c13')"><span class="n">14</span>CX: опыт клиента</div>
+<div class="ng ngs">Данные</div>
+<div class="nl" data-lesson="1" data-part="c" data-t="c9" onclick="show('c9')"><span class="n">15</span>Marketing Analytics</div>
+<div class="ng ngs">B2B</div>
+<div class="nl" data-lesson="1" data-part="c" data-t="c12" onclick="show('c12')"><span class="n">16</span>Demand Gen / B2B-маркетинг</div>
+<div class="ng ngs">Управление</div>
+<div class="nl" data-lesson="1" data-part="c" data-t="c15" onclick="show('c15')"><span class="n">17</span>Лидерство и управление командой</div>
+<div class="nl" data-lesson="1" data-part="c" data-t="c11" onclick="show('c11')"><span class="n">18</span>Head of Marketing / CMO — путь наверх</div>
+<div class="ng">Часть VI — Маркетолог+</div>
+<div class="nl" data-lesson="1" data-part="w" data-t="f10" onclick="show('f10')"><span class="n">1</span>Международный маркетинг</div>
+<div class="nl" data-lesson="1" data-part="w" data-t="w1" onclick="show('w1')"><span class="n">2</span>Китай: хуки и контент</div>
+<div class="nl" data-lesson="1" data-part="w" data-t="w2" onclick="show('w2')"><span class="n">3</span>Китай: продажа в эфире</div>
+<div class="nl" data-lesson="1" data-part="w" data-t="w3" onclick="show('w3')"><span class="n">4</span>Китай: своя база клиентов и вирусный рост</div>
+<div class="nl" data-lesson="1" data-part="w" data-t="w4" onclick="show('w4')"><span class="n">5</span>Япония и Корея: ремесло вовлечения</div>
+<div class="nl" data-lesson="1" data-part="w" data-t="w5" onclick="show('w5')"><span class="n">6</span>Индия, MENA, Латам, ЮВА, Турция</div>
+<div class="nl" data-lesson="1" data-part="w" data-t="w6" onclick="show('w6')"><span class="n">7</span>Европа, Израиль, Африка</div>
+<div class="nl" data-lesson="1" data-part="w" data-t="w7" onclick="show('w7')"><span class="n">8</span>Классический директ-респонс</div>
+<div class="nl" data-lesson="1" data-part="w" data-t="w8" onclick="show('w8')"><span class="n">9</span>Закрытые школы: игры, дропы, люкс</div>
+<div class="ng">Финал</div>
+<div class="nl" data-lesson="1" data-part="z" data-t="m5" onclick="show('m5')"><span class="n">1</span>Путь и мышление senior: что отличает от джуна</div>
+<div class="nl" data-lesson="1" data-part="z" data-t="m6" onclick="show('m6')"><span class="n">2</span>Шпаргалка: ситуация → какой метод применить</div>
 <div class="ng">Справочники</div>
 <div class="nl" data-t="frameworks" onclick="show('frameworks')"><span class="dot"></span>Фреймворки</div>
 <div class="nl" data-t="cases" onclick="show('cases')"><span class="dot"></span>Банк кейсов</div>
@@ -752,7 +763,7 @@ body.nb-lock{overflow:hidden}
 </div>
 <div id="f3" class="view">
 <div class="hero">
-<div class="eyebrow">Часть I — Фундамент · урок 3</div>
+<div class="eyebrow">Часть I — Фундамент · урок 4</div>
 <h2>STP: кому продавать (сегментация → таргетинг → позиция)</h2>
 <p>Нельзя продавать всем одинаково. Режешь рынок на группы, выбираешь выигрышную, занимаешь место в её голове.</p>
 </div>
@@ -763,7 +774,7 @@ body.nb-lock{overflow:hidden}
 <div class="sec-t">Таргетинг: выбери, где выиграешь (и кому НЕ продавать)</div>
 <div class="card"><p>Выбор сегмента — это и выбор <b>кого НЕ брать</b>. «И стартапы, и корпорации» — это не таргетинг, это страх выбора. Senior оценивает сегменты по привлекательности (размер, рост, конкуренция, маржа) и по своей силе в нём (моат, скорость, fit).</p><p>Для нового/малого бренда — <b>beachhead</b> (Мур, «Crossing the Chasm»): одна ниша, где ты можешь стать №1, прежде чем идти в массовый рынок. Доминируй в малом → используй как референс для следующего.</p><p class="b-ex"><b>Пример:</b> Небольшая кофейня вместо того чтобы сразу целиться в «весь Алматы», выбирает один бизнес-центр рядом и становится там кофейней №1 по скорости и качеству для сотрудников этого здания. Через полгода, с репутацией и потоком из этого центра, она открывает вторую точку у соседнего БЦ — используя первый успех как доказательство и капитал для роста.</p></div>
 <div class="sec-t">Позиционирование: займи место в голове</div>
-<div class="card"><p><b>Сегменты ≠ персоны.</b> Сегмент — рыночная группа по экономике/потребности (для стратегии и измерения). Персона — вымышленный портрет одного представителя (для UX, контента, тона). Персону выводят ИЗ сегмента, не подменяют одно другим.</p><p>Позиция — это ответ на «почему ты, а не альтернатива, для этого сегмента». Глубоко — в модуле «Часть II · Позиционирование» (Dunford). Здесь главное: позиция следует за выбором сегмента, не наоборот.</p><p class="b-ex"><b>Пример:</b> Если сегмент — «родители, у которых родился первый ребёнок», то позиция магазина детских товаров может звучать как «всё для первых трёх месяцев в одном месте, без беготни по десяти магазинам». Если бы сначала придумали позицию («мы про удобство»), а потом искали сегмент под неё, получилось бы расплывчато — именно сегмент определяет, какая проблема должна звучать в позиции.</p></div>
+<div class="card"><p><b>Сегменты ≠ персоны.</b> Сегмент — рыночная группа по экономике/потребности (для стратегии и измерения). Персона — вымышленный портрет одного представителя (для UX, контента, тона). Персону выводят ИЗ сегмента, не подменяют одно другим.</p><p>Позиция — это ответ на «почему ты, а не альтернатива, для этого сегмента». Глубоко — в уроке «Positioning — место в голове» (Dunford). Здесь главное: позиция следует за выбором сегмента, не наоборот.</p><p class="b-ex"><b>Пример:</b> Если сегмент — «родители, у которых родился первый ребёнок», то позиция магазина детских товаров может звучать как «всё для первых трёх месяцев в одном месте, без беготни по десяти магазинам». Если бы сначала придумали позицию («мы про удобство»), а потом искали сегмент под неё, получилось бы расплывчато — именно сегмент определяет, какая проблема должна звучать в позиции.</p></div>
 <div class="sec-t">Кейсы из реального мира</div>
 <div class="case"><div class="ch"><span class="cb">Liquid Death</span><span class="metric">Питьевая вода — самый скучный товар на полке: все банки одинаковые, разница только в цене и дизайне. Вместо того чтобы сегментировать рынок по демографии («любители ЗОЖ»), основатели Liquid Death выбрали сегмент по идентичности: людей, которые ходят на рок-концерты и в спортзал и хотят выглядеть по-своему круто, не выпивая при этом алкоголь. Под этот сегмент воду разлили в высокую банку, похожую на пивную, и построили коммуникацию в металл-эстетике с чёрным юмором вместо привычных «горных пейзажей». Выручка компании выросла примерно с 3 миллионов долларов в 2019 году, когда была продана первая банка, почти до 45 миллионов долларов в 2021 году (данные гендиректора Майка Чессарио) — потому что узкий, но точный сегмент по идентичности дал бренду право говорить не как все, и это выделило скучный продукт на полке.</span></div><p class="cw">выручка ~$3M → ~$45M за 2 года</p><div class="cl"><b>Урок:</b> Ищи сегмент не по возрасту и полу, а по тому, кем человек хочет казаться в конкретной ситуации — это даёт право на смелый бренд, который выделяется на одинаковой полке.</div></div>
 <div class="case"><div class="ch"><span class="cb">Old Spice</span><span class="metric">Old Spice десятилетиями рекламировал мужской дезодорант напрямую мужчинам — как и любой бренд в категории. Но при разборе реального пути покупки выяснилось, что мужскую косметику в ванной чаще выбирает и покупает женщина — партнёрша или мама. Бренд пересмотрел, КТО на самом деле является целевым сегментом, и перестроил кампанию («The Man Your Man Could Smell Like») так, чтобы говорить с женщинами-зрительницами, а не с мужчинами-пользователями. Продажи геля для душа выросли на 125% к прошлому году (по данным агентства-автора кампании) — потому что правильно определённый сегмент-плательщик оказался важнее самого продукта: реклама «для мужчин» продавала то, что реально выбирают женщины.</span></div><p class="cw">продажи геля +125% YoY (данные агентства)</p><div class="cl"><b>Урок:</b> Прежде чем писать сообщение, проверь: кто физически принимает решение о покупке и платит — пользователь и покупатель часто разные люди.</div></div>
@@ -775,7 +786,7 @@ body.nb-lock{overflow:hidden}
 </div>
 <div id="f4" class="view">
 <div class="hero">
-<div class="eyebrow">Часть I — Фундамент · урок 4</div>
+<div class="eyebrow">Часть I — Фундамент · урок 5</div>
 <h2>Бренд: как он реально растит продажи</h2>
 <p>Бренд — это не логотип, а память и доступность. Современная наука: растёшь охватом и заметностью, а не «лояльностью ядра».</p>
 </div>
@@ -798,7 +809,7 @@ body.nb-lock{overflow:hidden}
 </div>
 <div id="f5" class="view">
 <div class="hero">
-<div class="eyebrow">Часть I — Фундамент · урок 5</div>
+<div class="eyebrow">Часть I — Фундамент · урок 6</div>
 <h2>Ценообразование: самый недооценённый рычаг прибыли</h2>
 <p>Цена — единственный из 4P, который напрямую делает прибыль. Малый сдвиг цены двигает прибыль сильнее, чем рост объёма.</p>
 </div>
@@ -821,14 +832,14 @@ body.nb-lock{overflow:hidden}
 </div>
 <div id="f6" class="view">
 <div class="hero">
-<div class="eyebrow">Часть I — Фундамент · урок 6</div>
+<div class="eyebrow">Часть I — Фундамент · урок 3</div>
 <h2>Исследования и стратегия: как принимать решения</h2>
 <p>Senior отличается тем, что решает на данных и фреймворках, а не на интуиции. Качественные методы дают «почему», количественные — «сколько».</p>
 </div>
 <div class="plain"><span class="pl">Простыми словами</span>Маркетинговая стратегия — это осознанный выбор, где играть и как победить, основанный на исследовании рынка, а не на «мне кажется». Качественные методы (интервью, наблюдение) объясняют ПОЧЕМУ люди ведут себя так. Количественные (опросы, эксперименты, данные) говорят СКОЛЬКО и насколько уверенно. Senior комбинирует оба.</div>
 <div class="analogy"><b>Аналогия.</b> Исследование — как фары и карта в ночной поездке. Качественное (интервью) — дальний свет: видишь, что впереди и почему дорога такая. Количественное (цифры) — GPS: знаешь, где именно ты и сколько ехать. Ехать без фар и карты = гадать в темноте.</div>
 <div class="sec-t">Качественное vs количественное (и когда что)</div>
-<div class="card"><p><b>Качественное</b> (глубинные интервью, фокус-группы, наблюдение, JTBD switch-интервью): малая выборка, глубина, отвечает на «почему» и «как». Используешь, когда ИЩЕШЬ гипотезы и инсайты. Нельзя обобщать статистически.</p><p><b>Количественное</b> (опросы, A/B-тесты, аналитика, эконометрика): большая выборка, отвечает на «сколько», «насколько уверенно». Используешь, когда ПРОВЕРЯЕШЬ гипотезы. Правильный порядок часто: качественное (найти идею) → количественное (проверить масштаб). Главное правило: <b>корреляция ≠ причинность</b> (об этом глубоко в Части III).</p><p class="b-ex"><b>Пример:</b> Доставка еды в Астане замечает по цифрам, что заказы падают по вторникам, — это количество, но не объясняет почему. Пять коротких звонков постоянным клиентам (качественное) вскрывают причину: по вторникам у конкурента акция «2 по цене 1». Дальше можно количественно проверить, окупится ли своя контр-акция именно по вторникам.</p></div>
+<div class="card"><p><b>Качественное</b> (глубинные интервью, фокус-группы, наблюдение, JTBD switch-интервью): малая выборка, глубина, отвечает на «почему» и «как». Используешь, когда ИЩЕШЬ гипотезы и инсайты. Нельзя обобщать статистически.</p><p><b>Количественное</b> (опросы, A/B-тесты, аналитика, эконометрика): большая выборка, отвечает на «сколько», «насколько уверенно». Используешь, когда ПРОВЕРЯЕШЬ гипотезы. Правильный порядок часто: качественное (найти идею) → количественное (проверить масштаб). Главное правило: <b>корреляция ≠ причинность</b> (об этом глубоко в уроке «Эксперименты и статистика» — он идёт в этой же части).</p><p class="b-ex"><b>Пример:</b> Доставка еды в Астане замечает по цифрам, что заказы падают по вторникам, — это количество, но не объясняет почему. Пять коротких звонков постоянным клиентам (качественное) вскрывают причину: по вторникам у конкурента акция «2 по цене 1». Дальше можно количественно проверить, окупится ли своя контр-акция именно по вторникам.</p></div>
 <div class="sec-t">Стратегические фреймворки (карта решений)</div>
 <div class="card"><p><b>SWOT</b> — сильные/слабые стороны (внутри) × возможности/угрозы (снаружи); простая инвентаризация. <b>Porter 5 сил</b> — насколько привлекательна отрасль (конкуренты, новые игроки, заменители, власть поставщиков и покупателей). <b>3 generic-стратегии Портера</b> — лидерство по издержкам / дифференциация / фокус (нельзя усидеть на двух — «stuck in the middle»).</p><p><b>Ansoff</b> — матрица роста: текущий/новый продукт × текущий/новый рынок (проникновение → развитие рынка → развитие продукта → диверсификация, по росту риска). <b>BCG</b> — портфель: звёзды / дойные коровы / вопросы / собаки. Эти рамки — не ответы, а способ не упустить угол зрения.</p><p class="b-ex"><b>Пример:</b> У сети стоматологий три направления: имплантация (высокий рост и доля рынка — «звезда»), обычное лечение зубов (стабильный доход без роста — «дойная корова») и детская стоматология (маленькая доля, но рынок растёт — «вопрос»). BCG-матрица не говорит, что делать, но подсказывает: деньги от «коровы» стоит вкладывать в «звезду» и присмотреться к «вопросу», прежде чем расширять его.</p></div>
 <div class="sec-t">Как мыслит стратег: где играть и как победить</div>
@@ -844,7 +855,7 @@ body.nb-lock{overflow:hidden}
 </div>
 <div id="f7" class="view">
 <div class="hero">
-<div class="eyebrow">Часть I — Фундамент · урок 7</div>
+<div class="eyebrow">Часть I — Фундамент · урок 9</div>
 <h2>Копирайтинг: текст, который продаёт</h2>
 <p>Хороший маркетолог, который не умеет писать, — стратег без рук: любая идея живёт или умирает в конкретном заголовке и конкретной строке текста.</p>
 </div>
@@ -870,7 +881,7 @@ body.nb-lock{overflow:hidden}
 <div class="quiz"><div class="q">🎯 Проверь себя: какой из трёх заголовков лендинга школы английского точнее следует принципу «обещай результат, а не описывай фичу»?</div><label class="opt" onclick="quiz(this,0,0)">Заговоришь на английском за 3 месяца без зубрёжки</label><label class="opt" onclick="quiz(this,0,1)">12 модулей грамматики с носителем языка вживую</label><label class="opt" onclick="quiz(this,0,2)">Инновационная методика обучения от экспертов</label><div class="qfb">Первый заголовок называет конкретный результат для читателя (заговорит, за 3 месяца), а не характеристику продукта. Второй — фича (сколько модулей), третий — абстрактный корпоративный шум без единой проверяемой детали. Ошибся → перечитай раздел выше.</div></div>
 </div>
 <div id="f8" class="view">
-<div class="hero"><div class="eyebrow">Часть I — Фундамент · урок 8</div>
+<div class="hero"><div class="eyebrow">Часть IV — Практика senior · урок 8</div>
 <h2>Переговоры и продажа своих услуг</h2><p>Хорошая работа не продаёт себя сама: цену и условия ты защищаешь в разговоре, и от этого разговора доход зависит не меньше, чем от качества самой работы.</p></div>
 <div class="plain"><span class="pl">Простыми словами</span>Переговоры — это не спор, кто кого передавит, а процесс, где обе стороны выясняют, что им на самом деле нужно, и ищут вариант, который устроит обоих. Фрилансер почти всегда садится за стол слабее клиента: у клиента есть бюджет и выбор, у тебя — один заказ на кону. Но эта слабость чаще в голове, чем в реальности: у тебя тоже есть запасной вариант — другие клиенты, другая занятость, — и чем он реальнее, тем спокойнее ты держишь цену. Сильный переговорщик готовится заранее: знает свой минимум, свою цель и то, зачем это вообще нужно клиенту. В разговоре он не спорит и не оправдывается, а слушает и уточняет, потому что человек, который говорит «дорого», редко имеет в виду именно цифру. Задача — не продавить, а найти решение, которое клиент подпишет с чувством, что выиграл он, а не потерял ты.</div>
 <div class="analogy"><b>Аналогия.</b> Переговоры похожи на торг на алматинском рынке за партию товара, а не на разовую покупку одного яблока. Продавец, который сразу роняет цену на первое «дорого», обесценивает весь товар в глазах покупателя и теряет уважение на будущее. Продавец, который знает нижнюю границу и держит её, но взамен меняет объём — не десять кило, а пять, — уходит и с деньгами, и с покупателем, который вернётся снова.</div>
@@ -892,7 +903,7 @@ body.nb-lock{overflow:hidden}
 <div class="quiz"><div class="q">🎯 Проверь себя: Клиент пишет: «Дорого, у других дешевле». Что делаешь первым по логике урока?</div><label class="opt" onclick="quiz(this,0,0)">Уточняет, что именно входит в более дешёвое предложение конкурента</label><label class="opt" onclick="quiz(this,0,1)">Сразу снижает цену на 10-15%, чтобы не потерять клиента</label><label class="opt" onclick="quiz(this,0,2)">Объясняет клиенту, почему его цена справедлива и аргументированна</label><div class="qfb">Пока не понятно, сравнивают ли одинаковый объём работы, спорить о цене бессмысленно — часто оказывается, что дешёвый вариант урезан по составу. Ошибся → перечитай раздел выше.</div></div>
 </div>
 <div id="f9" class="view">
-<div class="hero"><div class="eyebrow">Часть I — Фундамент · урок 9</div>
+<div class="hero"><div class="eyebrow">Часть I — Фундамент · урок 10</div>
 <h2>Этика маркетинга: где проходит граница манипуляции</h2><p>Между убеждением и обманом в маркетинге проходит одна и та же линия почти всегда: показал бы ты этот приём клиенту открыто и объяснил бы, как он работает?</p></div>
 <div class="plain"><span class="pl">Простыми словами</span>Любой приём влияния — от скидки до таймера обратного отсчёта — можно применить честно или манипулятивно, и разница не в самом приёме, а в том, врёт ли он о реальности. Скидка, которая правда заканчивается завтра, — это честная срочность. Таймер, который сбрасывается при обновлении страницы, — обман через тот же визуальный приём. Тёмные паттерны (dark patterns) — интерфейсные уловки, которые обманом заставляют человека сделать то, чего он не хотел: подписаться, не заметив цену, или не суметь отменить подписку. Разница между влиянием и манипуляцией всегда в одном: манипуляция скрывает правду или использует давление там, где у человека нет реального выбора. Долгосрочно обман стоит дороже: один пойманный на нём бренд теряет клиентов и деньги на годы вперёд, а не на одну удачную неделю продаж.</div>
 <div class="analogy"><b>Аналогия.</b> Влияние — как хороший продавец на рынке, который расхваливает товар, но не обманывает про вес и не подсовывает гнилое яблоко под спелыми сверху. Манипуляция — как продавец, который специально сыплет на весы палец: покупатель один раз не заметит, но как только заметит, больше не подойдёт ни к этому прилавку, ни, скорее всего, ко всему ряду по соседству.</div>
@@ -912,7 +923,7 @@ body.nb-lock{overflow:hidden}
 <div class="quiz"><div class="q">🎯 Проверь себя: Магазин пишет на сайте «Осталось 2 шт.» уже три недели подряд без изменений числа. Что это за приём?</div><label class="opt" onclick="quiz(this,1,0)">Честный дефицит, потому что товар действительно может заканчиваться</label><label class="opt" onclick="quiz(this,1,1)">Ложный дефицит — тёмный паттерн, где цифра не отражает реальные остатки</label><label class="opt" onclick="quiz(this,1,2)">Социальное доказательство, использованное для повышения доверия к товару</label><div class="qfb">Если цифра не меняется неделями, она не отражает реальный остаток на складе, а существует только чтобы давить на решение — это классический ложный дефицит из классификации Бригнулла. Ошибся → перечитай раздел выше.</div></div>
 </div>
 <div id="f10" class="view">
-<div class="hero"><div class="eyebrow">Часть I — Фундамент · урок 10</div>
+<div class="hero"><div class="eyebrow">Часть VI — Маркетолог+ · урок 1</div>
 <h2>Международный маркетинг: адаптация против стандартизации</h2><p>Одна и та же кампания на одном рынке приносит рост, а на соседнем — провал, и разница почти всегда не в бюджете, а в том, перевели вы рекламу на другой язык или адаптировали её под другую культуру.</p></div>
 <div class="plain"><span class="pl">Простыми словами</span>Выход на новый рынок — это всегда выбор между двумя крайностями: возить одну и ту же кампанию по всему миру (стандартизация, дешевле и быстрее) или переделывать её под каждую страну (адаптация, дороже, но точнее попадает в аудиторию). Правильный ответ почти никогда не «только одно из двух»: сильные бренды стандартизируют то, что не зависит от культуры (логотип, качество продукта, базовая идея), и адаптируют то, что зависит (язык, юмор, цвет, формат общения). Культура влияет не только на язык, но и на то, как люди вообще принимают решения: где-то ценят прямоту в переговорах и рекламе, где-то — намёки и контекст; где-то реклама с давлением на индивидуальный успех работает, где-то — только реклама про семью и группу. Перевод текста — это работа со словами, а локализация — работа со смыслом: шутка, дословно переведённая на другой язык, часто перестаёт быть смешной или становится оскорбительной. Ошибка на международном рынке стоит дороже, чем на локальном, — тираж рекламы больше, репутация нескольких стран сразу, и переделка после провала обходится в разы дороже, чем правильная адаптация с самого начала.</div>
 <div class="analogy"><b>Аналогия.</b> Выход на новый рынок — как переезд в гости к семье с другими правилами за столом. Можно вести себя точно так же, как дома (стандартизация) — иногда это сойдёт с рук, а иногда обидит хозяев. А можно выучить их привычки заранее: где нужно снять обувь, а где нет, что считается вежливым тостом, а что — грубостью, и в чём именно тебе не нужно меняться, потому что твои личные манеры хозяев не касаются. Гость, который путает «своё» с тем, что стоит адаптировать, либо теряется как личность, либо обижает всех за столом.</div>
@@ -935,7 +946,7 @@ body.nb-lock{overflow:hidden}
 </div>
 <div id="s1" class="view">
 <div class="hero">
-<div class="eyebrow">Часть II — Система · урок 1</div>
+<div class="eyebrow">Часть III — Система (путь клиента) · урок 1</div>
 <h2>Discovery — кто наш клиент и его «работа»</h2>
 <p>Первый и самый важный этап: понять, кому и какую работу продаёшь. Ошибка здесь множит ошибки везде.</p>
 </div>
@@ -956,7 +967,7 @@ body.nb-lock{overflow:hidden}
 </div>
 <div id="s2" class="view">
 <div class="hero">
-<div class="eyebrow">Часть II — Система · урок 2</div>
+<div class="eyebrow">Часть III — Система (путь клиента) · урок 2</div>
 <h2>Positioning — место в голове (Dunford)</h2>
 <p>Стратегический выбор: с чем тебя сравнивают, чем ты лучше для сегмента, в какой категории играешь.</p>
 </div>
@@ -977,7 +988,7 @@ body.nb-lock{overflow:hidden}
 </div>
 <div id="s3" class="view">
 <div class="hero">
-<div class="eyebrow">Часть II — Система · урок 3</div>
+<div class="eyebrow">Часть III — Система (путь клиента) · урок 3</div>
 <h2>Brand — голос, облик, заметность</h2>
 <p>Бренд превращает позицию в узнаваемую личность и mental availability. Делает перформанс дешевле.</p>
 </div>
@@ -998,7 +1009,7 @@ body.nb-lock{overflow:hidden}
 </div>
 <div id="s4" class="view">
 <div class="hero">
-<div class="eyebrow">Часть II — Система · урок 4</div>
+<div class="eyebrow">Часть III — Система (путь клиента) · урок 4</div>
 <h2>PMM — оффер и продающие страницы</h2>
 <p>Product Marketing превращает позицию в неотразимый оффер и страницы, которые конвертируют трафик в деньги.</p>
 </div>
@@ -1019,7 +1030,7 @@ body.nb-lock{overflow:hidden}
 </div>
 <div id="s5" class="view">
 <div class="hero">
-<div class="eyebrow">Часть II — Система · урок 5</div>
+<div class="eyebrow">Часть III — Система (путь клиента) · урок 5</div>
 <h2>GTM — выход на рынок и его последовательность</h2>
 <p>Go-to-Market связывает всё в систему запуска: motion, плацдарм, воронка, порядок каналов, гейты экономики.</p>
 </div>
@@ -1040,7 +1051,7 @@ body.nb-lock{overflow:hidden}
 </div>
 <div id="s6" class="view">
 <div class="hero">
-<div class="eyebrow">Часть II — Система · урок 6</div>
+<div class="eyebrow">Часть III — Система (путь клиента) · урок 6</div>
 <h2>Channels — машина привлечения трафика</h2>
 <p>Каналы — портфель, которым управляешь по экономике (CAC/окупаемость), а не «льёшь во всё подряд».</p>
 </div>
@@ -1061,7 +1072,7 @@ body.nb-lock{overflow:hidden}
 </div>
 <div id="s7" class="view">
 <div class="hero">
-<div class="eyebrow">Часть II — Система · урок 7</div>
+<div class="eyebrow">Часть III — Система (путь клиента) · урок 7</div>
 <h2>Content — система контента, не «посты по наитию»</h2>
 <p>Контент кормит органику и бренд. Senior строит систему (пиллары, репурпозинг, под стадию намерения), а не постит хаотично.</p>
 </div>
@@ -1082,7 +1093,7 @@ body.nb-lock{overflow:hidden}
 </div>
 <div id="s8" class="view">
 <div class="hero">
-<div class="eyebrow">Часть II — Система · урок 8</div>
+<div class="eyebrow">Часть III — Система (путь клиента) · урок 8</div>
 <h2>Lifecycle — довести до ценности и привычки</h2>
 <p>Захватить лид мало — нужно довести до «aha» (первой ценности) и сформировать привычку. Здесь интерес → активный пользователь.</p>
 </div>
@@ -1103,7 +1114,7 @@ body.nb-lock{overflow:hidden}
 </div>
 <div id="s9" class="view">
 <div class="hero">
-<div class="eyebrow">Часть II — Система · урок 9</div>
+<div class="eyebrow">Часть III — Система (путь клиента) · урок 9</div>
 <h2>Retention — удержать платящих (двигатель прибыли)</h2>
 <p>Удержание дешевле привлечения и определяет LTV. Маленький рост retention = большой рост прибыли (нелинейно).</p>
 </div>
@@ -1124,7 +1135,7 @@ body.nb-lock{overflow:hidden}
 </div>
 <div id="s10" class="view">
 <div class="hero">
-<div class="eyebrow">Часть II — Система · урок 10</div>
+<div class="eyebrow">Часть III — Система (путь клиента) · урок 11</div>
 <h2>Analytics — измерять правду (корреляция ≠ причинность)</h2>
 <p>Без честного измерения весь маркетинг — вера. Senior отличает «что было рядом» (атрибуция) от «что вызвало» (инкрементальность).</p>
 </div>
@@ -1133,7 +1144,7 @@ body.nb-lock{overflow:hidden}
 <div class="sec-t">KPI-дерево, юнит-экономика, атрибуция</div>
 <div class="card"><p><b>North Star Metric</b> — одна метрика ценности для клиента (НЕ выручка — она lagging; Airbnb=ночи, Spotify=время прослушивания), декомпозированная в драйверы. <b>Юнит-экономика:</b> CAC, LTV, payback. Senior: LTV:CAC без payback бесполезен (4:1 при 6-мес payback лучше 5:1 при 12-мес из-за cash burn).</p><p><b>Атрибуция</b> (last-click/linear/time-decay/data-driven) — приблизительное деление заслуги, это КОРРЕЛЯЦИЯ. <b>Инкрементальность</b> (geo-lift/holdout) — ПРИЧИННОСТЬ, единственный честный ответ «что дал канал». <b>MMM</b> — для бюджет-сплита (cookieless). Эксперименты: считай sample заранее, не подглядывай (peeking раздувает ошибку).</p><p class="b-ex"><b>Пример:</b> доставка еды сравнила две акции — «скидка 300 тенге» и «бесплатная доставка» — и после первых 50 заказов увидела, что бесплатная доставка выигрывает, и чуть не остановила тест. Досчитав до заранее рассчитанной выборки в 2000 заказов, разница исчезла — на маленькой выборке это была случайность, а не реальная победа.</p></div>
 <div class="sec-t">Как исполнять (скиллы)</div>
-<div class="card"><p>Умбрелла <code>analytics</code> (13 скиллов): <code>kpi-tree-design</code>, <code>cohort-ltv-analysis</code>, <code>experimentation-design</code>, <code>cross-channel-measurement</code>, <code>offline-attribution</code>, <code>predictive-analytics</code> и др. Технический слой (GA4/пиксели/трекинг) — в Части III «Мастерство».</p><p>Культура: решай данными, не мнением начальника (HiPPO). Но сначала качественно пойми, ЧТО тестировать.</p></div>
+<div class="card"><p>Умбрелла <code>analytics</code> (13 скиллов): <code>kpi-tree-design</code>, <code>cohort-ltv-analysis</code>, <code>experimentation-design</code>, <code>cross-channel-measurement</code>, <code>offline-attribution</code>, <code>predictive-analytics</code> и др. Технический слой (GA4/пиксели/трекинг) — в уроке «Martech и трекинг».</p><p>Культура: решай данными, не мнением начальника (HiPPO). Но сначала качественно пойми, ЧТО тестировать.</p></div>
 <div class="sec-t">Кейсы из реального мира</div>
 <div class="case"><div class="ch"><span class="cb">Booking.com</span><span class="metric">В типичной компании решение о том, менять ли кнопку на сайте, принимает мнение самого старшего руководителя в комнате (HiPPO — highest paid person&#x27;s opinion). В Booking.com этот принцип запрещён: любое изменение сайта — от цвета кнопки до текста — сначала проверяется A/B-тестом на своей внутренней платформе экспериментов, и решает не мнение, а данные. Компания одновременно прогоняет более тысячи тестов, и даже если побеждает лишь небольшая доля, маленькие приросты за год складываются в заметный рост конверсии. Это прямая иллюстрация урока про аналитику: скорость и объём тестирования важнее точности отдельного теста, а культура экспериментов — это актив, который нельзя скопировать за один день.</span></div><p class="cw">1000+ A/B одновременно</p><div class="cl"><b>Урок:</b> Строй культуру, где решает не мнение самого старшего в комнате, а данные из теста — и тестируй много, а не редко.</div></div>
 <div class="case"><div class="ch"><span class="cb">Netflix</span><span class="metric">Внутри Netflix продюсеры и студии часто были уверены, какая обложка сериала «точно понравится зрителю» — по вкусу и опыту. Вместо того чтобы полагаться на это мнение, Netflix тестирует несколько вариантов обложки одного и того же тайтла на реальных зрителях через A/B-тесты и более продвинутые алгоритмы (contextual bandits), которые сами подбирают лучшую обложку под каждого пользователя. Решение принимают данные о реальных просмотрах, а не мнение студии, и это заметно поднимает просмотры (точный процент компания не называла). Это иллюстрация принципа из урока про аналитику: решай данными, а не иерархией мнений, особенно там, где визуал — главный рычаг конверсии.</span></div><p class="cw">рост просмотров (без публичного %)</p><div class="cl"><b>Урок:</b> Тестируй варианты на реальных пользователях вместо того, чтобы полагаться на мнение «эксперта в комнате».</div></div>
@@ -1145,7 +1156,7 @@ body.nb-lock{overflow:hidden}
 </div>
 <div id="s11" class="view">
 <div class="hero">
-<div class="eyebrow">Часть II — Система · урок 11</div>
+<div class="eyebrow">Часть III — Система (путь клиента) · урок 12</div>
 <h2>Brand-Ops — маркетинг как машина (система, команда, стек)</h2>
 <p>Senior-этаж: процессы, роли, инструменты. Junior делает руками; senior строит систему, которая делает.</p>
 </div>
@@ -1154,7 +1165,7 @@ body.nb-lock{overflow:hidden}
 <div class="sec-t">Что строишь: RACI, стек, governance</div>
 <div class="card"><p><b>RACI</b> — кто Responsible (делает) / Accountable (отвечает, ОДИН на каждый шаг процесса) / Consulted / Informed. Убирает «а кто за это отвечал?». <b>Brand governance</b> — гайдлайны, чтобы бренд не размывался при росте команды. <b>DAM</b> — единое хранилище ассетов (не «у каждого на десктопе»).</p><p><b>Martech-стек</b> — не «купить тулзы», а архитектура потоков данных: рекл-кабинеты ↔ CRM ↔ аналитика ↔ email/CDP, с замыканием петли offline-conversion-аплоадом. Senior проектирует data-flow, а не коллекцию подписок.</p><p class="b-ex"><b>Пример:</b> владелец сети автомоек купил CRM, рекламный кабинет и сервис email-рассылок отдельно друг от друга — и через год не мог понять, какая реклама реально приводит клиентов, потому что данные о реальных заездах машин никуда не передавались обратно в рекламный кабинет. Как только связали их в один поток (заезд → CRM → аплоад в кабинет), стало видно, какая реклама реально окупается, а какую пора выключить.</p></div>
 <div class="sec-t">Как исполнять (скиллы)</div>
-<div class="card"><p>Умбрелла <code>brand-ops</code>: <code>brand-ops-design</code>, <code>brand-governance</code>, <code>dam-design</code>, <code>team-org-design</code>, <code>vendor-management</code>, <code>cross-functional-handoffs</code>, <code>martech-stack</code>.</p><p>Это уровень, который отделяет исполнителя от лидера: бюджеты, найм, оргструктура, влияние на другие отделы. Технические детали стека (CRM/пиксели/GA4) — в Части III.</p></div>
+<div class="card"><p>Умбрелла <code>brand-ops</code>: <code>brand-ops-design</code>, <code>brand-governance</code>, <code>dam-design</code>, <code>team-org-design</code>, <code>vendor-management</code>, <code>cross-functional-handoffs</code>, <code>martech-stack</code>.</p><p>Это уровень, который отделяет исполнителя от лидера: бюджеты, найм, оргструктура, влияние на другие отделы. Технические детали стека (CRM/пиксели/GA4) — в уроке «Martech и трекинг».</p></div>
 <div class="sec-t">Кейсы из реального мира</div>
 <div class="case"><div class="ch"><span class="cb">Booking.com</span><span class="metric">Конкурент Booking.com может скопировать их дизайн сайта или даже переманить нескольких сотрудников за пару месяцев. Но культуру, где тысяча A/B-тестов идёт одновременно на собственной платформе, а решения принимаются исключительно по данным, а не по должности говорящего, — это встроено в саму операционную систему компании: процессы, инструменты, роли, годы практики. Именно это и называется Brand-Ops в уроке — не сама реклама, а инфраструктура и культура, которые делают маркетинг предсказуемой машиной, а не набором разовых удачных кампаний. Такую систему нельзя скопировать за квартал, даже зная её принцип.</span></div><p class="cw">культура как актив</p><div class="cl"><b>Урок:</b> Инвестируй в процессы и культуру, а не только в кампании — систему конкурент не скопирует за квартал, даже зная её принцип.</div></div>
 <div class="case"><div class="ch"><span class="cb">Red Bull Media House</span><span class="metric">Многие бренды снимают отдельные рекламные ролики и на этом останавливаются. Red Bull пошла дальше и построила Red Bull Media House — полноценную операционную структуру с собственными процессами производства видео, лицензирования контента другим каналам и телеканалам, командой продюсеров и правами на архив отснятого материала. Это уже не разовая маркетинговая кампания, а работающая машина, которая производит контент системно, годами, независимо от того, кто из сотрудников сейчас в компании. Это показывает суть Brand-Ops из урока: масштаб требует операционной системы (процессы, роли, инструменты), а не геройства отдельных талантливых людей.</span></div><p class="cw">медиа как отдельная машина</p><div class="cl"><b>Урок:</b> Строй операционную систему производства (процессы, роли, права), которая работает без зависимости от конкретных людей.</div></div>
@@ -1166,7 +1177,7 @@ body.nb-lock{overflow:hidden}
 </div>
 <div id="s12" class="view">
 <div class="hero">
-<div class="eyebrow">Часть II — Система · урок 12</div>
+<div class="eyebrow">Часть III — Система (путь клиента) · урок 13</div>
 <h2>Advocacy — клиент приводит клиента (маховик)</h2>
 <p>Самый дешёвый клиент — приведённый довольным клиентом. Это замыкает маховик роста и питается из Retention.</p>
 </div>
@@ -1187,7 +1198,7 @@ body.nb-lock{overflow:hidden}
 </div>
 <div id="m1" class="view">
 <div class="hero">
-<div class="eyebrow">Часть III — Мастерство · урок 1</div>
+<div class="eyebrow">Часть I — Фундамент · урок 7</div>
 <h2>Юнит-экономика: язык денег маркетинга</h2>
 <p>CAC, LTV, payback, маржа — язык, на котором маркетинг говорит с финансами и CEO. Без него ты «про лайки».</p>
 </div>
@@ -1208,7 +1219,7 @@ body.nb-lock{overflow:hidden}
 </div>
 <div id="m2" class="view">
 <div class="hero">
-<div class="eyebrow">Часть III — Мастерство · урок 2</div>
+<div class="eyebrow">Часть I — Фундамент · урок 8</div>
 <h2>Эксперименты и статистика: не обмануться шумом</h2>
 <p>A/B-тесты — суперсила senior, но только при правильной статистике. Иначе ты «улучшаешь» на случайном шуме.</p>
 </div>
@@ -1229,7 +1240,7 @@ body.nb-lock{overflow:hidden}
 </div>
 <div id="m3" class="view">
 <div class="hero">
-<div class="eyebrow">Часть III — Мастерство · урок 3</div>
+<div class="eyebrow">Часть III — Система (путь клиента) · урок 10</div>
 <h2>Martech и трекинг: технический этаж профессии</h2>
 <p>CRM, пиксели, аналитика, атрибуция — то, что senior умеет руками. Без этого стратегия слепа.</p>
 </div>
@@ -1250,7 +1261,7 @@ body.nb-lock{overflow:hidden}
 </div>
 <div id="m4" class="view">
 <div class="hero">
-<div class="eyebrow">Часть III — Мастерство · урок 4</div>
+<div class="eyebrow">Часть IV — Практика senior · урок 1</div>
 <h2>Growth-мышление: петли, North Star, ставка на будущее</h2>
 <p>Высший уровень: видеть бизнес как систему петель, выбирать одну метрику и инвестировать в петлю ДО потребности.</p>
 </div>
@@ -1271,7 +1282,7 @@ body.nb-lock{overflow:hidden}
 </div>
 <div id="m5" class="view">
 <div class="hero">
-<div class="eyebrow">Часть III — Мастерство · урок 5</div>
+<div class="eyebrow">Финал · урок 1</div>
 <h2>Путь и мышление senior: что отличает от джуна</h2>
 <p>Senior — не тот, кто знает больше тактик, а тот, кто ставит диагноз, выбирает метод и отвечает за результат в деньгах.</p>
 </div>
@@ -1294,22 +1305,22 @@ body.nb-lock{overflow:hidden}
 </div>
 <div id="m6" class="view">
 <div class="hero">
-<div class="eyebrow">Часть III — Мастерство · урок 6</div>
+<div class="eyebrow">Финал · урок 2</div>
 <h2>Шпаргалка: ситуация → какой метод применить</h2>
 <p>Практический навигатор: по симптому бизнеса — к нужному фреймворку. Так senior быстро выбирает инструмент под диагноз.</p>
 </div>
 <div class="plain"><span class="pl">Простыми словами</span>Это твоя рабочая шпаргалка. Когда есть конкретная проблема — не гадай, а смотри сюда: какой симптом → какой метод/раздел учебника его лечит. Это превращает знания в навык быстрого выбора инструмента под ситуацию.</div>
 <div class="analogy"><b>Аналогия.</b> Как у врача — таблица «симптом → диагностика → лечение». Боль не лечат наугад: по симптому выбирают метод. Так же и тут: «дорогой CAC» — это симптом, у него есть свои «лекарства».</div>
 <div class="sec-t">Не понимаю клиента / рынок</div>
-<div class="card"><p><b>«Не знаю, кому и зачем продавать»</b> → Discovery: Кастдев + JTBD + ICP + VOC (модуль Система·1).</p><p><b>«Не понимаю, почему не покупают»</b> → качественные интервью (кастдев), JTBD switch-интервью; A/B покажет ЧТО, интервью — ПОЧЕМУ.</p><p><b>«Меня не отличают от конкурентов»</b> → Позиционирование Dunford, смена категории (Система·2).</p><p class="b-ex"><b>Пример:</b> владелец кофейни не понимает, почему постоянные клиенты вдруг стали заходить реже. Вместо гаданий он проводит 10 коротких разговоров с ушедшими клиентами (кастдев) и узнаёт, что дело не в кофе, а в долгом ожидании заказа по утрам — это и есть настоящая причина, которую не увидеть по одним цифрам.</p></div>
+<div class="card"><p><b>«Не знаю, кому и зачем продавать»</b> → Discovery: Кастдев + JTBD + ICP + VOC (урок «Discovery»).</p><p><b>«Не понимаю, почему не покупают»</b> → качественные интервью (кастдев), JTBD switch-интервью; A/B покажет ЧТО, интервью — ПОЧЕМУ.</p><p><b>«Меня не отличают от конкурентов»</b> → Позиционирование Dunford, смена категории (урок «Positioning»).</p><p class="b-ex"><b>Пример:</b> владелец кофейни не понимает, почему постоянные клиенты вдруг стали заходить реже. Вместо гаданий он проводит 10 коротких разговоров с ушедшими клиентами (кастдев) и узнаёт, что дело не в кофе, а в долгом ожидании заказа по утрам — это и есть настоящая причина, которую не увидеть по одним цифрам.</p></div>
 <div class="sec-t">Слабые продажи / конверсия</div>
 <div class="card"><p><b>«Трафик есть, продаж нет»</b> → Оффер (value equation) + CRO + проверка соответствия реклама↔страница (Eisenberg).</p><p><b>«Дорогой/высокий CAC»</b> → Growth loops вместо paid, усиление оффера, реферал-петля; считай unit-экономику.</p><p><b>«Цена не та / оставляю деньги»</b> → Value-based pricing, тиры, Van Westendorp (Фундамент·5).</p><p class="b-ex"><b>Пример:</b> у сайта доставки еды 1000 посетителей в день, но только 10 заказов (конверсия 1%) — при среднем чеке 3000 ₸ и норме конверсии в нише 3% бизнес недополучает 20 заказов и 60 000 ₸ в день. Вместо того чтобы лить больше трафика, сначала проверяют оффер и путь от рекламы до кнопки «Заказать».</p></div>
 <div class="sec-t">Рост и каналы</div>
-<div class="card"><p><b>«Как выходить на рынок»</b> → GTM: motion + beachhead + последовательность каналов с гейтом (Система·5).</p><p><b>«Куда лить бюджет»</b> → Channel economics (портфель 70-20-10), Bullseye (тест много→фокус 1-2).</p><p><b>«Нужен взрывной рост»</b> → Growth loops, виральность/k-factor, North Star (Мастерство·4).</p><p class="b-ex"><b>Пример:</b> у небольшого магазина бюджет 300 000 ₸ в месяц. Вместо того чтобы вложить всё в один канал, тестируют пять каналов по 60 000 ₸ каждый; через месяц оставляют два, которые дали заказы дешевле 2000 ₸, и переносят туда 70% бюджета — а не гадают заранее, что сработает.</p></div>
+<div class="card"><p><b>«Как выходить на рынок»</b> → GTM: motion + beachhead + последовательность каналов с гейтом (урок «GTM»).</p><p><b>«Куда лить бюджет»</b> → Channel economics (портфель 70-20-10), Bullseye (тест много→фокус 1-2).</p><p><b>«Нужен взрывной рост»</b> → Growth loops, виральность/k-factor, North Star (урок «Growth-мышление»).</p><p class="b-ex"><b>Пример:</b> у небольшого магазина бюджет 300 000 ₸ в месяц. Вместо того чтобы вложить всё в один канал, тестируют пять каналов по 60 000 ₸ каждый; через месяц оставляют два, которые дали заказы дешевле 2000 ₸, и переносят туда 70% бюджета — а не гадают заранее, что сработает.</p></div>
 <div class="sec-t">Удержание и лояльность</div>
-<div class="card"><p><b>«Клиенты уходят / низкий retention»</b> → Cohort-анализ + Hooked (привычка) + health-scoring; чини «дыры» до acquisition (Система·9).</p><p><b>«Регистрируются, но не возвращаются»</b> → найди aha-момент в данных, переориентируй онбординг (Система·8).</p><p><b>«Хочу, чтобы приводили друзей»</b> → реферал нативный продукту, проси на пике удовлетворённости (Система·12).</p><p class="b-ex"><b>Пример:</b> из 100 клиентов кофейни, пришедших в январе, к марту вернулись только 20 — когортный анализ показывает провал именно на втором визите. Вместо того чтобы тратить бюджет на привлечение новых 100 клиентов, чинят этот этап — например, дарят купон на второй визит, — потому что дырявое удержание съедает любой приток новых клиентов.</p></div>
+<div class="card"><p><b>«Клиенты уходят / низкий retention»</b> → Cohort-анализ + Hooked (привычка) + health-scoring; чини «дыры» до acquisition (урок «Retention»).</p><p><b>«Регистрируются, но не возвращаются»</b> → найди aha-момент в данных, переориентируй онбординг (урок «Lifecycle»).</p><p><b>«Хочу, чтобы приводили друзей»</b> → реферал нативный продукту, проси на пике удовлетворённости (урок «Advocacy»).</p><p class="b-ex"><b>Пример:</b> из 100 клиентов кофейни, пришедших в январе, к марту вернулись только 20 — когортный анализ показывает провал именно на втором визите. Вместо того чтобы тратить бюджет на привлечение новых 100 клиентов, чинят этот этап — например, дарят купон на второй визит, — потому что дырявое удержание съедает любой приток новых клиентов.</p></div>
 <div class="sec-t">Бренд и измерение</div>
-<div class="card"><p><b>«Бренд не растёт / не запоминают»</b> → mental/physical availability, distinctive assets, охват всей категории (Шарп; Фундамент·4).</p><p><b>«Не понимаю, что реально работает»</b> → инкрементальность (не только атрибуция), честные A/B, North Star (Система·10, Мастерство·2).</p><p><b>«Данные разрознены / трекинг врёт»</b> → martech как data-flow, пиксель+CAPI, UTM-дисциплина (Мастерство·3).</p><p class="b-ex"><b>Пример:</b> сеть кофеен запускает наружную рекламу по всему городу — прямых продаж от неё почти не видно в отчётах, но через полгода узнаваемость бренда растёт, и в новых районах открытия кофеен сразу приходят клиенты «с узнаванием», а не с нуля. Обычная атрибуция по кликам этот эффект не увидит — нужен более широкий взгляд на инкрементальность.</p></div>
+<div class="card"><p><b>«Бренд не растёт / не запоминают»</b> → mental/physical availability, distinctive assets, охват всей категории (Шарп; Фундамент·4).</p><p><b>«Не понимаю, что реально работает»</b> → инкрементальность (не только атрибуция), честные A/B, North Star (уроки «Analytics» и «Эксперименты и статистика»).</p><p><b>«Данные разрознены / трекинг врёт»</b> → martech как data-flow, пиксель+CAPI, UTM-дисциплина (урок «Martech и трекинг»).</p><p class="b-ex"><b>Пример:</b> сеть кофеен запускает наружную рекламу по всему городу — прямых продаж от неё почти не видно в отчётах, но через полгода узнаваемость бренда растёт, и в новых районах открытия кофеен сразу приходят клиенты «с узнаванием», а не с нуля. Обычная атрибуция по кликам этот эффект не увидит — нужен более широкий взгляд на инкрементальность.</p></div>
 <div class="co senior"><span class="ct">🎓 Как думает senior</span><ul><li>По симптому быстро выбирает метод, а не гадает и не лечит наугад.</li><li>Часто корень не там, где боль: «нет продаж» может быть проблемой Discovery/позиционирования, не рекламы.</li><li>Сначала диагноз узкого места на пути клиента, потом метод из шпаргалки.</li></ul></div>
 <div class="co err"><span class="ct">⚠️ Частые ошибки</span><ul><li>Лечить симптом не там: лить больше трафика в дырявое удержание/слабый оффер.</li><li>Применять модный метод, не подходящий ситуации/архетипу (FIT).</li><li>Брать инструмент до постановки диагноза.</li></ul></div>
 <div class="chk"><span class="ct">✓ Чек-лист senior</span><label><input type="checkbox">Назвал конкретный симптом/узкое место</label><label><input type="checkbox">Подобрал метод по шпаргалке под этот симптом</label><label><input type="checkbox">Проверил, что корень там, где боль (а не выше по воронке)</label></div>
@@ -1317,7 +1328,7 @@ body.nb-lock{overflow:hidden}
 </div>
 <div id="m7" class="view">
 <div class="hero">
-<div class="eyebrow">Часть III — Мастерство · урок 7</div>
+<div class="eyebrow">Часть IV — Практика senior · урок 7</div>
 <h2>AI в маркетинге: как меняется профессия</h2>
 <p>ИИ не заменяет маркетолога, но полностью меняет, за что ему платят: не за исполнение, а за диагноз, вкус и ответственность за результат.</p>
 </div>
@@ -1341,7 +1352,7 @@ body.nb-lock{overflow:hidden}
 <div class="quiz"><div class="q">🎯 Проверь себя: Почему усреднённый ИИ-контент у разных брендов часто выглядит одинаково?</div><label class="opt" onclick="quiz(this,1,0)">Модели специально настроены выдавать одинаковый текст</label><label class="opt" onclick="quiz(this,1,1)">Бренды берут одни модели и дефолтные промпты на схожих данных</label><label class="opt" onclick="quiz(this,1,2)">Читатели сами хотят одинаковый стиль, и ИИ подстраивается</label><div class="qfb">Гомогенизация — побочный эффект того, что множество компаний используют одни и те же модели с одинаковыми дефолтными настройками на пересекающихся данных: без собственных данных и голоса бренда результат сходится к среднему, а не потому что это «функция» модели или выбор читателей. Ошибся → перечитай раздел выше.</div></div>
 </div>
 <div id="m8" class="view">
-<div class="hero"><div class="eyebrow">Часть III — Мастерство · урок 8</div>
+<div class="hero"><div class="eyebrow">Часть IV — Практика senior · урок 2</div>
 <h2>Медиапланирование: сколько раз показать рекламу, чтобы она сработала</h2><p>Медиаплан — это не «раскидать бюджет по каналам», а расчёт: скольким людям, сколько раз и в каком темпе нужно показать рекламу, чтобы она реально повлияла на решение.</p></div>
 <div class="plain"><span class="pl">Простыми словами</span>Когда бюджет ограничен, у тебя всегда есть выбор: показать рекламу большему числу людей по разу, или меньшему числу людей — много раз. Первое называется охват (reach), второе — частота (frequency), и вместе они дают GRP (Gross Rating Points) — суммарный объём показов относительно аудитории. Проблема в том, что один показ почти никого не убеждает, а после третьего-пятого показа отдача резко падает — дальше ты просто платишь за то же самое сообщение тому же человеку. Отсюда родилось понятие эффективной частоты — минимума показов, после которого реклама начинает работать, и кривой охвата с насыщением — момента, когда новый бюджет уже не находит новых людей, а только догоняет старых. На это накладывается вопрос темпа: крутить рекламу ровно весь год, короткими мощными вспышками или волнами с паузами между ними. Медиаплан — это ответ на все три вопроса сразу, с цифрами и таблицей по неделям и каналам.</div>
 <div class="analogy"><b>Аналогия.</b> Представь, что ты зовёшь друзей на день рождения. Можно обзвонить 100 человек один раз — многие забудут или не так поймут дату. Можно позвонить 20 ближайшим друзьям пять раз — они точно придут, но зал всё равно наполовину пустой. Правильная тактика — набрать нужный охват, а потом добить его повторными напоминаниями только тем, кто ещё не ответил, ближе к дате. Медиапланирование делает то же самое, только счёт идёт на сотни тысяч человек и миллионы тенге.</div>
@@ -1362,7 +1373,7 @@ body.nb-lock{overflow:hidden}
 <div class="quiz"><div class="q">🎯 Проверь себя: бренд получил 300 GRP на кампании. Что это говорит о её эффективности?</div><label class="opt" onclick="quiz(this,0,0)">Сама по себе ничего — важно, из какого охвата и частоты собрано число</label><label class="opt" onclick="quiz(this,0,1)">Кампания точно была эффективной — 300 GRP выше среднего по рынку</label><label class="opt" onclick="quiz(this,0,2)">Кампания провалилась — 300 GRP ниже среднего по рынку для такой категории</label><div class="qfb">GRP — это просто произведение охвата на частоту, оно одинаково для 50%×6 и для 15%×20, а эффект у этих раскладок разный. Оценивать нужно саму пару охват/частота под задачу, а не итоговое число. Ошибся → перечитай раздел выше.</div></div>
 </div>
 <div id="m9" class="view">
-<div class="hero"><div class="eyebrow">Часть III — Мастерство · урок 9</div>
+<div class="hero"><div class="eyebrow">Часть IV — Практика senior · урок 3</div>
 <h2>Годовой маркетинговый план: от цели по выручке до плана на квартал</h2><p>Годовой план — это не список активностей на 12 месяцев, а обратный расчёт от суммы выручки, которую нужно принести, до конкретных бюджетов, каналов и дат.</p></div>
 <div class="plain"><span class="pl">Простыми словами</span>Годовой план строится не «сверху вниз» (взять прошлогодний бюджет и добавить 10%), а от цели: собственник называет нужную выручку, ты раскладываешь её через воронку назад — сколько клиентов, лидов и показов рекламы для этого нужно — и получаешь требуемый бюджет и распределение по каналам. Поверх этого расчёта накладывается календарь: у бизнеса в Казахстане есть предсказуемые пики и провалы спроса — Наурыз, 1 сентября, Новый год, Рамадан, ноябрьские распродажи Kaspi — и бюджет нужно концентрировать там, где отдача выше, а не размазывать поровну по месяцам. Дальше решается вопрос риска: правило 70-20-10 помогает не поставить весь бюджет на проверенные каналы (тогда рост остановится) и не увести его весь в эксперименты (тогда сорвётся план по деньгам). А чтобы план не превратился в документ, который написали в январе и забыли, вводятся квартальные ревью — точки, где сверяют факт с планом и меняют курс, если он не сходится.</div>
 <div class="analogy"><b>Аналогия.</b> Годовой план — это маршрут навигатора, а не список достопримечательностей. Ты не просто перечисляешь города, которые хочешь посетить за год ("весной наружка, летом акция, осенью распродажа") — ты сначала считаешь, сколько километров и часов нужно проехать, чтобы добраться до пункта назначения (выручки), и только потом расставляешь по дороге заправки (кварталы) и объезды на случай пробки (квартальные ревью). Без цели в начале маршрута любой набор активностей выглядит логично, но никуда конкретно не ведёт.</div>
@@ -1383,7 +1394,7 @@ body.nb-lock{overflow:hidden}
 <div class="quiz"><div class="q">🎯 Проверь себя: с чего должен начинаться годовой маркетинговый план?</div><label class="opt" onclick="quiz(this,1,0)">Со списка каналов, которые использовались в прошлом году</label><label class="opt" onclick="quiz(this,1,1)">С цели по выручке, разложенной через воронку назад до бюджета</label><label class="opt" onclick="quiz(this,1,2)">С творческой идеи главной кампании года</label><div class="qfb">План строится от цифры бизнеса (выручка) через воронку назад к бюджету и каналам — список каналов и креативные идеи появляются уже после этого расчёта, а не до него. Ошибся → перечитай раздел выше.</div></div>
 </div>
 <div id="m10" class="view">
-<div class="hero"><div class="eyebrow">Часть III — Мастерство · урок 10</div>
+<div class="hero"><div class="eyebrow">Часть IV — Практика senior · урок 4</div>
 <h2>Креативный бриф: как поставить задачу дизайнеру, чтобы получить не картинку, а результат</h2><p>Хороший креатив почти всегда начинается с хорошего брифа, а не с фразы «сделай красиво» — бриф превращает бизнес-задачу в одну чёткую мысль, которую должен унести с собой зритель.</p></div>
 <div class="plain"><span class="pl">Простыми словами</span>Креативный бриф — это документ на одну-две страницы, который переводит бизнес-задачу («нужно больше заявок») в творческую задачу («убедить маму 30-35 лет, что наш кружок безопаснее, чем она думает»). Без брифа дизайнер или нейросеть получают только «сделай баннер про акцию» и угадывают, что имелось в виду — а угадывают почти всегда неправильно, потому что у них нет доступа к твоему знанию аудитории. Сердце брифа — инсайт: неочевидная правда о том, как аудитория на самом деле думает или чувствует, и single-minded proposition (SMP, единая мысль) — одно предложение, которое должно остаться в голове после контакта с рекламой. Дальше бриф разворачивается в reasons to believe (почему этому можно верить), тон и обязательные элементы (логотип, номер, юридические ограничения). Отдельная тема — как оценивать готовый креатив: не «нравится/не нравится», а попадает ли он в задачу брифа, и как тестировать креатив до того, как потратить на него весь бюджет.</div>
 <div class="analogy"><b>Аналогия.</b> Бриф — это техническое задание архитектору, а не пожелание «постройте что-нибудь красивое». Если ты просто скажешь «хочу хороший дом», архитектор нарисует то, что нравится ему, а не то, что нужно тебе: сколько человек будет жить, какой бюджет, нужен ли гараж, в каком районе. Каждый пункт брифа — это ограничение, которое не мешает творчеству, а направляет его в сторону, где оно реально решает твою задачу, а не задачу «сделать красиво вообще».</div>
@@ -1407,7 +1418,7 @@ body.nb-lock{overflow:hidden}
 <div class="quiz"><div class="q">🎯 Проверь себя: что вернее всего описывает инсайт в креативном брифе?</div><label class="opt" onclick="quiz(this,2,0)">Портрет аудитории с её интересами, доходом и болями</label><label class="opt" onclick="quiz(this,2,1)">Самый частый отзыв клиентов о продукте в комментариях</label><label class="opt" onclick="quiz(this,2,2)">Неочевидная причина, мешающая человеку купить</label><div class="qfb">Портрет аудитории и частый отзыв — это сырьё, из которого может родиться инсайт, но сами по себе они его не заменяют. Инсайт — это именно неочевидная причина, которая объясняет, почему человек пока не выбирает тебя. Ошибся → перечитай раздел выше.</div></div>
 </div>
 <div id="m11" class="view">
-<div class="hero"><div class="eyebrow">Часть III — Мастерство · урок 11</div>
+<div class="hero"><div class="eyebrow">Часть IV — Практика senior · урок 5</div>
 <h2>Маркетплейсы как дисциплина: Kaspi, Wildberries, Ozon</h2><p>Маркетплейс — не витрина для остатков, а отдельный канал со своим алгоритмом ранжирования и своей юнит-экономикой, которую нужно считать так же строго, как таргет.</p></div>
 <div class="plain"><span class="pl">Простыми словами</span>Kaspi Магазин, Wildberries и Ozon — это не просто «ещё один канал продаж», а отдельная система с собственными правилами игры: карточка товара ранжируется алгоритмом по цене, рейтингу, отзывам, остаткам и скорости доставки, а не по тому, насколько красиво ты её оформил. Внутри площадки есть своя реклама (Kaspi Реклама, продвижение WB/Ozon), и она съедает маржу так же реально, как таргет в Instagram. Многие продавцы считают выручку с маркетплейса, но не считают прибыль с единицы товара после комиссии, логистики, возвратов и рекламы — и уходят в минус, даже когда «продажи растут». Отдельная задача — не утонуть в ценовой войне: побеждает не самая низкая цена, а самая понятная карточка и управляемая маржа. Соцсети и маркетплейс работают в связке: соцсети создают спрос, а покупка часто происходит на площадке — и это нужно уметь измерять, а не гадать.</div>
 <div class="analogy"><b>Аналогия.</b> Маркетплейс — как супермаркет, где у каждого товара на полке есть невидимый «менеджер полки»: он двигает твой товар выше или ниже в зависимости от того, как быстро ты отгружаешь, сколько у тебя жалоб и не задрал ли ты цену. Ты не видишь этого менеджера, но каждое твоё действие — медленная отгрузка, пустой склад, задранная цена — сдвигает товар вниз так же реально, как если бы кто-то физически переставил коробку на нижнюю полку.</div>
@@ -1430,7 +1441,7 @@ body.nb-lock{overflow:hidden}
 <div class="quiz"><div class="q">🎯 Проверь себя: продавец на Kaspi держит идеальные фото карточки, но регулярно уходит в «нет в наличии» на пару дней между поставками. Что произойдёт с позицией карточки в поиске?</div><label class="opt" onclick="quiz(this,0,0)">Потеряет позиции — остаток товара влияет на ранжирование</label><label class="opt" onclick="quiz(this,0,1)">Не изменится — фото и описание лучшие в категории</label><label class="opt" onclick="quiz(this,0,2)">Вырастет — алгоритм считает дефицит признаком спроса</label><div class="qfb">Ранжирование учитывает не только качество карточки, а и поведение продавца — наличие товара и скорость обработки заказа. Регулярный уход в «нет в наличии» снижает видимость независимо от качества фото. Ошибся → перечитай раздел выше.</div></div>
 </div>
 <div id="m12" class="view">
-<div class="hero"><div class="eyebrow">Часть III — Мастерство · урок 12</div>
+<div class="hero"><div class="eyebrow">Часть IV — Практика senior · урок 6</div>
 <h2>Работа с агентствами и подрядчиками</h2><p>Управлять подрядчиком — отдельный навык: нужно правильно выбрать формат, прописать в договоре то, что защитит обе стороны, и уметь вовремя расстаться.</p></div>
 <div class="plain"><span class="pl">Простыми словами</span>Senior маркетолог рано или поздно перестаёт делать всё руками и начинает управлять теми, кто делает: агентством, фрилансером или своей же командой in-house. Выбор между этими тремя — не вопрос вкуса, а вопрос объёма задач, скорости принятия решений и того, насколько критична для бизнеса конкретная функция. Дальше — модель оплаты (фикс, процент от бюджета, оплата за результат) и то, что должно быть в договоре: KPI, SLA (соглашение об уровне сервиса — сроки реакции и устранения проблем), и способ контроля отчётов, чтобы не купиться на метрики тщеславия вместо реальных денег. Отдельная тема — расставание: как это делать так, чтобы не потерять данные, доступы и репутацию. И симметричный взгляд с другой стороны: если ты сам фрилансер, тебе нужно уметь продавать себя и удерживать клиента теми же принципами.</div>
 <div class="analogy"><b>Аналогия.</b> Работа с агентством — как аренда автомобиля, а не такси. Такси (разовый фрилансер на один проект) везёт тебя один раз из точки А в точку Б, и всё. Агентство на подписке — это машина, которую ты арендуешь на месяцы: ты платишь не только за поездки, а и за то, что машина всегда на ходу, обслуживается и готова выехать по первому звонку. Если ты не проверяешь, реально ли она обслуживается (отчёты, KPI), можешь месяцами платить за машину, которая давно стоит в гараже.</div>
@@ -1453,7 +1464,7 @@ body.nb-lock{overflow:hidden}
 <div class="quiz"><div class="q">🎯 Проверь себя: агентство работает на 15% от рекламного бюджета клиента и предлагает удвоить бюджет, ссылаясь на рост охвата. Что стоит проверить в первую очередь?</div><label class="opt" onclick="quiz(this,1,0)">Насколько красиво оформлен отчёт с ростом охвата</label><label class="opt" onclick="quiz(this,1,1)">Как изменится стоимость заявки при таком увеличении бюджета</label><label class="opt" onclick="quiz(this,1,2)">Вырастет ли число подписчиков в соцсетях так же, как охват</label><div class="qfb">При оплате в процентах от бюджета у агентства есть прямой финансовый интерес рекомендовать больший бюджет, независимо от того, выгодно ли это клиенту. Проверять нужно бизнес-метрику — стоимость заявки, а не охват и не число подписчиков. Ошибся → перечитай раздел выше.</div></div>
 </div>
 <div id="t1" class="view">
-<div class="hero"><div class="eyebrow">Мышление маркетолога · урок 1</div>
+<div class="hero"><div class="eyebrow">Часть II — Мышление маркетолога · урок 1</div>
 <h2>Ментальные модели маркетолога</h2><p>Один и тот же вопрос «что делать с рекламой» решается точнее, если смотреть на него через десяток проверенных линз, а не через одну любимую идею.</p></div>
 <div class="plain"><span class="pl">Простыми словами</span>Ментальная модель — это упрощённая, проверенная временем схема того, как устроен мир: экономика, психология людей, статистика. Она не даёт готового ответа, а задаёт вопрос, который иначе ты не задашь. У джуна в голове одна-две модели («реклама = охват», «больше контента = больше продаж»), и он гнёт любую задачу под них. У сильного маркетолога — решётка моделей (термин инвестора Чарли Мангера, «latticework of mental models») из разных областей: он прикладывает к ситуации несколько линз и смотрит, какая вскрывает настоящую причину. Ниже — не теория ради теории, а рабочий набор моделей, которые реально всплывают в задачах маркетолога каждую неделю.</div>
 <div class="analogy"><b>Аналогия.</b> Одна модель в голове — это отвёртка на все случаи жизни: ей можно закрутить шуруп, но ей же будешь пытаться забить гвоздь и удивляться, почему не получается. Решётка моделей — это набор инструментов: молоток для гвоздя, отвёртка для шурупа, уровень для проверки. Инструмент не решает задачу сам — но без него ты либо мучаешься неправильным, либо вообще не видишь, что задача решаема.</div>
@@ -1475,7 +1486,7 @@ body.nb-lock{overflow:hidden}
 <div class="quiz"><div class="q">🎯 Проверь себя: почему модель JTBD полезнее демографического портрета клиента?</div><label class="opt" onclick="quiz(this,0,0)">Она объясняет, зачем человек нанимает продукт и с чем эта работа конкурирует</label><label class="opt" onclick="quiz(this,0,1)">Она точнее определяет возраст, доход и город целевой аудитории продукта</label><label class="opt" onclick="quiz(this,0,2)">Она позволяет вообще обходиться без данных о продажах и охвате рынка</label><div class="qfb">Демография отвечает на «кто», а JTBD — на «зачем» и «с чем конкурирует» в конкретный момент. Кейс с молочным коктейлем показал, что демография не объяснила поведение, а JTBD объяснил. Ошибся → перечитай раздел выше.</div></div>
 </div>
 <div id="t2" class="view">
-<div class="hero"><div class="eyebrow">Мышление маркетолога · урок 2</div>
+<div class="hero"><div class="eyebrow">Часть II — Мышление маркетолога · урок 2</div>
 <h2>От симптома к причине</h2><p>«Продажи упали» — это симптом, а не диагноз; пока ты не разложил его на конкретные множители, любое лечение — угадывание.</p></div>
 <div class="plain"><span class="pl">Простыми словами</span>Джун слышит «продажи упали» и сразу предлагает лечение — обычно то, что умеет делать сам: больше рекламы, новый пост, скидку. Диагностическое мышление — это привычка сначала разложить метрику на составные части и проверить несколько версий причины, прежде чем что-то менять. Это не медленнее интуитивного «давайте попробуем» — это быстрее, потому что не тратит бюджет на лечение не той болезни. Ниже — конкретный набор приёмов: как разложить метрику на множители, как построить дерево гипотез без каши в голове, знаменитый метод «5 почему» и его реальные ограничения, и как отличить настоящий сигнал от случайного шума.</div>
 <div class="analogy"><b>Аналогия.</b> Врач, который слышит «болит живот» и сразу выписывает таблетку от того, что лечил в последний раз, — плохой врач. Хороший врач раскладывает симптом на вопросы: где болит, когда началось, что ел, есть ли температура — и только потом ставит диагноз. «Продажи упали» — это «болит живот» маркетинга: из него можно вылечить пять совершенно разных болезней, и лекарство от одной может не помочь при другой.</div>
@@ -1497,7 +1508,7 @@ body.nb-lock{overflow:hidden}
 <div class="quiz"><div class="q">🎯 Проверь себя: почему стоит сначала проверять самую дешёвую и вероятную гипотезу, а не самую интересную?</div><label class="opt" onclick="quiz(this,1,0)">Потому что дорогие гипотезы почти всегда оказываются неверными</label><label class="opt" onclick="quiz(this,1,1)">Потому что это экономит время и бюджет до того, как тратить их на менее вероятные версии</label><label class="opt" onclick="quiz(this,1,2)">Потому что интересные гипотезы обычно требуют больше данных, чем есть у маркетолога</label><div class="qfb">Порядок «дёшево и вероятно → дорого и маловероятно» экономит ресурсы: как в кейсе с формой на сайте — проверить её бесплатно и быстро, а версию про конкурента или алгоритм площадки дольше и дороже подтвердить или опровергнуть. Ошибся → перечитай раздел выше.</div></div>
 </div>
 <div id="t3" class="view">
-<div class="hero"><div class="eyebrow">Мышление маркетолога · урок 3</div>
+<div class="hero"><div class="eyebrow">Часть II — Мышление маркетолога · урок 3</div>
 <h2>Как разобрать чужой маркетинг за 10 минут</h2><p>Насмотренность — это не «я видел тысячу реклам», а умение за 10 минут разложить любую рекламу на механизм и решить, что из этого механизма забрать себе.</p></div>
 <div class="plain"><span class="pl">Простыми словами</span>Разбор чужого маркетинга (teardown) — это не «нравится/не нравится» и не копирование удачной фразы. Это структурный вопрос: кому это адресовано, какую работу закрывает, на каком уровне осведомлённости находится зритель и какой конкретно механизм убеждения тут использован. Джун смотрит на чужую рекламу и либо копирует заголовок, либо говорит «красиво». Сильный маркетолог достаёт из чужой рекламы работающий принцип и адаптирует его под свою ситуацию — а слабое место чужой рекламы записывает себе, чтобы не повторить ту же ошибку.</div>
 <div class="analogy"><b>Аналогия.</b> Начинающий музыкант, который слышит понравившуюся песню, разучивает её нота в ноту и играет ту же самую песню. Опытный музыкант слушает и слышит: вот этот приём с паузой перед припевом, вот этот ход в басовой партии — и переносит приём в свою собственную музыку, а не чужую песню целиком. Teardown — это второе: не скопировать чужую рекламу, а вытащить из неё один работающий приём.</div>
@@ -1519,7 +1530,7 @@ body.nb-lock{overflow:hidden}
 <div class="quiz"><div class="q">🎯 Проверь себя: в чём главное отличие разбора конкурента (teardown) от копирования?</div><label class="opt" onclick="quiz(this,2,0)">Разбор быстрее: не нужно переписывать текст целиком</label><label class="opt" onclick="quiz(this,2,1)">Разбор допустим только для рекламы прямых конкурентов</label><label class="opt" onclick="quiz(this,2,2)">Разбор берёт принцип и адаптирует его, а не слова и визуал</label><div class="qfb">Teardown ищет механизм (снятие риска, дефицит, доказательства) и переносит принцип в свою ситуацию; копирование берёт чужие конкретные слова и картинку — это и репутационный риск, и просто не адаптировано под твоего клиента. Ошибся → перечитай раздел выше.</div></div>
 </div>
 <div id="t4" class="view">
-<div class="hero"><div class="eyebrow">Мышление маркетолога · урок 4</div>
+<div class="hero"><div class="eyebrow">Часть II — Мышление маркетолога · урок 4</div>
 <h2>Думать как клиент</h2><p>Ты знаешь про свой продукт слишком много, чтобы честно догадаться, чего не знает и не хочет знать клиент — поэтому догадки нужно заменять наблюдением.</p></div>
 <div class="plain"><span class="pl">Простыми словами</span>Чем дольше ты работаешь над продуктом, тем сильнее твоя голова заражена «проклятием знания» — тебе кажется очевидным то, что клиенту совсем не очевидно. Добавь к этому разрыв между тем, что люди говорят в интервью, и тем, что они реально делают с кошельком, — и станет ясно, почему чистая интуиция маркетолога о клиенте часто ошибается. В этом уроке — конкретные приёмы, которые заменяют догадку наблюдением: как физически «пойти и посмотреть» (гемба), как спрашивать клиентов, не получая вежливую ложь, и как самому пройти путь клиента, чтобы увидеть то, что не видно из офиса.</div>
 <div class="analogy"><b>Аналогия.</b> Родитель, который учит ребёнка завязывать шнурки, часто не может объяснить это словами — руки делают это настолько автоматически, что сам процесс стал невидимым. Так же и эксперт в своём продукте: чем лучше ты его знаешь, тем труднее тебе увидеть его глазами новичка, который вообще не понимает, зачем нужна эта кнопка. Мышление клиента — это сознательное усилие снова стать тем, кто не знает того, что знаешь ты.</div>
@@ -1540,7 +1551,7 @@ body.nb-lock{overflow:hidden}
 <div class="quiz"><div class="q">🎯 Проверь себя: почему вопрос «Вы бы пользовались таким приложением?» слабее вопроса о прошлом поведении?</div><label class="opt" onclick="quiz(this,0,0)">Про будущее отвечают вежливо-оптимистично, не по реальному поведению</label><label class="opt" onclick="quiz(this,0,1)">Вопросы про будущее не рекомендуют задавать в клиентских интервью вовсе</label><label class="opt" onclick="quiz(this,0,2)">Клиенты обычно путают детали своих прошлых покупок и визитов</label><div class="qfb">По правилам Mom Test вопрос про гипотетическое будущее легко приврать из вежливости; вопрос про конкретное прошлое действие («как вы в последний раз записывались») труднее исказить и он показывает реальное поведение, а не желаемый образ себя. Ошибся → перечитай раздел выше.</div></div>
 </div>
 <div id="t5" class="view">
-<div class="hero"><div class="eyebrow">Мышление маркетолога · урок 5</div>
+<div class="hero"><div class="eyebrow">Часть II — Мышление маркетолога · урок 5</div>
 <h2>Решения в неопределённости</h2><p>Сильный маркетолог оценивает не результат задним числом, а качество решения в момент, когда исход ещё не известен.</p></div>
 <div class="plain"><span class="pl">Простыми словами</span>Ты каждую неделю решаешь что-то, не зная исхода заранее: запускать ли новую связку, менять ли оффер, ставить ли бюджет на нишевый сегмент. Слабое мышление судит решение по тому, как всё обернулось: «сработало — я молодец, не сработало — я дурак». Сильное мышление разделяет решение и результат: можно принять правильное решение и получить плохой результат просто из-за неопределённости, и наоборот — повезти с плохим решением. Этот урок даёт четыре инструмента, чтобы решать осознанно: считать ожидаемую ценность, находить слабые места до запуска, откалибровать свою уверенность и различать решения, которые можно отменить, от тех, что нельзя.</div>
 <div class="analogy"><b>Аналогия.</b> Хороший игрок в покер может поставить весь банк с 80% шансов на победу — и всё равно проиграть в 20% случаев. Если он проиграл, это не значит, что ставка была ошибкой: колода просто легла не в его пользу. Судить его решение по одному проигранному кону — то же самое, что судить рекламную кампанию с высоким EV по одному неудачному месяцу.</div>
@@ -1562,7 +1573,7 @@ body.nb-lock{overflow:hidden}
 <div class="quiz"><div class="q">🎯 Проверь себя: Кампания с изначально разумной гипотезой и тестом на небольшом бюджете не окупилась из-за внезапного форс-мажора на рынке. Как это правильно разобрать по мышлению ставками?</div><label class="opt" onclick="quiz(this,1,0)">Признать решение ошибочным, раз оно не принесло денег в итоге</label><label class="opt" onclick="quiz(this,1,1)">Отделить решение от исхода: тест был обоснован данными</label><label class="opt" onclick="quiz(this,1,2)">Считать, что раз результат плохой, вся методика тестирования гипотез не работает</label><div class="qfb">Resulting — это как раз ошибка судить решение по исходу. Если на момент запуска гипотеза и тест были обоснованы доступными данными, форс-мажор не делает решение плохим — он лишь один из возможных исходов, который стоило допускать заранее. Ошибся → перечитай раздел выше.</div></div>
 </div>
 <div id="t6" class="view">
-<div class="hero"><div class="eyebrow">Мышление маркетолога · урок 6</div>
+<div class="hero"><div class="eyebrow">Часть II — Мышление маркетолога · урок 6</div>
 <h2>Нелогичные решения, которые работают</h2><p>Иногда решение, которое не проходит проверку чистой логикой, работает лучше логичного — потому что люди принимают решения не как калькуляторы, а как люди.</p></div>
 <div class="plain"><span class="pl">Простыми словами</span>Инженерная логика ищет самый эффективный путь: быстрее, дешевле, короче. Но покупатель не решает как инженер — на его выбор влияет контекст, ощущение и психология момента, а не только объективные цифры. Рори Сазерленд называет это «алхимией»: приёмом, который не проходит тест логики, но работает, потому что меняет не факт, а восприятие факта. Этот урок даёт четыре инструмента: замечать психо-логику там, где обычная логика бессильна; выбивать себя из привычной колеи мышления через латеральные приёмы; решать задачу не «в лоб», а с другой стороны; и нарабатывать смелые идеи через объём, а не сразу гнаться за одной «правильной».</div>
 <div class="analogy"><b>Аналогия.</b> Логика — это прямая дорога по карте: кратчайший путь из точки А в точку Б. Психо-логика — это горная тропа, которая выглядит длиннее на карте, но по ней идти приятнее, и турист выбирает именно её. Оба пути ведут к цели, но тот, кто смотрит только на карту, никогда не поймёт, почему люди выбирают вторую тропу.</div>
@@ -1584,7 +1595,7 @@ body.nb-lock{overflow:hidden}
 <div class="quiz"><div class="q">🎯 Проверь себя: Аэропорт Хьюстона не смог убрать жалобы на ожидание багажа, даже сократив время у ленты до нормы. Что сработало вместо этого?</div><label class="opt" onclick="quiz(this,2,0)">Наняли ещё больше грузчиков, чтобы сократить время ожидания до предела</label><label class="opt" onclick="quiz(this,2,1)">Установили дополнительные экраны с рекламой рядом с лентой багажа</label><label class="opt" onclick="quiz(this,2,2)">Увеличили путь пешком от выхода до зоны багажа, заняв пассажиров движением</label><div class="qfb">Дополнительные грузчики уже были испробованы и не сняли жалобы — время у ленты и так было в норме. Сработало именно увеличение пути пешком: занятое движением время переживается легче пустого ожидания, хотя объективно путь стал даже длиннее. Ошибся → перечитай раздел выше.</div></div>
 </div>
 <div id="t7" class="view">
-<div class="hero"><div class="eyebrow">Мышление маркетолога · урок 7</div>
+<div class="hero"><div class="eyebrow">Часть II — Мышление маркетолога · урок 7</div>
 <h2>Системное мышление</h2><p>Бизнес — не набор отдельных кампаний, а система петель с задержками: чтобы её улучшить, нужно видеть структуру, а не чинить симптом за симптомом.</p></div>
 <div class="plain"><span class="pl">Простыми словами</span>Когда что-то в бизнесе идёт не так, первый инстинкт — почти всегда починить видимый симптом: мало заявок — дать больше рекламы, упали продажи — сделать скидку. Системное мышление (Donella Meadows, «Thinking in Systems») учит смотреть глубже: за симптомом обычно стоит структура из запасов, потоков и петель обратной связи, и если чинить только симптом, структура через время произведёт ту же проблему заново, а иногда и худшую. Этот урок даёт словарь и приёмы, чтобы видеть эту структуру: запасы и потоки, усиливающие и балансирующие петли, задержки между действием и эффектом, последствия второго и третьего порядка, и точки, где маленькое усилие даёт непропорционально большой результат.</div>
 <div class="analogy"><b>Аналогия.</b> Лечить симптом вместо системы — как откачивать воду из тонущей лодки, не заделывая пробоину. Откачивать нужно — иначе лодка утонет прямо сейчас, — но пока пробоина открыта, вода возвращается быстрее, чем её вычерпывают. Системное мышление — это умение хоть иногда оторваться от ведра и посмотреть, где именно пробоина.</div>
@@ -1606,7 +1617,7 @@ body.nb-lock{overflow:hidden}
 <div class="quiz"><div class="q">🎯 Проверь себя: Клиентская база компании держится на уровне 3000 контактов уже полгода. Что в первую очередь нужно проверить с точки зрения системного мышления, прежде чем считать это хорошим знаком?</div><label class="opt" onclick="quiz(this,0,0)">Оценить отдельно входящий и исходящий поток контактов за этот период</label><label class="opt" onclick="quiz(this,0,1)">Сравнить размер базы с базами конкурентов в той же нише</label><label class="opt" onclick="quiz(this,0,2)">Проверить, сколько денег было потрачено на рекламу за полгода</label><div class="qfb">Стабильный размер запаса ничего не говорит о его устойчивости сам по себе — база может держаться за счёт того, что входящий и исходящий поток почти равны, и любое небольшое падение притока сразу превратит стабильность в спад. Именно баланс потоков, а не сам факт стабильного числа, показывает реальное состояние системы. Ошибся → перечитай раздел выше.</div></div>
 </div>
 <div id="t8" class="view">
-<div class="hero"><div class="eyebrow">Мышление маркетолога · урок 8</div>
+<div class="hero"><div class="eyebrow">Часть II — Мышление маркетолога · урок 8</div>
 <h2>Ясно излагать мысль</h2><p>Хорошая идея, изложенная хаотично, проигрывает средней идее, изложенной ясно — потому что руководитель и клиент решают по тому, что поняли, а не по тому, что ты имел в виду.</p></div>
 <div class="plain"><span class="pl">Простыми словами</span>Маркетолог часто думает, что его работа заканчивается на хорошей стратегии или цифре в отчёте. На деле результат этой работы — решение, которое примет другой человек: руководитель одобрит бюджет, клиент согласится на план, команда правильно поймёт задачу. Если мысль изложена бессвязно — сначала детали, потом какой-то вывод в конце, — читатель либо теряется, либо додумывает вывод сам, часто неправильно. Этот урок даёт метод: как строить текст и речь так, чтобы вывод был виден сразу, аргументы были сгруппированы без пересечений, а решение защищалось цифрами, а не уверенным тоном.</div>
 <div class="analogy"><b>Аналогия.</b> Плохо изложенная мысль — это инструкция по сборке мебели, где сначала идут случайные шурупы и рейки без объяснения, что из этого получится, и только на последней странице — картинка готового шкафа. Пирамида Минто — та же инструкция, но с картинкой готового шкафа на первой странице: сразу видно, к чему всё идёт, и дальше детали читаются осмысленно, а не как загадка.</div>
@@ -1627,7 +1638,7 @@ body.nb-lock{overflow:hidden}
 <div class="quiz"><div class="q">🎯 Проверь себя: Отчёт клиенту построен так: сначала описание трёх этапов теста, затем таблица метрик, и только в последнем абзаце — рекомендация увеличить бюджет. Что здесь нарушено с точки зрения пирамиды Минто?</div><label class="opt" onclick="quiz(this,1,0)">Отчёт слишком длинный и должен быть короче по объёму текста</label><label class="opt" onclick="quiz(this,1,1)">Главный вывод стоит в конце вместо начала отчёта</label><label class="opt" onclick="quiz(this,1,2)">В отчёте вообще не хватает цифр и данных для обоснования решения</label><div class="qfb">Пирамида Минто требует ставить главный вывод в начало, а аргументы и данные — после него, как ответ на вопрос «почему?». Здесь порядок обратный: клиент должен сам додумать вывод, продираясь через детали, что и есть основная ошибка, а не длина текста или нехватка цифр. Ошибся → перечитай раздел выше.</div></div>
 </div>
 <div id="c1" class="view">
-<div class="hero"><div class="eyebrow">Часть IV — Специализации · урок 1</div>
+<div class="hero"><div class="eyebrow">Часть V — Специализации · урок 1</div>
 <h2>Карта маркетинга: все специализации и как выбрать свою</h2><p>«Маркетолог» — это не одна профессия, а десяток разных, и твоя карьера зависит от того, какой трек ты выберешь осознанно, а не случайно.</p></div>
 <div class="plain"><span class="pl">Простыми словами</span>Когда ты вёл OTAN, ты был «маркетологом всего»: сам крутил таргет, сам вёл Instagram, сам разбирался с Kaspi. В маленьком бренде это норма. Но в компаниях покрупнее слово «маркетолог» распадается на десяток отдельных профессий — со своими задачами, метриками, зарплатами и карьерными потолками. Performance-специалист и бренд-менеджер сидят в одном отделе, но думают настолько по-разному, будто работают в разных индустриях. Этот урок — карта всей территории: какие роли существуют, за что каждая отвечает, как они делятся по воронке и, главное, как понять, какой трек твой. Выбор трека — это, возможно, самое важное карьерное решение маркетолога до 30 лет.</div>
 <div class="analogy"><b>Аналогия.</b> Медицина. Все врачи учили одну базу — анатомию, физиологию, фармакологию. Но хирург, терапевт, рентгенолог и психиатр — это разные профессии: разные навыки, разный ритм дня, разные типы людей, которым эта работа подходит. Никто не говорит «я просто врач» после 30 — все выбирают специализацию. Performance-маркетолог — это хирург: быстрые операции, результат виден сразу, цена ошибки высокая. Бренд-маркетолог — терапевт: работает вдолгую, эффект накапливается месяцами. Аналитик — рентгенолог: сам не лечит, но без его снимков все остальные слепы. А CMO — главврач: сам уже почти не оперирует, но отвечает за то, чтобы вся больница лечила, а не калечила.</div>
@@ -1651,7 +1662,7 @@ body.nb-lock{overflow:hidden}
 <div class="quiz"><div class="q">🎯 Проверь себя: Интернет-магазин растёт по новым клиентам, но 70% покупателей делают только один заказ и исчезают. Специалист какого трека должен взять эту проблему как свою основную?</div><label class="opt" onclick="quiz(this,2,0)">Performance-маркетолог — нужно докупить больше трафика</label><label class="opt" onclick="quiz(this,2,1)">PR-специалист — нужно поднять узнаваемость бренда в СМИ</label><label class="opt" onclick="quiz(this,2,2)">Lifecycle/CRM-маркетолог — его зона это удержание клиентов</label><div class="qfb">Отток новых клиентов — зона lifecycle/CRM-маркетолога: удержание и реактивация решают причину, докупка трафика или улучшение репутации её не устраняют. Ошибся → перечитай раздел выше.</div></div>
 </div>
 <div id="c2" class="view">
-<div class="hero"><div class="eyebrow">Часть IV — Специализации · урок 2</div>
+<div class="hero"><div class="eyebrow">Часть V — Специализации · урок 8</div>
 <h2>Product Marketing (PMM) — голос рынка внутри компании</h2><p>PMM — это человек, который решает, ЧТО компания говорит рынку и КАК продукт выходит в мир: позиционирование, мессаджинг, запуски и вооружение продаж.</p></div>
 <div class="plain"><span class="pl">Простыми словами</span>Product Marketing Manager (PMM) — это переводчик между продуктом и рынком. Продакт-менеджер строит продукт, а PMM решает, как о нём рассказать: кому он нужен, почему он лучше альтернатив, какими словами это сказать и как его запустить. Внутри компании PMM — «голос рынка»: он приносит команде данные о клиентах, конкурентах и причинах проигранных сделок. Наружу он транслирует позиционирование: одну согласованную историю, которую повторяют сайт, реклама, продажники и служба поддержки. Когда ты писал тексты для OTAN и решал, чем часы отличаются от конкурентов на Kaspi — ты уже делал кусочек работы PMM, просто без системы.</div>
 <div class="analogy"><b>Аналогия.</b> PMM — это как переводчик-дипломат при президенте. Президент (продукт) может быть гениальным, но если на переговорах его слова переводят коряво — сделки не будет. Дипломат знает обе стороны: что хочет сказать президент и что готова услышать другая страна. Он не просто переводит слова — он выбирает, ЧТО сказать первым, о чём промолчать и как подать позицию, чтобы её приняли. И после каждых переговоров он докладывает президенту, что на самом деле думает другая сторона.</div>
@@ -1675,7 +1686,7 @@ body.nb-lock{overflow:hidden}
 <div class="quiz"><div class="q">🎯 Проверь себя: Отдел продаж стал чаще проигрывать сделки конкуренту. Продажники говорят: «у них дешевле». Что делает сильный PMM в первую очередь?</div><label class="opt" onclick="quiz(this,0,0)">Проводит win/loss интервью с ушедшими клиентами</label><label class="opt" onclick="quiz(this,0,1)">Идёт к руководству с предложением снизить цену</label><label class="opt" onclick="quiz(this,0,2)">Запускает рекламу о преимуществах продукта над конкурентом</label><div class="qfb">Сильный PMM сначала проводит win/loss-интервью, чтобы узнать реальные причины потерь сделок, а не сразу снижает цену или запускает рекламу. Ошибся → перечитай раздел выше.</div></div>
 </div>
 <div id="c3" class="view">
-<div class="hero"><div class="eyebrow">Часть IV — Специализации · урок 3</div>
+<div class="hero"><div class="eyebrow">Часть V — Специализации · урок 10</div>
 <h2>Growth Marketing — эксперименты вместо мнений</h2><p>Growth-маркетолог не спорит, чья идея лучше — он ставит эксперимент, смотрит на цифры и масштабирует то, что сработало.</p></div>
 <div class="plain"><span class="pl">Простыми словами</span>Growth-маркетолог отвечает за рост всей воронки, а не только за трафик. Performance-специалист заканчивает работу, когда человек кликнул по рекламе. Growth продолжает: дошёл ли человек до «ага-момента» продукта, вернулся ли через неделю, заплатил ли, привёл ли друга. Главный инструмент роли — эксперимент: любая идея («давайте сделаем реферальную программу») превращается в гипотезу с числом, тестируется на малой части аудитории, и только доказанное раскатывается на всех. Ты на OTAN уже делал зачатки этого — когда сравнивал креативы в таргете. Growth — это тот же подход, но применённый ко всему пути клиента, включая сам продукт.</div>
 <div class="analogy"><b>Аналогия.</b> Growth-маркетолог — как тренер сборной, который не верит словам «я в отличной форме». Он замеряет каждого игрока: скорость, выносливость, точность. Находит самое слабое место команды (скажем, все быстрые, но мажут по воротам), три недели тренирует именно удары, снова замеряет — и только если точность выросла, закрепляет упражнение в программе. Мнения игроков («мне кажется, надо больше бегать») его не интересуют — интересует секундомер и счёт на табло.</div>
@@ -1699,7 +1710,7 @@ body.nb-lock{overflow:hidden}
 <div class="quiz"><div class="q">🎯 Проверь себя: Стартап тратит весь бюджет на таргет. Регистраций много, но до первой покупки доходят 15%, а через месяц возвращаются 5%. Что в первую очередь сделает growth-маркетолог?</div><label class="opt" onclick="quiz(this,1,0)">Увеличит бюджет на таргет — раз регистраций много, канал работает</label><label class="opt" onclick="quiz(this,1,1)">Остановит масштабирование и займётся активацией и удержанием</label><label class="opt" onclick="quiz(this,1,2)">Сменит креативы и добавит каналы, чтобы снизить цену регистрации</label><div class="qfb">При низкой активации и удержании масштабирование трафика лишь ускоряет сжигание бюджета — сначала чинят конверсию в покупку и возврат пользователей. Ошибся → перечитай раздел выше.</div></div>
 </div>
 <div id="c4" class="view">
-<div class="hero"><div class="eyebrow">Часть IV — Специализации · урок 4</div>
+<div class="hero"><div class="eyebrow">Часть V — Специализации · урок 2</div>
 <h2>Performance Marketing — платный трафик и его экономика</h2><p>Performance — это не «настроить таргет», а управление машиной, которая превращает деньги в клиентов с прогнозируемой отдачей.</p></div>
 <div class="plain"><span class="pl">Простыми словами</span>Performance-маркетолог покупает трафик за деньги — в Instagram, TikTok, Google, Яндексе, на Kaspi — и отвечает за то, чтобы каждый вложенный тенге вернулся с прибылью. Это единственная роль в маркетинге, где результат виден в цифрах уже на следующий день: потратил 100 000 ₸ — получил столько-то заявок по такой-то цене. Ты этим уже занимался в OTAN, когда крутил таргет. Разница между «крутить таргет» и performance-маркетингом — в экономике: senior думает не «какой CPM у моего объявления», а «сходится ли юнит-экономика канала и можно ли его масштабировать». Этот урок как раз про этот переход.</div>
 <div class="analogy"><b>Аналогия.</b> Представь, что ты купил игровой автомат, в который кидаешь 100 тенге, а он иногда выдаёт 300. Пока автомат выдаёт больше, чем ты кидаешь, — кидай максимально быстро. Но у автомата есть подвох: чем чаще кидаешь, тем реже он платит (аудитория выгорает, аукцион дорожает). Работа performance-маркетолога — постоянно измерять, сколько автомат реально возвращает (а не сколько кажется), и найти максимальную скорость, при которой он всё ещё в плюсе.</div>
@@ -1723,7 +1734,7 @@ body.nb-lock{overflow:hidden}
 <div class="quiz"><div class="q">🎯 Проверь себя: У тебя два канала: ретаргетинг с ROAS 10 и холодный таргет с ROAS 2.5 (безубыточный ROAS = 2.2). Куда направить дополнительный бюджет на рост и почему?</div><label class="opt" onclick="quiz(this,2,0)">В ретаргетинг — у него в разы выше отдача на бюджет</label><label class="opt" onclick="quiz(this,2,1)">Поровну в оба — так бюджет распределён без риска</label><label class="opt" onclick="quiz(this,2,2)">В холодный таргет — он масштабируем и даёт клиентов</label><div class="qfb">Холодный таргет масштабируем и приводит новых клиентов, а ретаргетинг ограничен размером тёплой аудитории и часто просто дожимает тех, кто купил бы и так. Ошибся → перечитай раздел выше.</div></div>
 </div>
 <div id="c5" class="view">
-<div class="hero"><div class="eyebrow">Часть IV — Специализации · урок 5</div>
+<div class="hero"><div class="eyebrow">Часть V — Специализации · урок 11</div>
 <h2>Brand Marketing — спрос, который ты не покупаешь</h2><p>Бренд-маркетолог строит память о бренде в головах миллионов людей, чтобы бизнес продавал дороже, дешевле привлекал клиентов и не зависел от рекламного аукциона.</p></div>
 <div class="plain"><span class="pl">Простыми словами</span>Перформанс-маркетинг покупает клиента здесь и сейчас: запустил таргет — получил заявки, выключил — заявки кончились. Бренд-маркетинг работает иначе: он делает так, чтобы человек вспомнил о тебе САМ в момент покупки, ещё до того, как увидит рекламу. Это и есть «спрос, который ты не покупаешь» — люди сами вбивают твоё имя в поиск, сами заходят в магазин, сами советуют друзьям. Бренд-маркетолог отвечает за то, чтобы таких людей становилось больше: он управляет узнаваемостью, ассоциациями и «фирменными опознавательными знаками» бренда. Деньгами это выражается в трёх вещах: можно продавать дороже конкурентов, привлечение клиента стоит дешевле, и продажи не падают в ноль, когда ты выключаешь рекламу.</div>
 <div class="analogy"><b>Аналогия.</b> Перформанс — это колодец: хочешь воды — иди и качай, перестал качать — воды нет. Бренд — это скважина с накопительным баком: ты годами бурил и наполнял бак (память людей о тебе), и теперь вода течёт сама, даже когда ты спишь. Ты с OTAN это чувствовал на себе: пока крутится таргет — есть заказы, остановил — тишина. У Kaspi наоборот: они могут вообще не давать рекламу неделю, и миллионы людей всё равно откроют приложение — бак полон.</div>
@@ -1747,7 +1758,7 @@ body.nb-lock{overflow:hidden}
 <div class="quiz"><div class="q">🎯 Проверь себя: Бренд занимает 10% рынка, но его доля в рекламных затратах категории — 25%. Конкурент-лидер держит 40% рынка и 30% доли голоса. Что предсказывает модель ESOV?</div><label class="opt" onclick="quiz(this,0,0)">Маленький бренд с ESOV +15 будет отвоёвывать долю рынка, а лидер с ESOV -10 будет её постепенно терять</label><label class="opt" onclick="quiz(this,0,1)">Маленький бренд переплачивает и зря сжигает бюджет — тратить надо ровно пропорционально доле рынка</label><label class="opt" onclick="quiz(this,0,2)">Ничего предсказать нельзя: доля голоса влияет только на узнаваемость, а не на продажи</label><div class="qfb">Модель ESOV предсказывает, что бренд с избыточной долей голоса относительно доли рынка отвоёвывает долю, а недоинвестирующий лидер её постепенно теряет. Ошибся → перечитай раздел выше.</div></div>
 </div>
 <div id="c6" class="view">
-<div class="hero"><div class="eyebrow">Часть IV — Специализации · урок 6</div>
+<div class="hero"><div class="eyebrow">Часть V — Специализации · урок 3</div>
 <h2>Content и SEO — актив, который работает годами</h2><p>Реклама — аренда трафика, контент и SEO — недвижимость: строишь один раз, а посетители приходят годами без оплаты за клик.</p></div>
 <div class="plain"><span class="pl">Простыми словами</span>Content-маркетинг — это когда ты отвечаешь на вопросы, которые твои клиенты и так задают в поиске, и за счёт этого они находят тебя сами. SEO — это дисциплина, которая делает так, чтобы твой контент реально находили: правильные запросы, правильная структура страниц, техническое здоровье сайта, ссылки. Раньше это были две разные профессии, сейчас это один трек: контент без SEO никто не найдёт, SEO без контента нечего продвигать. Главное отличие от таргета, который ты крутил для OTAN: там трафик умирает в момент, когда ты выключаешь бюджет, а здесь статья, написанная год назад, продолжает приводить лидов бесплатно. Поэтому это называют «актив» — как оборудование на балансе, оно работает и после того, как ты за него заплатил.</div>
 <div class="analogy"><b>Аналогия.</b> Таргет — это аренда квартиры: платишь каждый месяц, перестал платить — выселили в тот же день. Контент и SEO — это стройка своего дома: первые месяцы ты только вкладываешь (фундамент, стены — и жить негде), зато потом дом твой, и «коммуналка» (обновление статей) стоит копейки по сравнению с арендой. А AI-поиск — это как если бы в городе изменили карту дорог: дом остался твой, но нужно проверить, что новые дороги всё ещё ведут к твоей двери.</div>
@@ -1771,7 +1782,7 @@ body.nb-lock{overflow:hidden}
 <div class="quiz"><div class="q">🎯 Проверь себя: Статья вышла в топ-1 Google, трафик растёт три месяца подряд, но заявок с неё — ноль. Какой диагноз поставит senior в первую очередь?</div><label class="opt" onclick="quiz(this,1,0)">Нужно больше внешних ссылок — странице не хватает авторитета</label><label class="opt" onclick="quiz(this,1,1)">Запрос информационный — читатель узнаёт, а не покупает</label><label class="opt" onclick="quiz(this,1,2)">SEO не подходит бизнесу — стоит вернуть бюджет в таргет</label><div class="qfb">Диагноз — информационный интент запроса (ToFu): читатель ищет знания, а не покупку, нужно достроить путь к офферу, а не гнаться за ссылками. Ошибся → перечитай раздел выше.</div></div>
 </div>
 <div id="c7" class="view">
-<div class="hero"><div class="eyebrow">Часть IV — Специализации · урок 7</div>
+<div class="hero"><div class="eyebrow">Часть V — Специализации · урок 4</div>
 <h2>SMM и Community — внимание и доверие в соцсетях</h2><p>SMM — это не «вести инстаграм», а система: алгоритм → хук → удержание → профиль → клик → лид, плюс комьюнити, которое конкурент не скопирует.</p></div>
 <div class="plain"><span class="pl">Простыми словами</span>SMM-специалист отвечает за то, чтобы бренд получал внимание и доверие в соцсетях — и превращал их в деньги. Раньше это значило «постить красивые картинки подписчикам». Сейчас всё перевернулось: TikTok, Reels и Shorts показывают контент не подписчикам, а всем, кому алгоритм посчитает нужным — значит, каждый ролик соревнуется за внимание с нуля. Поэтому современный SMM — это система: понять алгоритм, зацепить в первые секунды, удержать до конца, довести человека из ленты в профиль, из профиля — в заявку. А комьюнити — лояльное ядро вокруг бренда — это актив, который остаётся с тобой, даже когда реклама дорожает.</div>
 <div class="analogy"><b>Аналогия.</b> Представь базар. Обычный «ведёт инстаграм» — это продавец, который красиво разложил товар на прилавке и ждёт: кто пройдёт мимо — тот увидит. SMM-система — это зазывала у входа (хук), который за 2 секунды цепляет прохожего, ведёт его к прилавку (профиль), даёт попробовать (контент), берёт номер телефона (лид). А комьюнити — это твои постоянные клиенты, которые сами приводят друзей и защищают тебя, когда сосед по ряду демпингует.</div>
@@ -1795,7 +1806,7 @@ body.nb-lock{overflow:hidden}
 <div class="quiz"><div class="q">🎯 Проверь себя: Директор говорит: «Наш SMM работает отлично — за месяц +40% лайков». Как на это смотрит senior SMM?</div><label class="opt" onclick="quiz(this,2,0)">Соглашается — рост лайков даст больше охвата от алгоритма</label><label class="opt" onclick="quiz(this,2,1)">Предлагает удвоить частоту постинга, пока идёт рост</label><label class="opt" onclick="quiz(this,2,2)">Проверяет, дошёл ли рост до переходов и лидов бизнеса</label><div class="qfb">Senior проверяет, доходит ли вовлечённость до бизнес-метрик — переходов и лидов, а не принимает рост лайков за доказательство эффективности. Ошибся → перечитай раздел выше.</div></div>
 </div>
 <div id="c8" class="view">
-<div class="hero"><div class="eyebrow">Часть IV — Специализации · урок 8</div>
+<div class="hero"><div class="eyebrow">Часть V — Специализации · урок 13</div>
 <h2>Lifecycle / CRM / Retention — прибыль прячется в базе</h2><p>Привлечь клиента дорого, а вот заставить его вернуться второй, пятый и двадцатый раз — это и есть настоящая прибыль.</p></div>
 <div class="plain"><span class="pl">Простыми словами</span>Lifecycle-маркетолог (он же CRM-маркетолог, он же retention-маркетолог) работает не с чужими людьми из рекламы, а с теми, кто уже оставил контакт или купил. Его задача — провести человека по жизненному циклу: новичок → активный → лояльный → и не дать ему уйти. Инструменты — сегментация базы, автоматические цепочки писем/SMS/пушей/WhatsApp и аналитика возвратов. Пока таргетолог платит за каждый клик, CRM-маркетолог зарабатывает почти бесплатно: база уже есть, отправка сообщения стоит копейки. Поэтому в зрелых компаниях retention-команда часто приносит заметную долю всей выручки.</div>
 <div class="analogy"><b>Аналогия.</b> Представь арык на огороде: ты качаешь воду насосом (платный трафик), а она утекает через дыры в стенках. Можно купить насос мощнее — и платить всё больше. А можно замазать дыры. Lifecycle-маркетолог — это тот, кто замазывает дыры: каждый «спасённый» литр воды достаётся бесплатно, потому что за него уже заплатили.</div>
@@ -1819,7 +1830,7 @@ body.nb-lock{overflow:hidden}
 <div class="quiz"><div class="q">🎯 Проверь себя: У магазина падает прибыль. Таргет приводит новых клиентов по стабильной цене, но когортный анализ показывает: 85% клиентов покупают один раз и исчезают. Что сделает lifecycle-маркетолог в первую очередь?</div><label class="opt" onclick="quiz(this,0,0)">Разберётся, почему нет второй покупки, и построит удержание</label><label class="opt" onclick="quiz(this,0,1)">Увеличит бюджет на таргет — новые клиенты компенсируют уходящих</label><label class="opt" onclick="quiz(this,0,2)">Запустит скидочную рассылку по всей базе ради выручки</label><div class="qfb">Lifecycle-маркетолог сначала чинит удержание — онбординг, триггеры, повторные офферы; наращивать приток клиентов в дырявое ведро бессмысленно и дорого. Ошибся → перечитай раздел выше.</div></div>
 </div>
 <div id="c9" class="view">
-<div class="hero"><div class="eyebrow">Часть IV — Специализации · урок 9</div>
+<div class="hero"><div class="eyebrow">Часть V — Специализации · урок 15</div>
 <h2>Marketing Analytics — превращать данные в решения</h2><p>Аналитик нужен не чтобы считать цифры, а чтобы бизнес принимал решения быстрее и точнее конкурентов.</p></div>
 <div class="plain"><span class="pl">Простыми словами</span>Маркетинг-аналитик — это человек, который отвечает на вопрос «куда вкладывать деньги и что менять», опираясь на данные, а не на ощущения. Он строит систему метрик от бизнес-цели до конкретного канала, проверяет, какие каналы реально приносят продажи (а какие только приписывают их себе), и ставит эксперименты, чтобы отличать «сработало» от «показалось». Ты уже делал это интуитивно на OTAN: смотрел, что таргет даёт заявки, а что сливает бюджет. Аналитика — это та же работа, но с инструментами, которые не дают себя обмануть. Главная разница между отчётом и аналитикой: отчёт говорит «что было», аналитика говорит «что делать».</div>
 <div class="analogy"><b>Аналогия.</b> Представь врача. Плохой врач смотрит на термометр и говорит: «У вас 38,5» — это отчёт, ты и сам это знал. Хороший врач говорит: «Это ангина, вот антибиотик, через 3 дня контроль» — это диагноз и план лечения. Дашборд с падающими продажами — термометр. Аналитик — врач: он находит причину (атрибуция, когорты), назначает лечение (гипотеза) и проверяет, что лечение работает (A/B-тест), а не просто «пациенту стало лучше само».</div>
@@ -1843,7 +1854,7 @@ body.nb-lock{overflow:hidden}
 <div class="quiz"><div class="q">🎯 Проверь себя: Отчёт показывает: у ретаргетинга и брендового поиска лучший ROI среди всех каналов по последнему клику. Как на это отреагирует senior-аналитик?</div><label class="opt" onclick="quiz(this,1,0)">Перельёт бюджет в эти каналы — цифры ROI говорят сами за себя</label><label class="opt" onclick="quiz(this,1,1)">Усомнится и проверит инкрементальность через geo-тест</label><label class="opt" onclick="quiz(this,1,2)">Отключит остальные каналы, раз их ROI ниже, ради экономии</label><div class="qfb">Last-click часто приписывает ретаргетингу и брендовому поиску покупки, которые случились бы и так; нужна проверка инкрементальности через geo-тест. Ошибся → перечитай раздел выше.</div></div>
 </div>
 <div id="c10" class="view">
-<div class="hero"><div class="eyebrow">Часть IV — Специализации · урок 10</div>
+<div class="hero"><div class="eyebrow">Часть V — Специализации · урок 5</div>
 <h2>PR и коммуникации — репутация как канал роста</h2><p>PR — это когда о тебе говорят другие, и поэтому им верят: бесплатный охват, доверие и ссылки, которые не купишь таргетом.</p></div>
 <div class="plain"><span class="pl">Простыми словами</span>PR-специалист делает так, чтобы о бренде писали медиа, говорили лидеры мнений и рассказывали клиенты — без прямой оплаты за каждый показ. Ты в OTAN платил Instagram за охват — это paid media. PR добывает earned media: статью в Forbes Kazakhstan, сюжет на Tengrinews, упоминание в телеграм-канале — за счёт того, что у бренда есть интересная история. Людям реклама говорит «мы классные», а PR делает так, чтобы это сказал кто-то другой — и вот этому верят. Плюс PR — это страховка: когда случается скандал или негатив, именно коммуникации решают, потеряет бренд репутацию или укрепит её.</div>
 <div class="analogy"><b>Аналогия.</b> Реклама — это когда ты на свидании сам рассказываешь, какой ты замечательный. PR — это когда общий друг заранее сказал: «Он реально надёжный, я его 10 лет знаю». Второе работает в разы сильнее, потому что у друга нет мотива тебе продать.</div>
@@ -1867,7 +1878,7 @@ body.nb-lock{overflow:hidden}
 <div class="quiz"><div class="q">🎯 Проверь себя: Стартап без рекламного бюджета хочет получить статью в Forbes Kazakhstan. Какой подход правильный с точки зрения PR?</div><label class="opt" onclick="quiz(this,2,0)">Отправит в редакцию пресс-релиз о запуске со всеми плюсами</label><label class="opt" onclick="quiz(this,2,1)">Предложит редакции оплатить размещение статьи как рекламу</label><label class="opt" onclick="quiz(this,2,2)">Упакует историю для аудитории Forbes и питчнёт журналиста</label><div class="qfb">Для PR в Forbes нужна история, интересная аудитории издания, персонально запитчена профильному журналисту — пресс-релиз или платное размещение здесь не работают. Ошибся → перечитай раздел выше.</div></div>
 </div>
 <div id="c11" class="view">
-<div class="hero"><div class="eyebrow">Часть IV — Специализации · урок 11</div>
+<div class="hero"><div class="eyebrow">Часть V — Специализации · урок 18</div>
 <h2>Head of Marketing / CMO — путь наверх</h2><p>Head of Marketing отвечает не за кампании, а за рост выручки — через стратегию, бюджет и команду.</p></div>
 <div class="plain"><span class="pl">Простыми словами</span>Head of Marketing (или CMO в крупной компании) — это человек, который отвечает за весь маркетинг как за бизнес-результат. Он больше не «крутит таргет» сам — он решает, куда пойдут деньги, кого нанять, какие каналы масштабировать и как объяснить собственнику, что маркетинг — это инвестиция, а не расход. Его оценивают не по охватам и CTR, а по выручке, CAC и прибыли. Это последняя ступень пути специалиста: ты перестаёшь быть руками и становишься мозгом и голосом маркетинга в компании. Всё, что ты учил в предыдущих уроках — сегментация, юнит-экономика, каналы, retention — здесь собирается в одну систему, за которую ты лично отвечаешь головой.</div>
 <div class="analogy"><b>Аналогия.</b> Ты играл нападающим — сам бил по воротам (сам настраивал таргет для OTAN). Head of Marketing — это главный тренер: он уже не бьёт по мячу, он выбирает состав, схему игры и отвечает перед владельцем клуба за результат сезона. Если тренер выбегает на поле и начинает сам пинать мяч — команда без управления, и матч проигран, даже если этот один удар был красивым.</div>
@@ -1891,12 +1902,12 @@ body.nb-lock{overflow:hidden}
 <div class="quiz"><div class="q">🎯 Проверь себя: Собственник говорит: «Урезаем маркетинг вдвое, сейчас не до него». Как реагирует сильный Head of Marketing?</div><label class="opt" onclick="quiz(this,0,0)">Показывает в цифрах цену отключения каналов и приоритеты</label><label class="opt" onclick="quiz(this,0,1)">Соглашается и режет все статьи бюджета поровну на 50%</label><label class="opt" onclick="quiz(this,0,2)">Объясняет, что маркетинг — долгосрочные инвестиции в бренд</label><div class="qfb">Сильный Head of Marketing показывает в цифрах цену отключения каналов и предлагает приоритеты сокращения, а не режет бюджет поровну или просто спорит. Ошибся → перечитай раздел выше.</div></div>
 </div>
 <div id="c12" class="view">
-<div class="hero"><div class="eyebrow">Часть IV — Специализации · урок 12</div>
+<div class="hero"><div class="eyebrow">Часть V — Специализации · урок 16</div>
 <h2>Demand Generation / B2B-маркетинг — продажи комитету, а не человеку</h2><p>В B2B никто не покупает за один клик: demand gen строит систему, которая доводит комитет из 5-16 человек до сделки месяцами, а не воронку из одного пользователя.</p></div>
 <div class="plain"><span class="pl">Простыми словами</span>Demand gen (генерация спроса) живёт на стыке всего, что ты уже прошёл: у него есть платный трафик и контент, как у performance и SEO-маркетолога, есть позиционирование и работа с продажами, как у PMM, есть эксперименты, как у growth. Но правила игры другие, потому что клиент — не человек, а компания. В OTAN ты продавал человеку: увидел рекламу, зашёл, купил за один вечер, решение принимал один мозг. В B2B чаще всего решение принимает группа: тот, кто будет пользоваться продуктом, тот, кто платит, тот, кто отвечает за безопасность и внедрение, и тот, кто просто должен всё утвердить. Demand gen — это не «лидогенерация» в узком смысле (собрать почту за лид-магнит), а построение всей системы, которая доводит эту группу людей от «мы вообще не знали, что у нас есть такая проблема» до подписанного контракта — и чаще всего это месяцы, а не дни. Именно поэтому у профессии свой словарь (MQL, SQL, ABM, pipeline) и свои метрики, непохожие на performance или growth.</div>
 <div class="analogy"><b>Аналогия.</b> B2C-продажа — это свидание: увидел, понравилось, договорились в тот же вечер, ответственность на одном человеке. B2B-продажа — это семейный совет перед покупкой квартиры в ипотеку: решение принимает не один человек, а вся семья, и у каждого — своё право вето. Тот, кто будет там жить, спросит про удобство. Тот, кто считает бюджет, — про цену и риски. Тот, кто отвечает за документы, — про надёжность застройщика. Пока не согласны все — сделки нет, и переговоры идут не один вечер, а месяцами. Demand gen — это не свидание с одним человеком, а работа со всем семейным советом одновременно: у каждого свой вопрос, и все должны сказать «да» примерно в одно и то же время.</div>
 <div class="sec-t">Чем demand gen отличается от growth, PMM и performance: комитет, а не человек</div>
-<div class="card"><p>Ты уже прошёл три роли, которые снаружи выглядят похоже на demand gen, — важно понимать разницу, а не путать профессии. <b>Performance</b> (урок 4) покупает трафик и меряет результат за дни: увидел объявление — кликнул — купил. <b>Growth</b> (урок 3) гоняет десятки экспериментов в неделю по всей воронке одного продукта с более-менее самостоятельным решением пользователя. <b>PMM</b> (урок 2) отвечает за позиционирование и запуски, но не строит саму систему привлечения. Demand gen — это специализация конкретно под B2B-продажи с длинным циклом и множеством участников: она берёт часть инструментов performance (платный трафик, ретаргетинг) и часть инструментов content/SEO, но подчиняет их одной цели — довести закупочный комитет до сделки, а не одного человека до клика.</p><p>Ключевое отличие — <b>buying committee (закупочный комитет)</b>. По данным Gartner, сложную B2B-закупку сегодня согласовывают обычно от 5 до 16 человек из нескольких отделов, с разными, часто противоречащими друг другу приоритетами: конечный пользователь хочет удобства, IT/security — безопасности и интеграции, финансы — цены и ROI, а руководитель — стратегического соответствия. Реклама, которая цепляет одного человека, ничего не решает, если остальные участники не увидели ни одного сообщения бренда за всё это время. Поэтому demand gen работает не воронкой «показ → клик → покупка», а многомесячной осадой: контент, реклама, email, ивенты и продавцы должны появляться перед разными людьми из комитета в разное время с разными сообщениями.</p><p>Второе отличие — словарь стадий. B2C считает подписки и покупки, B2B считает <b>MQL (Marketing Qualified Lead)</b> — лид, который по поведению и профилю похож на потенциального клиента, и <b>SQL (Sales Qualified Lead)</b> — лид, которого продажи подтвердили как реальную возможность, а между ними — <b>SAL (Sales Accepted Lead)</b>, лид, которого продажи взяли в работу. Signup в B2C — это конец пути маркетинга и начало пути продукта. MQL в B2B — это только начало: дальше продажи должны позвонить, провести демо, согласовать пилот, пройти закупку — и всё это месяцами. Смешивать MQL с продажей — самая частая ошибка джуна в этой роли.</p><p class="b-ex"><b>Пример:</b> Маркетолог B2B-стартапа запускает рекламу новой фичи и радуется, что за неделю пришло 200 заявок с формы на сайте. Через месяц продажи сообщают: ни одна из этих заявок не дошла даже до демо — оказалось, что рекламу увидели рядовые сотрудники компаний, а не те, кто принимает решение о покупке. Только тогда он понимает, что в B2B работать нужно не с одним кликнувшим человеком, а со всем закупочным комитетом сразу.</p></div>
+<div class="card"><p>Ты уже прошёл три роли, которые снаружи выглядят похоже на demand gen, — важно понимать разницу, а не путать профессии. <b>Performance</b> (урок «Performance Marketing») покупает трафик и меряет результат за дни: увидел объявление — кликнул — купил. <b>Growth</b> (урок «Growth Marketing») гоняет десятки экспериментов в неделю по всей воронке одного продукта с более-менее самостоятельным решением пользователя. <b>PMM</b> (урок «Product Marketing») отвечает за позиционирование и запуски, но не строит саму систему привлечения. Demand gen — это специализация конкретно под B2B-продажи с длинным циклом и множеством участников: она берёт часть инструментов performance (платный трафик, ретаргетинг) и часть инструментов content/SEO, но подчиняет их одной цели — довести закупочный комитет до сделки, а не одного человека до клика.</p><p>Ключевое отличие — <b>buying committee (закупочный комитет)</b>. По данным Gartner, сложную B2B-закупку сегодня согласовывают обычно от 5 до 16 человек из нескольких отделов, с разными, часто противоречащими друг другу приоритетами: конечный пользователь хочет удобства, IT/security — безопасности и интеграции, финансы — цены и ROI, а руководитель — стратегического соответствия. Реклама, которая цепляет одного человека, ничего не решает, если остальные участники не увидели ни одного сообщения бренда за всё это время. Поэтому demand gen работает не воронкой «показ → клик → покупка», а многомесячной осадой: контент, реклама, email, ивенты и продавцы должны появляться перед разными людьми из комитета в разное время с разными сообщениями.</p><p>Второе отличие — словарь стадий. B2C считает подписки и покупки, B2B считает <b>MQL (Marketing Qualified Lead)</b> — лид, который по поведению и профилю похож на потенциального клиента, и <b>SQL (Sales Qualified Lead)</b> — лид, которого продажи подтвердили как реальную возможность, а между ними — <b>SAL (Sales Accepted Lead)</b>, лид, которого продажи взяли в работу. Signup в B2C — это конец пути маркетинга и начало пути продукта. MQL в B2B — это только начало: дальше продажи должны позвонить, провести демо, согласовать пилот, пройти закупку — и всё это месяцами. Смешивать MQL с продажей — самая частая ошибка джуна в этой роли.</p><p class="b-ex"><b>Пример:</b> Маркетолог B2B-стартапа запускает рекламу новой фичи и радуется, что за неделю пришло 200 заявок с формы на сайте. Через месяц продажи сообщают: ни одна из этих заявок не дошла даже до демо — оказалось, что рекламу увидели рядовые сотрудники компаний, а не те, кто принимает решение о покупке. Только тогда он понимает, что в B2B работать нужно не с одним кликнувшим человеком, а со всем закупочным комитетом сразу.</p></div>
 <div class="sec-t">ABM: три тира — 1:1, 1:few, 1:many</div>
 <div class="card"><p><b>Account-Based Marketing (ABM)</b> переворачивает классическую воронку: вместо «привлечь много лидов → отфильтровать» ты сначала выбираешь список компаний-мечты (target accounts), а потом «греешь» сразу весь комитет ЛПР внутри каждой из них. Индустрия делит ABM на три тира по глубине персонализации, и это не теория, а рабочая механика с разным бюджетом на аккаунт.</p><p><b>Тир 1 — Strategic ABM (1:1).</b> Список — обычно 10-50 аккаунтов, самые крупные и стратегически важные. На каждый — персональный план: research команды закупки поимённо, кастомный контент под их отрасль и даже под их внутренние метрики, персональные email и LinkedIn-сообщения от имени продавца, иногда — прямая почта или подарок конкретному человеку. Маркетинг работает 1:1 с продавцом-owner аккаунта. Дорого по часам на аккаунт, но именно здесь закрываются самые крупные сделки года.</p><p><b>Тир 2 — ABM Lite (1:few).</b> Аккаунты объединяются в кластеры по 5-30 компаний с общим признаком — отрасль, размер, стадия роста, общая боль. Контент и кампании кастомизируются не под конкретную компанию, а под кластер: «для SaaS-компаний 50-200 человек» вместо «для компании Х». Персонализация средняя, охват шире, чем в тире 1.</p><p><b>Тир 3 — Programmatic ABM (1:many).</b> Сотни-тысячи аккаунтов, которые попадают в целевой профиль (ICP), но не заслуживают ручной работы. Персонализация делается технологией, а не человеком: рекламные платформы (LinkedIn, программатик) таргетируются на список компаний через intent-данные (кто уже гуглит категорию, кто читает сравнения конкурентов), а не на широкую аудиторию по интересам, как в B2C-performance.</p><p>Как выбрать тир для аккаунта: считай не по интуиции, а по двум осям — <b>fit</b> (насколько компания похожа на идеального клиента: индустрия, размер, стек) и <b>intent</b> (есть ли сейчас сигналы, что они ищут решение). Аккаунты с высоким fit и высоким потенциальным чеком идут в тир 1, средние — в тир 2, весь остальной адресуемый рынок — в тир 3. Главное правило senior в ABM: меряй не количество лидов, а движение аккаунтов по стадиям — сколько людей из комитета вовлечено, дошли ли до демо, начались ли переговоры о цене.</p><p class="b-ex"><b>Пример:</b> Demand gen-маркетолог получает список из 500 компаний, подходящих под идеальный профиль клиента. Вместо того чтобы писать всем одинаковое письмо, он отбирает 20 самых крупных и перспективных в Тир 1 — под них готовит персональный контент и подключает продавца лично, а остальные 480 распределяет по Тир 2 и Тир 3 с автоматизированными кампаниями под их отрасль.</p></div>
 <div class="sec-t">Sales-marketing alignment: SLA между отделами</div>
@@ -1917,7 +1928,7 @@ body.nb-lock{overflow:hidden}
 <div class="quiz"><div class="q">🎯 Проверь себя: B2B SaaS-компания хвастается 500 MQL за квартал, но продажи закрыли только 3 сделки, а большинство MQL «зависли» без ответа продавцов. Что стоит проверить в первую очередь?</div><label class="opt" onclick="quiz(this,1,0)">Увеличить бюджет на генерацию MQL — объём даст конверсии</label><label class="opt" onclick="quiz(this,1,1)">Проверить SLA между отделами — скорость реакции и критерии SAL</label><label class="opt" onclick="quiz(this,1,2)">Остановить лидогенерацию, пока продажи разбирают базу вручную</label><div class="qfb">500 «зависших» MQL при 3 сделках — почти всегда сбой на стыке отделов, а не проблема объёма: без SLA по скорости реакции и чётких критериев SAL лиды остывают в CRM ещё до звонка продавца. Ошибся → перечитай раздел выше.</div></div>
 </div>
 <div id="c13" class="view">
-<div class="hero"><div class="eyebrow">Часть IV — Специализации · урок 13</div>
+<div class="hero"><div class="eyebrow">Часть V — Специализации · урок 14</div>
 <h2>CX — опыт клиента</h2><p>Сервис — это тоже маркетинг: то, как быстро ты ответил в WhatsApp и что почувствовал клиент в первые пять минут, влияет на продажи не меньше, чем реклама.</p></div>
 <div class="plain"><span class="pl">Простыми словами</span>CX (customer experience, опыт клиента) — это сумма всех моментов, где человек касается бизнеса: от первого сообщения в директ до звонка в поддержку через полгода после покупки. Карта пути клиента (CJM) помогает увидеть эти моменты по порядку и найти «моменты истины» — точки, где решается, останется клиент довольным или уйдёт. Для малого бизнеса в Казахстане сервис часто и есть весь маркетинг: скорость ответа в WhatsApp и Instagram-директе формирует первое впечатление быстрее, чем любой рекламный баннер. Чтобы управлять этим не на глаз, есть метрики — NPS, CSAT, CES — каждая отвечает на свой вопрос. И отдельная тема — что делать, когда сервис уже дал сбой: жалоба клиента может либо разрушить отношения, либо, если её обработать правильно, укрепить их сильнее, чем безупречный сервис с самого начала.</div>
 <div class="analogy"><b>Аналогия.</b> CX — это как впечатление от похода в гости. Ты можешь идеально готовить, но если дверь открыли через пять минут после звонка, а в конце вечера забыли попрощаться — именно эти моменты запомнятся, а не средний уровень блюд. Люди не усредняют весь опыт в голове — они запоминают пик (самый яркий момент, хороший или плохой) и то, чем всё закончилось. Это и есть пик-энд правило: конец разговора или обслуживания весит в памяти непропорционально много по сравнению с серединой.</div>
@@ -1939,7 +1950,7 @@ body.nb-lock{overflow:hidden}
 <div class="quiz"><div class="q">🎯 Проверь себя: служба доставки хочет понять, насколько клиенту было легко решить проблему с сорванным заказом через поддержку. Какую метрику стоит использовать?</div><label class="opt" onclick="quiz(this,0,0)">CES (Customer Effort Score) сразу после обращения в поддержку</label><label class="opt" onclick="quiz(this,0,1)">NPS сразу после решения проблемы</label><label class="opt" onclick="quiz(this,0,2)">Общий рейтинг компании на агрегаторе отзывов раз в год</label><div class="qfb">CES измеряет именно усилие клиента при решении конкретной проблемы — это точнее отвечает на вопрос «легко ли было». NPS меряет общую готовность рекомендовать бренд и не привязан к конкретному эпизоду, а годовой рейтинг на агрегаторе слишком общий и запоздалый для этой задачи. Ошибся → перечитай раздел выше.</div></div>
 </div>
 <div id="c14" class="view">
-<div class="hero"><div class="eyebrow">Часть IV — Специализации · урок 14</div>
+<div class="hero"><div class="eyebrow">Часть V — Специализации · урок 12</div>
 <h2>Айдентика и бренд-дизайн: как строить и не сломать</h2><p>Айдентика — это не «красивый логотип», а набор узнаваемых сигналов, которые мозг покупателя связывает именно с твоим брендом раньше, чем он успевает подумать.</p></div>
 <div class="plain"><span class="pl">Простыми словами</span>В уроке про Brand Marketing ты уже разбирал, зачем бренду вообще нужна память в голове у людей. Этот урок — про технику: как эта память физически устроена и кто её строит. Distinctive brand assets (различительные активы бренда) — это логотип, цвет, шрифт, форма упаковки, персонаж, звук, которые узнаются быстрее и надёжнее, чем название. Дизайнер их создаёт, но ставит задачу и принимает работу маркетолог — и именно он отвечает, если новая айдентика перестаёт узнаваться. Ребрендинг — самая рискованная операция в этой теме: он может обновить уставший бренд, а может стереть годами накопленную узнаваемость за одну неделю. Разберём, как оценивать активы, писать бриф, принимать макеты и решать, нужен ли ребрендинг вообще.</div>
 <div class="analogy"><b>Аналогия.</b> Различительные активы бренда — как походка и голос человека, которых узнаёшь издалека, ещё до того, как разглядел лицо. Можно сменить причёску (обновить логотип чуть-чуть) — друзья всё равно узнают. А можно поменять голос и походку одновременно (полный ребрендинг без причины) — и старые знакомые пройдут мимо на улице, не узнав тебя вовсе.</div>
@@ -1963,7 +1974,7 @@ body.nb-lock{overflow:hidden}
 <div class="quiz"><div class="q">🎯 Проверь себя: почему сеть кофеен не должна менять форму и цвет фирменного стаканчика просто потому, что дизайнеру предложили «более модный» вариант?</div><label class="opt" onclick="quiz(this,1,0)">Дизайнеры каждый год предлагают новые тренды не просто так</label><label class="opt" onclick="quiz(this,1,1)">Стаканчик уже узнаваемый актив, смена рискует узнаваемостью</label><label class="opt" onclick="quiz(this,1,2)">Модные дизайны за пределами сети быстро выходят из моды сами</label><div class="qfb">Если форма и цвет стаканчика уже узнаются клиентами (высокий fame и uniqueness), их смена без предварительного теста на аудитории рискует тем, что покупатель просто перестанет узнавать бренд в потоке других стаканчиков — как это случилось с упаковкой Tropicana. Тренды и «выход дизайна из моды» тут не главная причина. Ошибся → перечитай раздел выше.</div></div>
 </div>
 <div id="c15" class="view">
-<div class="hero"><div class="eyebrow">Часть IV — Специализации · урок 15</div>
+<div class="hero"><div class="eyebrow">Часть V — Специализации · урок 17</div>
 <h2>Лидерство и управление командой маркетинга</h2><p>Как только у тебя появляется хотя бы один подчинённый, твоя работа меняется: результат теперь зависит не от того, что делаешь ты сам, а от того, что делает команда без тебя.</p></div>
 <div class="plain"><span class="pl">Простыми словами</span>В уроке про Head of Marketing / CMO ты уже видел, что управление людьми — отдельная тема, которая начинается ещё до того, как ты дорос до директора. Она начинается с первого нанятого фрилансера или джуна в подчинении. Этот урок — практика: как нанимать так, чтобы не ошибиться в человеке, как ставить цели, чтобы команда знала, за что её будут судить, как давать обратную связь, чтобы она не звучала как оскорбление и не терялась в вежливости, как делегировать так, чтобы задача не вернулась к тебе же на доработку, и что делать с трудным разговором, включая увольнение. Управлять человеком сложнее, чем управлять бюджетом рекламы: бюджет не обижается и не выгорает.</div>
 <div class="analogy"><b>Аналогия.</b> Управлять командой — как быть капитаном лодки с гребцами, а не одиноким пловцом. Одиночный пловец сам решает, куда грести, и сам чувствует усталость. Капитан не гребёт сам — он должен точно объяснить курс (цель), заметить, кто из гребцов выбивается из ритма (обратная связь), и вовремя понять, кого стоит пересадить на другое весло, а кого высадить на берег, пока лодка не перевернулась (трудные решения о людях).</div>
@@ -1985,7 +1996,7 @@ body.nb-lock{overflow:hidden}
 <div class="quiz"><div class="q">🎯 Проверь себя: почему модель SBI (ситуация-поведение-эффект) работает лучше, чем фраза «ты слишком безответственный»?</div><label class="opt" onclick="quiz(this,2,0)">Потому что SBI звучит мягче и меньше задевает чувства собеседника в моменте</label><label class="opt" onclick="quiz(this,2,1)">Потому что SBI требует меньше времени на подготовку перед разговором с сотрудником</label><label class="opt" onclick="quiz(this,2,2)">Потому что SBI указывает на конкретную ситуацию и поведение, а не на оценку личности</label><div class="qfb">SBI конкретна: указывает на факт (ситуация), наблюдаемое действие (поведение) и последствие (эффект), а не на характер человека — с конкретным фактом легче согласиться и скорректировать поведение, чем защищаться от общего ярлыка «безответственный». Мягкость звучания и экономия времени на подготовку — не главная причина эффективности метода. Ошибся → перечитай раздел выше.</div></div>
 </div>
 <div id="c16" class="view">
-<div class="hero"><div class="eyebrow">Часть IV — Специализации · урок 16</div>
+<div class="hero"><div class="eyebrow">Часть V — Специализации · урок 9</div>
 <h2>Product management для маркетолога</h2><p>Маркетолог, который понимает, как продукт-менеджер решает, что строить и в каком порядке, перестаёт просить фичи «на глаз» и начинает разговаривать с продуктом на одном языке приоритетов.</p></div>
 <div class="plain"><span class="pl">Простыми словами</span>Тебе не обязательно становиться продакт-менеджером, чтобы этот урок был полезен. В большинстве компаний маркетолог постоянно сталкивается с продуктом: просит добавить промокод в корзину, жалуется, что онбординг теряет пользователей, приносит с рынка сигнал «клиенты просят X». Если ты не понимаешь, как продукт решает, что делать в первую очередь, твои запросы тонут в очереди или продавливаются не по приоритету, а по громкости голоса. Этот урок даёт словарь и инструменты: discovery и delivery, приоритизация (RICE, Kano), продуктовые метрики, диффузия инноваций Роджерса, и как проверить спрос до того, как разработка потратит месяцы на фичу, которую никто не купит.</div>
 <div class="analogy"><b>Аналогия.</b> Продукт-менеджмент — как работа архитектора, который решает, что строить, до того как бригада начинает копать фундамент. Маркетолог в этой аналогии — риелтор, который каждый день слышит от покупателей, чего им не хватает в районе: «здесь бы школу», «здесь бы парковку». Хороший продакт слушает риелтора, но не начинает стройку по первому пожеланию — сначала проверяет, действительно ли это самый нужный объект из десяти возможных, и есть ли на него реальный спрос, а не просто громкая жалоба одного соседа.</div>
@@ -2009,7 +2020,7 @@ body.nb-lock{overflow:hidden}
 <div class="quiz"><div class="q">🎯 Проверь себя: почему discovery стоит проводить до полноценной разработки фичи, а не после?</div><label class="opt" onclick="quiz(this,0,0)">Discovery дёшево проверяет гипотезу, ошибка в фиче — месяцы работы</label><label class="opt" onclick="quiz(this,0,1)">Discovery гарантирует, что фича понравится всем пользователям</label><label class="opt" onclick="quiz(this,0,2)">Discovery полностью заменяет собой этап разработки delivery</label><div class="qfb">Discovery — это способ дёшево (разговоры с пользователями, прототип, смоук-тест) проверить, стоит ли вообще строить идею, прежде чем разработка потратит месяцы на что-то, что может оказаться никому не нужным, как в примере урока с приложением автомойки. Discovery не заменяет delivery и не гарантирует, что фича понравится всем, — оба этапа нужны, просто в правильном порядке. Ошибся → перечитай раздел выше.</div></div>
 </div>
 <div id="c17" class="view">
-<div class="hero"><div class="eyebrow">Часть IV — Специализации · урок 17</div>
+<div class="hero"><div class="eyebrow">Часть V — Специализации · урок 7</div>
 <h2>Retail и trade-маркетинг: как покупают в магазине</h2><p>Большинство решений о покупке принимается не дома, а стоя у полки — и тот, кто управляет полкой, деньгами и дистрибьютором, управляет продажами лучше любого таргетолога.</p></div>
 <div class="plain"><span class="pl">Простыми словами</span>Retail-маркетинг — это работа с точкой, где покупатель встречается с товаром: полкой в супермаркете, витриной кофейни, стендом на рынке. Здесь работают свои законы: где стоит товар, решает, увидят ли его вообще, а не насколько красивая у него упаковка. Категорийный менеджмент решает, какую роль каждый товар играет в магазине — приводит трафик, зарабатывает деньги или защищает полку от конкурента. Промо в сетях — это не просто скидка, а сделка с сетью, где часть скидки платишь ты, часть — сеть, и если не посчитать это заранее, промо может продавать больше, а зарабатывать меньше. Даже для маленькой точки — кофейни, шиномонтажа, парикмахерской — работают те же принципы: видно ли тебя с улицы, попадает ли товар в руку клиенту в нужный момент.</div>
 <div class="analogy"><b>Аналогия.</b> Полка в магазине — как эфирная сетка на телевидении. Прайм-тайм (уровень глаз) стоит дороже и достаётся не всем: за него платят рекламой, деньгами или обещанием продаж. Кто попал в прайм-тайм без объективной причины, быстро оттуда вылетает — ровно как программа с низким рейтингом.</div>
@@ -2030,7 +2041,7 @@ body.nb-lock{overflow:hidden}
 <div class="quiz"><div class="q">🎯 Проверь себя: Продажи товара на промо-неделе выросли втрое в штуках. Почему валовая прибыль при этом могла упасть?</div><label class="opt" onclick="quiz(this,1,0)">Покупатели на промо обычно переключаются на более дешёвые бренды у конкурентов</label><label class="opt" onclick="quiz(this,1,1)">Скидка покупателю и ретро-бонус сети вместе съели больше денег, чем дал прирост объёма</label><label class="opt" onclick="quiz(this,1,2)">Рост продаж в штуках не отражает реальный спрос покупателей на товар</label><div class="qfb">Валовая прибыль на промо = проданные штуки × (обычная маржа с единицы минус скидка покупателю минус ретро-бонус сети). Рост в штуках не гарантирует рост прибыли: если скидка и бонус вместе забирают больше, чем даёт объём, прибыль падает даже при взрывном росте продаж. Ошибся → перечитай раздел выше.</div></div>
 </div>
 <div id="c18" class="view">
-<div class="hero"><div class="eyebrow">Часть IV — Специализации · урок 18</div>
+<div class="hero"><div class="eyebrow">Часть V — Специализации · урок 6</div>
 <h2>Партнёрства и ко-маркетинг: чужая аудитория как канал роста</h2><p>Партнёрство — это способ получить доступ к чужой аудитории без затрат на её привлечение, если правильно договориться, кто что даёт и как считает результат.</p></div>
 <div class="plain"><span class="pl">Простыми словами</span>Партнёрский маркетинг — это когда два бренда с разными продуктами, но похожей аудиторией, объединяют усилия: делятся охватом, делают совместный продукт или просто советуют друг друга. Формы разные — от разового кросс-промо до постоянной партнёрской программы, где посредник получает процент с каждой продажи. Смысл один: вместо того чтобы платить рекламной площадке за холодный трафик, ты используешь доверие, которое партнёр уже заслужил у своей аудитории. Работает это только при одном условии — обе стороны честно считают, кто что вложил и что получил, иначе партнёрство превращается в одностороннюю услугу.</div>
 <div class="analogy"><b>Аналогия.</b> Партнёрство — как два соседних магазина, которые решили пускать покупателей друг к другу через общую дверь в стене. Кофейня получает поток людей из фитнес-клуба, фитнес-клуб — из кофейни, и никто не платит за рекламу — оба просто открыли проход туда, где уже стоит нужная им аудитория.</div>
@@ -2052,7 +2063,7 @@ body.nb-lock{overflow:hidden}
 <div class="quiz"><div class="q">🎯 Проверь себя: Почему для партнёрства почти всегда важен отдельный промокод или UTM-метка?</div><label class="opt" onclick="quiz(this,2,0)">Промокод требуют правила большинства рекламных площадок</label><label class="opt" onclick="quiz(this,2,1)">Метка сама по себе повышает конверсию перехода по ссылке</label><label class="opt" onclick="quiz(this,2,2)">Без них нельзя доказать, какой результат дал партнёр</label><div class="qfb">Без уникального кода или метки результат партнёрства нельзя отделить от обычного спроса или других каналов — а значит, невозможно честно посчитать, кто сколько вложил и получил. Ошибся → перечитай раздел выше.</div></div>
 </div>
 <div id="w1" class="view">
-<div class="hero"><div class="eyebrow">Часть V — Маркетолог+ · урок 1</div>
+<div class="hero"><div class="eyebrow">Часть VI — Маркетолог+ · урок 2</div>
 <h2>Китай: хуки, боль-зуд-кайф и посев в контенте</h2><p>Китайские площадки разложили удержание внимания на пошаговые формулы — этому не учат в западных курсах, но приёмы работают в любом Reels и TikTok.</p></div>
 <div class="plain"><span class="pl">Простыми словами</span>В китайском контент-маркетинге (Douyin, Xiaohongshu/RED) удержание внимания превратили в почти инженерную дисциплину: есть формулы хука на первые 3 секунды, есть модель из трёх разных мотиваторов текста (боль, зуд, кайф), есть чёткая механика заголовков и обложек. В англо- и русскоязычных курсах эти вещи обычно объясняют одним словом «крючок» или «эмоция» — в китайской практике это разложено на конкретные шаги и типы. Знание не привязано к Китаю: это универсальная психология внимания (любопытство, дефицит, контраст), просто описанная гораздо детальнее, потому что там конкуренция за 3 секунды внимания выше, чем где-либо ещё. Часть примеров дана дословно из источников, часть — как адаптированные иллюстрации по формуле (это всегда помечено отдельно). Кейсы с цифрами взяты только там, где цифры подтверждаются несколькими независимыми разборами; там, где цифры разошлись или не нашлись, это тоже прямо сказано.</div>
 <div class="analogy"><b>Аналогия.</b> Хук в коротком видео — как первая фраза продавца, который подходит к тебе в торговом центре. Если он начинает с «здравствуйте, у нас акция» — ты проходишь мимо, потому что слышал это тысячу раз. Если он говорит «а вы знаете, почему это единственная куртка в зале, у которой такая подкладка?» — ты на секунду останавливаешься, потому что в голове образовался вопрос без ответа. Вся механика хука — это конструирование именно такого вопроса, только за 2-3 секунды и без единого лишнего слова.</div>
@@ -2079,7 +2090,7 @@ body.nb-lock{overflow:hidden}
 <div class="quiz"><div class="q">🎯 Проверь себя: почему нейтральный заголовок вроде «Обзор зимней куртки» обычно работает хуже, чем заголовок с явной выгодой или потерей?</div><label class="opt" onclick="quiz(this,2,0)">Нейтральные заголовки хуже проходят модерацию площадок</label><label class="opt" onclick="quiz(this,2,1)">Нейтральные заголовки обычно длиннее и режутся в превью ленты</label><label class="opt" onclick="quiz(this,2,2)">Мозг сильнее откликается на обещание выгоды или угрозу потери</label><div class="qfb">Это механизм loss aversion и общая асимметрия внимания к выгоде/потере — нейтральное описание категории товара не создаёт ни одного из двух стимулов. Ошибся → перечитай раздел про метод диода.</div></div>
 </div>
 <div id="w2" class="view">
-<div class="hero"><div class="eyebrow">Часть V — Маркетолог+ · урок 2</div>
+<div class="hero"><div class="eyebrow">Часть VI — Маркетолог+ · урок 3</div>
 <h2>Китай: сценарий прямого эфира и товарная матрица</h2><p>Китайские продавцы разложили прямой эфир на роли, тайминг и товарную матрицу — это тот же принцип, что работает в WhatsApp-рассылках и Instagram Live, только описанный как производственный процесс.</p></div>
 <div class="plain"><span class="pl">Простыми словами</span>直播带货 (продажи через прямой эфир) в Китае — не спонтанное шоу, а прописанный сценарий: кто говорит, когда придержать цену, когда дожимать, какой товар показать первым, а какой — последним. За каждым приёмом стоит понятный психологический механизм — дефицит, социальное доказательство, ценовой якорь, — просто в китайской практике он расписан как чек-лист продюсера, а не общий принцип. Это применимо к любому формату «живых продаж»: Instagram Live, эфир в WhatsApp-канале, встреча с клиентом один на один. Часть приёмов явно балансирует на грани манипуляции — урок отдельно показывает, где эта грань и чем она опасна для доверия к продавцу.</div>
 <div class="analogy"><b>Аналогия.</b> Прямой эфир с товарной матрицей — как выступление музыкальной группы на концерте. Открывают не главным хитом (иначе зал устанет к середине), а разогревом, знакомым и лёгким. Хиты идут в середине и ближе к пику концерта, когда зал уже разогрет. А в конце — снова что-то узнаваемое, чтобы люди ушли довольные и купили билет на следующий концерт. Порядок товаров в эфире (排品) устроен по той же логике, только вместо песен — позиции каталога, а вместо аплодисментов — заказы.</div>
@@ -2105,7 +2116,7 @@ body.nb-lock{overflow:hidden}
 <div class="quiz"><div class="q">🎯 Проверь себя: почему в товарной матрице эфира держат товар-приманку (引流款) почти без прибыли?</div><label class="opt" onclick="quiz(this,0,0)">Низкий порог входа удерживает зрителей у эфира</label><label class="opt" onclick="quiz(this,0,1)">Такой товар требуют правила площадки для эфира</label><label class="opt" onclick="quiz(this,0,2)">Приманка обычно дороже прибыльных товаров матрицы</label><div class="qfb">Это экономика трафика (loss leader): дешёвая приманка удерживает зрителей и поднимает эфир в рекомендациях площадки, а зарабатывают следующие позиции. Требований площадки к составу матрицы нет, и приманка по определению не дороже прибыльных товаров. Ошибся → перечитай раздел про товарную матрицу.</div></div>
 </div>
 <div id="w3" class="view">
-<div class="hero"><div class="eyebrow">Часть V — Маркетолог+ · урок 3</div>
+<div class="hero"><div class="eyebrow">Часть VI — Маркетолог+ · урок 4</div>
 <h2>Китай: приватный трафик, вирусный рост и азарт как система</h2><p>Китайские практики довели удержание клиента, вирусное распространение и дефицит до пошаговых SOP (стандартных процедур) — это ремесло можно разобрать на шаги, а не только восхищаться результатом.</p></div>
 <div class="plain"><span class="pl">Простыми словами</span>В Китае маркетологи не просто «работают с базой» — у них есть отдельная дисциплина: перевести клиента из чужого канала (маркетплейс, эфир) в свой (WeChat), где не нужно платить площадке за каждый повторный контакт. Дальше клиента ведут по расписанному сценарию: личный контент от «человека», а не от бренда, сегментированные рассылки по профилю покупок. Вирусный рост тоже не случайность — есть конкретные механики вроде «позови друзей, чтобы снизить цену», у которых есть чёткая грань, за которой они превращаются в незаконную пирамиду. А дефицит и азарт (лимитированные дропы, слепые коробки) — управляемые системы с вероятностями и регуляторными рисками, а не просто «создай ажиотаж».</div>
 <div class="analogy"><b>Аналогия.</b> Это как разница между продавцом на рынке, который просто зазывает покупателей, и сетевым рестораном с расписанным по минутам сценарием обслуживания: тот же результат (клиент доволен и вернётся), но за ним стоит воспроизводимая технология, а не одноразовое везение конкретного продавца.</div>
@@ -2132,7 +2143,7 @@ body.nb-lock{overflow:hidden}
 <div class="quiz"><div class="q">🎯 Проверь себя: чем реферальная программа магазина отличается от финансовой пирамиды, за которую штрафует регулятор?</div><label class="opt" onclick="quiz(this,1,0)">Пирамида начисляет комиссию только за личные покупки участника</label><label class="opt" onclick="quiz(this,1,1)">В пирамиде доход строится на вербовке новых участников, а не на продаже товара</label><label class="opt" onclick="quiz(this,1,2)">Реферальные программы жёстко ограничены в большинстве стран</label><div class="qfb">Граница проходит именно по источнику дохода: обычная реферальная программа платит комиссию с реальной продажи товара, а схема становится пирамидой, когда доход идёт от вербовки: платы за вход, платы за приведённых или процента с покупок нескольких уровней «вниз». Ошибся → перечитай раздел про 裂变.</div></div>
 </div>
 <div id="w4" class="view">
-<div class="hero"><div class="eyebrow">Часть V — Маркетолог+ · урок 4</div>
+<div class="hero"><div class="eyebrow">Часть VI — Маркетолог+ · урок 5</div>
 <h2>Япония и Корея: воронки доверия, фандом и мемы как маркетинг</h2><p>Японская школа встраивает в путь клиента этап проверки чужим мнением, а корейская превращает фанатскую преданность и даже неудачные мемы в канал продаж — оба подхода разложены на конкретные шаги.</p></div>
 <div class="plain"><span class="pl">Простыми словами</span>Японские модели пути клиента (AISAS, SIPS) добавляют между «хочу» и «купил» обязательный этап — поиск отзывов или сверку «это про меня?». Японский ритейл системно ограничивает товар по сезону и региону, пишет ценники от руки, а вместо логотипа даёт региону персонажа с должностью и характером. Корейская школа смотрит на фанатов не как на аудиторию, а как на соинвесторов бренда: мерч, коллаборации и совместные закупки строятся вокруг преданности конкретному артисту или тренду. Отдельная корейская фишка — не бояться собственных провалов и мемов: самый известный пример — бренд хлопьев Chex, который 16 лет не боролся с шуткой над собой, а потом обыграл её как честный ответ аудитории.</div>
 <div class="analogy"><b>Аналогия.</b> Японский подход — как продавец, который не торопит покупателя, а даёт время сходить и спросить соседей, стоит ли доверять товару, потому что знает: доверие, добытое самим клиентом, крепче любого обещания продавца. Корейский подход — как фан-клуб, который сам просит бренд выпустить лимитированный товар, потому что причастность к «своему» важнее самого товара.</div>
@@ -2160,7 +2171,7 @@ body.nb-lock{overflow:hidden}
 <div class="quiz"><div class="q">🎯 Проверь себя: что сделало запуск лукового Chex в 2020 году сильным инфоповодом?</div><label class="opt" onclick="quiz(this,2,0)">Компания впервые за много лет начала продавать луковые снеки вообще</label><label class="opt" onclick="quiz(this,2,1)">По корейскому законодательству бренду требовалось выпустить именно этот вкус</label><label class="opt" onclick="quiz(this,2,2)">Он ответил на 16-летний мем самих пользователей, а не придумал шутку с нуля</label><div class="qfb">Сила приёма была в том, что бренд подхватил уже готовый, годами живущий у пользователей мем про «подтасованные выборы» вкуса, а не изобрёл повод сам — присоединение к чужому органичному нарративу работает сильнее собственной шутки бренда. Ошибся → перечитай раздел про 병맛-юмор.</div></div>
 </div>
 <div id="w5" class="view">
-<div class="hero"><div class="eyebrow">Часть V — Маркетолог+ · урок 5</div>
+<div class="hero"><div class="eyebrow">Часть VI — Маркетолог+ · урок 6</div>
 <h2>Ремесло без границ: Индия, арабский мир, Латинская Америка, ЮВА, Турция</h2><p>Пять рынков — пять разных способов встроиться в жизнь покупателя: от воскресного плаката Amul до тайского скрипта снятия возражений в прямом эфире.</p></div>
 <div class="plain"><span class="pl">Простыми словами</span>В этом уроке — не список стран, а набор конкретных ремесленных приёмов: как за 24-48 часов сделать рекламу на злобу дня, почему один и тот же языковой приём работает в одном штате Индии и проваливается в соседнем, что показывает Рамадан-ролик вместо продукта, и почему тайский продавец в прямом эфире не спорит с возражением по цене, а соглашается с ним. Общее у всех приёмов — они завязаны на конкретный культурный код региона, а не на общечеловеческую «эффективную рекламу». Скопировать форму без понимания кода — получить бренд, который выглядит чужеродно. Понять код — получить приём, который можно адаптировать под свой рынок, в том числе под Казахстан.</div>
 <div class="analogy"><b>Аналогия.</b> Это как заимствовать рецепт из чужой кухни: если взять только список ингредиентов и проигнорировать технику приготовления (когда солить, на каком огне, сколько ждать), блюдо не получится, даже если продукты те же самые. Приёмы из этого урока — про технику, не про список ингредиентов.</div>
@@ -2187,7 +2198,7 @@ body.nb-lock{overflow:hidden}
 <div class="quiz"><div class="q">🎯 Проверь себя: почему Рамадан-ролик с полумесяцем и фонарём может не сработать, даже если продукт крутой?</div><label class="opt" onclick="quiz(this,0,0)">Символы без сюжета о воссоединении читаются как эксплуатация</label><label class="opt" onclick="quiz(this,0,1)">Такие символы устарели, аудитория их больше не узнаёт</label><label class="opt" onclick="quiz(this,0,2)">Арабоязычная аудитория почти не смотрит ролики во время Рамадана</label><div class="qfb">Символы (полумесяц, фонари) — это декорация, а не сама техника. Работает сюжет о разрыве и восстановлении связи, где продукт — часть сцены единения, а не витрина с орнаментом сверху. Ошибся → перечитай раздел про Рамадан-сторителлинг.</div></div>
 </div>
 <div id="w6" class="view">
-<div class="hero"><div class="eyebrow">Часть V — Маркетолог+ · урок 6</div>
+<div class="hero"><div class="eyebrow">Часть VI — Маркетолог+ · урок 7</div>
 <h2>Ремесло без границ: Европа, Израиль, Африка</h2><p>От французского слогана-мифа до сети агентов доверия M-Pesa в Кении — приёмы, которые построены не на бюджете, а на понимании конкретной культуры или конкретной инфраструктуры доверия.</p></div>
 <div class="plain"><span class="pl">Простыми словами</span>В этом уроке — приёмы совсем разных по духу рынков: французская реклама, которая продаёт мировоззрение, а не товар; немецкая B2B-культура, где точная цифра убеждает сильнее превосходной степени; скандинавский культурный код уюта, который бренды используют как готовый эмоциональный актив; израильская культура быстрого спора без чинопочитания; и африканские кейсы, где маркетинговой задачей было не «рассказать о продукте», а построить доверие к самой транзакции. Общее у всех — приём работает только там, где совпадает с реальной культурной нормой аудитории; перенесённый без понимания, он либо не сработает, либо считается манипуляцией.</div>
 <div class="analogy"><b>Аналогия.</b> Это как одалживать чужой стиль одежды: пиджак от делового костюма и куртка альпиниста оба «работают», но каждый только в своей среде — надеть один вместо другого не сделает тебя элегантнее или защищённее, просто будет видно, что вещь не по контексту. Приёмы этого урока нужно примерять на контекст своей аудитории, а не носить как есть.</div>
@@ -2216,7 +2227,7 @@ body.nb-lock{overflow:hidden}
 <div class="quiz"><div class="q">🎯 Проверь себя: почему прямой, дерзкий стиль коммуникации, который работает в Израиле, может провалиться в казахстанском B2B?</div><label class="opt" onclick="quiz(this,1,0)">Израильский и казахстанский рынки разные по размеру</label><label class="opt" onclick="quiz(this,1,1)">В культуре с высокой дистанцией власти прямота — неуважение</label><label class="opt" onclick="quiz(this,1,2)">Казахстанские клиенты обычно бегло листают деловые сообщения</label><div class="qfb">Хуцпа и дугри работают в Израиле именно потому, что там прямота — культурная норма искренности. В культуре с более высокой дистанцией власти и вежливой непрямой речью тот же тон читается как грубость. Ошибся → перечитай раздел про Израиль.</div></div>
 </div>
 <div id="w7" class="view">
-<div class="hero"><div class="eyebrow">Часть V — Маркетолог+ · урок 7</div>
+<div class="hero"><div class="eyebrow">Часть VI — Маркетолог+ · урок 8</div>
 <h2>Директ-респонс: ремесло, на котором стоит вся реклама с прямым откликом</h2><p>До того как появился таргетинг, копирайтеры уже умели считать отклик до тенге — их приёмы работают в Instagram и на Kaspi так же, как работали в почтовых рассылках 60 лет назад.</p></div>
 <div class="plain"><span class="pl">Простыми словами</span>Директ-респонс (реклама, которая просит конкретное действие здесь и сейчас — купить, оставить заявку, написать в директ) — это ремесло, а не вдохновение. У него есть проверенные детали: как понять, что клиент уже знает о своей проблеме, и написать заголовок именно под это знание; как искать не «красивый текст», а рынок с готовым спросом; как доказывать обещания причиной, а не только эмоцией; как строить дедлайн и оффер, чтобы человек решил сегодня, а не «подумаю». Все эти приёмы придуманы копирайтерами XX века, которые тестировали текст на реальных деньгах и считали отклик по купонам и телефонным звонкам. Ты применяешь ровно ту же логику в рекламном кабинете, только вместо купона — пиксель и UTM-метка.</div>
 <div class="analogy"><b>Аналогия.</b> Директ-респонс — это как рецепт борща, а не вдохновение шеф-повара. Можно готовить «на глаз» и иногда получать вкусно, а можно взять проверенную последовательность шагов, где каждый шаг уже тестировался тысячи раз и известно, что он делает с результатом. Копирайтеры XX века — это повара, которые десятилетиями записывали, что именно заставляет людей покупать, и оставили пошаговый рецепт вместо интуиции.</div>
@@ -2244,7 +2255,7 @@ body.nb-lock{overflow:hidden}
 <div class="quiz"><div class="q">🎯 Проверь себя: почему один и тот же продающий текст с прямым оффером плохо работает на холодном трафике?</div><label class="opt" onclick="quiz(this,2,0)">Холодная аудитория технически не видит рекламу с прямым оффером</label><label class="opt" onclick="quiz(this,2,1)">Прямой оффер обходится дороже в закупке показов рекламы</label><label class="opt" onclick="quiz(this,2,2)">Холодный трафик ещё не осознал проблему, оффер выглядит шумом</label><div class="qfb">Дело в уровне осведомлённости по Шварцу: холодный трафик обычно на уровне 1-2 (не осознал проблему или не знает решений), и прямой оффер для него — шум, а не сигнал. Алгоритм показа и цена закупки тут ни при чём, это про то, что человек ещё психологически не готов к предложению. Ошибся → перечитай раздел выше.</div></div>
 </div>
 <div id="w8" class="view">
-<div class="hero"><div class="eyebrow">Часть V — Маркетолог+ · урок 8</div>
+<div class="hero"><div class="eyebrow">Часть VI — Маркетолог+ · урок 9</div>
 <h2>Закрытые школы маркетинга: приёмы арбитража, инфобизнеса, игр и люкса</h2><p>Индустрии с самой жёсткой конкуренцией за внимание — арбитраж трафика, мобильные игры, дропы и люкс — довели до автоматизма приёмы, которые в обычном курсе не расскажут, и у каждого есть чёткая граница, за которой сила приёма превращается в обман.</p></div>
 <div class="plain"><span class="pl">Простыми словами</span>Есть маркетинговые школы, которые не преподают в университетах и почти не пишут в блогах: индустрия арбитража трафика (покупка рекламы ради перепродажи клика дороже), инфобизнес-воронки (продажа курсов через серию бесплатного контента), монетизация мобильных игр и казино, культура дропов (Supreme, Nike) и продажа люкса. Их объединяет одно: они вылизывают психологию решения о покупке до мелочей, потому что каждый процент конверсии там — прямые деньги. Некоторые из этих приёмов честны и просто эффективны, другие балансируют на грани манипуляции. Задача этого урока — показать механику каждого приёма и научиться видеть эту грань, а не переходить её случайно.</div>
 <div class="analogy"><b>Аналогия.</b> Это как разница между поварским ножом и скальпелем хирурга. Оба острые, оба режут точно и оба в руках мастера творят пользу — обед или спасённую жизнь. Но тот же нож в неосторожных руках режет не то и не там. Приёмы из этого урока — тот же скальпель: дефицит, переменное вознаграждение, дедлайн в продажах — работают отлично, пока служат клиенту, и превращаются в оружие против него, если использовать их не по назначению.</div>
@@ -2988,7 +2999,7 @@ body.nb-lock{overflow:hidden}
 const KEY='msa3';
 const DAY=86400000;
 const INT=[600000,1*DAY,3*DAY,8*DAY,16*DAY,35*DAY,70*DAY];
-const PARTS=[{p:'f',t:'Фундамент'},{p:'s',t:'Система'},{p:'m',t:'Мастерство'},{p:'t',t:'Мышление'},{p:'c',t:'Специализации'},{p:'w',t:'Маркетолог+'}];
+const PARTS=[{p:'f',t:'Фундамент'},{p:'t',t:'Мышление'},{p:'s',t:'Система'},{p:'m',t:'Практика senior'},{p:'c',t:'Специализации'},{p:'w',t:'Маркетолог+'},{p:'z',t:'Финал'}];
 const LEVELS=[[0,'Новичок'],[150,'Стажёр'],[400,'Junior'],[900,'Middle'],[1800,'Senior-track'],[3000,'Senior']];
 /* --- облако академии (Cloud Run: ИИ-проверка Gemini + прогресс) --- */
 const CLOUD_URL='https://academy-api-264603430786.us-central1.run.app';
@@ -3549,7 +3560,7 @@ function calibPanel(){
 }
 
 /* ===== placement: экстерн по части курса (Math Academy diagnostic) ===== */
-function partLessons(p){return [...document.querySelectorAll('.nl[data-lesson="1"]')].map(n=>n.dataset.t).filter(id=>id[0]===p);}
+function partLessons(p){return [...document.querySelectorAll('.nl[data-lesson="1"]')].filter(n=>n.dataset.part===p).map(n=>n.dataset.t);}
 function placePanel(){
  if(S.placeHide)return '';
  if(S.done.filter(isLesson).length>=3)return '';
@@ -3890,7 +3901,7 @@ function achievements(){
   {on:S.exams.some(e=>e.score===e.total&&e.total>=10),icon:'🎯',t:'Экзамен без ошибок'},
  ];
  PARTS.forEach(pt=>{
-  const ls=[...document.querySelectorAll('.nl[data-lesson="1"]')].filter(n=>n.dataset.t[0]===pt.p);
+  const ls=[...document.querySelectorAll('.nl[data-lesson="1"]')].filter(n=>n.dataset.part===pt.p);
   if(ls.length&&ls.every(n=>S.done.includes(n.dataset.t)))list.push({on:true,icon:'🏛',t:pt.t+' пройден'});
  });
  if(tot&&dn===tot)list.push({on:true,icon:'🎓',t:'Все уроки пройдены'});
@@ -3932,7 +3943,7 @@ function renderDash(){
   '<div class="tp-item'+(p.done?' tp-done':'')+'"'+(p.act&&!p.done?' onclick="show(\''+p.act+'\')"':'')+'>'+
   '<span class="tp-check">'+(p.done?'✓':'○')+'</span>'+esc(p.txt)+'</div>').join('');
  const bars=PARTS.map(pt=>{
-  const ls=[...document.querySelectorAll('.nl[data-lesson="1"]')].filter(n=>n.dataset.t[0]===pt.p);
+  const ls=[...document.querySelectorAll('.nl[data-lesson="1"]')].filter(n=>n.dataset.part===pt.p);
   if(!ls.length)return '';
   const d=ls.filter(n=>S.done.includes(n.dataset.t)).length;
   const p=Math.round(d/ls.length*100);
@@ -4245,19 +4256,19 @@ function weakPanel(){const rows=topicRows().filter(r=>r.n>=2&&r.acc<70);if(!rows
 
 
 /* ===== v8: Мой путь — маршрут по мастерству до senior (не по календарю) ===== */
-function partDone(p){return [...document.querySelectorAll('.nl[data-lesson="1"]')].filter(n=>n.dataset.t[0]===p&&S.done.includes(n.dataset.t)).length;}
-function partTotal(p){return [...document.querySelectorAll('.nl[data-lesson="1"]')].filter(n=>n.dataset.t[0]===p).length;}
-function firstUndonePart(p){const n=[...document.querySelectorAll('.nl[data-lesson="1"]')].find(x=>x.dataset.t[0]===p&&!S.done.includes(x.dataset.t));return n?n.dataset.t:'home';}
+function partDone(p){return [...document.querySelectorAll('.nl[data-lesson="1"]')].filter(n=>n.dataset.part===p&&S.done.includes(n.dataset.t)).length;}
+function partTotal(p){return [...document.querySelectorAll('.nl[data-lesson="1"]')].filter(n=>n.dataset.part===p).length;}
+function firstUndonePart(p){const n=[...document.querySelectorAll('.nl[data-lesson="1"]')].find(x=>x.dataset.part===p&&!S.done.includes(x.dataset.t));return n?n.dataset.t:'home';}
 function cardsMastered(){return Object.values(S.cards).filter(c=>c.box>=3).length;}
 function examBestPct(){return S.exams.length?Math.max(...S.exams.map(e=>Math.round(e.score/e.total*100))):0;}
 function casesGraded(min){return Object.values(S.casesDone||{}).filter(v=>v>=min).length;}
 function PATH(){return [
- {t:'Этап 1 · Фундамент',d:'База: ценность, психология покупки, STP, бренд, цена.',
+ {t:'Этап 1 · Фундамент',d:'База: ценность, психология покупки, исследования, STP, бренд, цена, юнит-экономика, эксперименты.',
   items:()=>[{ok:partDone('f')>=partTotal('f'),l:'Пройти все уроки Фундамента ('+partDone('f')+'/'+partTotal('f')+')',go:firstUndonePart('f')}]},
  {t:'Этап 2 · Система пути клиента',d:'12 этапов: от Discovery до Advocacy.',
   items:()=>[{ok:partDone('s')>=partTotal('s'),l:'Пройти все уроки Системы ('+partDone('s')+'/'+partTotal('s')+')',go:firstUndonePart('s')}]},
- {t:'Этап 3 · Мастерство',d:'Цифры, эксперименты, martech, мышление senior.',
-  items:()=>[{ok:partDone('m')>=partTotal('m'),l:'Пройти все уроки Мастерства ('+partDone('m')+'/'+partTotal('m')+')',go:firstUndonePart('m')}]},
+ {t:'Этап 3 · Практика senior',d:'Growth, медиаплан, годовой план, бриф, маркетплейсы, агентства, AI, переговоры.',
+  items:()=>[{ok:partDone('m')>=partTotal('m'),l:'Пройти все уроки Практики senior ('+partDone('m')+'/'+partTotal('m')+')',go:firstUndonePart('m')}]},
  {t:'Этап 4 · Специализации',d:'Все треки профессии: PMM, Growth, Brand … до CMO.',
   items:()=>[{ok:partDone('c')>=partTotal('c'),l:'Пройти все уроки Специализаций ('+partDone('c')+'/'+partTotal('c')+')',go:firstUndonePart('c')}]},
  {t:'Этап 5 · Закрепить в памяти',d:'Термины и фреймворки — в долгую память через повторения.',
@@ -4266,7 +4277,7 @@ function PATH(){return [
   items:()=>[
    {ok:examBestPct()>=80,l:'Лучший экзамен ≥80% (сейчас '+examBestPct()+'%)',go:'exam'},
    {ok:(function(){const r=topicRows();return r.length>=6&&r.every(x=>x.acc>=60);})(),l:'Ни одной темы <60% (пройди дрилл слабых)',go:'exam'}]},
- {t:'Этап 7 · Практика senior',d:'Открытые кейсы уровня собеседования, оценка ИИ.',
+ {t:'Этап 7 · Кейсы уровня senior',d:'Открытые кейсы уровня собеседования, оценка ИИ.',
   items:()=>[{ok:casesGraded(70)>=6,l:'6 кейсов оценены на 70+ ('+casesGraded(70)+'/6)',go:'drill'}]},
 ];}
 function stageDone(st){return st.items().every(i=>i.ok);}
@@ -4630,11 +4641,11 @@ function thClaude(id,btn){const d=thinkBank().find(x=>x.id===id);const ta=docume
   extra.push({t:'Этап · Практикум',d:'Посчитай сам: юнит-экономика, бюджеты, охваты, конверсии.',
    items:()=>[{ok:calcDone()>=20,l:'20 задач на расчёт решено ('+Math.min(calcDone(),20)+'/20)',go:'lab'}]});
   const think=extra.filter(x=>/Мышление/.test(x.t)), rest=extra.filter(x=>!/Мышление/.test(x.t));
-  const im=p.findIndex(st=>/Мастерство/.test(st.t)); if(think.length)p.splice(im+1,0,...think);
+  const im=p.findIndex(st=>/Фундамент/.test(st.t)); if(think.length)p.splice(im+1,0,...think);
   const idx=p.findIndex(st=>/Специализации/.test(st.t));
   p.splice(idx+1,0,...rest);
   if(capIdx().length)p.push({t:'Финал · Итоговые проекты',d:'Капстоуны: собрать весь курс в решение уровня Head of Marketing.',
-   items:()=>[{ok:capDone()>=2,l:'2 итоговых проекта оценены на 70+ ('+capDone()+'/2)',go:'drill'}]});
+   items:()=>[{ok:partDone('z')>=partTotal('z'),l:'Финальные уроки: путь senior и шпаргалка ('+partDone('z')+'/'+partTotal('z')+')',go:firstUndonePart('z')},{ok:capDone()>=2,l:'2 итоговых проекта оценены на 70+ ('+capDone()+'/2)',go:'drill'}]});
   p.forEach((st,i)=>{st.t=st.t.replace(/^Этап( \d+)? ·/,'Этап '+(i+1)+' ·');});
   return p;};
 })();
@@ -5438,6 +5449,11 @@ if(document.readyState==='complete')setTimeout(initNB,0);else addEventListener('
 let LS_ORDER=null;function lsOrder(){if(LS_ORDER)return LS_ORDER;try{LS_ORDER=JSON.parse(document.getElementById('ls-order').textContent);}catch(e){LS_ORDER={};}return LS_ORDER;}
 const LS_PARTS=[['Понять','теория по порядку, от основы к частностям'],['Применить','метод по шагам на разобранном примере'],['В жизни','как это сработало у реальных компаний'],['Закрепить','как думает senior, чек-лист и проверка']];
 
+// мостики: на какие уроки опирается урок (повторы тем по спирали — не повтор, а углубление)
+const LS_PRE={f3:['f6'],f5:['f2'],m1:['f5'],m2:['f6'],s1:['f6'],s2:['f3'],s3:['f4'],s4:['f7','s2'],s6:['m1'],s8:['s1'],s9:['m1','s8'],m3:['s6'],s10:['m1','m2','m3'],
+ m4:['s6','m2'],m8:['s6'],m9:['m1'],m11:['m1'],c2:['s2','s4'],c3:['m2','m4'],c4:['m1','s6'],c5:['f4','s3'],c6:['s7'],c7:['s7'],c8:['s8','s9'],c9:['s10'],c10:['f4'],
+ c12:['s5'],c13:['c8'],c14:['c5','s3'],c16:['s1'],c18:['s6'],c11:['c15','m9'],w1:['f2'],w7:['f7'],m6:['m5','s1','s12']};
+function lsTitleOf(id){const n=document.querySelector('.nl[data-t="'+id+'"]');if(!n)return id;const c=n.cloneNode(true);c.querySelectorAll('.n,.dot').forEach(x=>x.remove());return c.textContent.trim();}
 function lsEl(tag,cls,html){const e=document.createElement(tag);if(cls)e.className=cls;if(html!=null)e.innerHTML=html;return e;}
 function lsPartHead(n,t,sub){return lsEl('div','ls-part','<span class="ls-pn">'+n+'</span><div><h2 class="ls-pt">'+t+'</h2><p>'+sub+'</p></div>');}
 function lsMinutes(v){const w=(v.innerText.match(/[\p{L}\p{N}]+/gu)||[]).length;return Math.max(5,Math.round(w/170/5)*5);}
@@ -5457,6 +5473,7 @@ function lsBuild(v){
  const mins=lsMinutes(v);
  const nParts=1+(methods.length?1:0)+(cases?1:0)+1;
  if(hero){const m=lsEl('div','ls-meta','<span>~'+mins+' мин · '+nParts+' '+plural(nParts,'часть','части','частей')+' · '+(theory.length+1)+' '+plural(theory.length+1,'раздел','раздела','разделов')+' теории</span><button type="button" class="ls-gl-hero" onclick="lsGloss()">Глоссарий</button>');hero.appendChild(m);}
+ if(hero&&LS_PRE[v.id]){const pre=lsEl('div','ls-pre','Опирается на: '+LS_PRE[v.id].map(i=>'<a href="#'+i+'" onclick="show(\''+i+'\');return false">'+esc(lsTitleOf(i))+'</a>').join(' · '));hero.appendChild(pre);}
  if(gist){const h=gist.querySelector('h3');if(h)h.textContent='Чему научишься';}
  const frag=document.createDocumentFragment(),toc=[];
  const add=(el)=>{if(el)frag.appendChild(el);};
